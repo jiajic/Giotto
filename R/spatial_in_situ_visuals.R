@@ -3,8 +3,9 @@
 
 
 
+#' @title Plot cell polygon layer
 #' @name plot_cell_polygon_layer
-#' @description low level function to plot a polygon
+#' @description Low level function to plot a polygon
 #' @return ggplot
 #' @details This functions plots a polygon based on spatial cell information.
 #' This is most likely a polygon that corresponds to the cell shape.
@@ -24,6 +25,8 @@ plot_cell_polygon_layer = function(ggobject = NULL,
                                    alpha = 0.5,
                                    size = 2) {
 
+  # data.table variables
+  final_fill = NULL
 
   # check fill column
   if(!is.null(fill)) {
@@ -97,6 +100,7 @@ plot_cell_polygon_layer = function(ggobject = NULL,
 
 
 
+#' @title select_gimage
 #' @name select_gimage
 #' @description selects and creates giotto images for plotting
 #' @keywords internal
@@ -158,6 +162,7 @@ select_gimage = function(gobject,
 }
 
 
+#' @title plot_feature_points_layer
 #' @name plot_feature_points_layer
 #' @description low level function to plot a points at the spatial in situ level
 #' @return ggplot
@@ -176,6 +181,8 @@ plot_feature_points_layer = function(ggobject,
                                      show_legend = TRUE,
                                      plot_method = c('ggplot', 'scattermore', 'scattermost')) {
 
+  # data.table variables
+  feat_ID = NULL
 
   spatial_feat_info_subset = spatial_feat_info[feat_ID %in% unlist(feats)]
 
@@ -231,6 +238,9 @@ plot_feature_points_layer = function(ggobject,
 #' @param polygon_color color for polygon border
 #' @param polygon_bg_color color for polygon background (overruled by polygon_fill)
 #' @param polygon_fill fill color or column for polygon
+#' @param polygon_fill_gradient polygon fill gradient colors given in order from low to high
+#' @param polygon_fill_gradient_midpoint value to set as gradient midpoint (optional). If
+#'   left as \code{NULL}, the median value detected will be chosen
 #' @param polygon_fill_as_factor is fill color a factor
 #' @param polygon_fill_code code to color the fill column
 #' @param polygon_alpha alpha of polygon
@@ -461,7 +471,7 @@ spatInSituPlotPoints = function(gobject,
 
 
 
-
+#' @title plot_feature_hexbin_layer
 #' @name plot_feature_hexbin_layer
 #' @description low level function to plot hexbins at the spatial in situ level
 #' @return ggplot
@@ -475,7 +485,8 @@ plot_feature_hexbin_layer = function(ggobject = NULL,
                                       bins = 10,
                                       alpha = 0.5) {
 
-
+  # data.table variables
+  feat_ID = NULL
 
   spatial_feat_info_subset = spatial_feat_info[feat_ID %in% sel_feat]
 
@@ -497,6 +508,7 @@ plot_feature_hexbin_layer = function(ggobject = NULL,
 
 
 
+#' @title spatInSituPlotHex_single
 #' @name spatInSituPlotHex_single
 #' @description function to plot hexbins at the spatial in situ level
 #' @return ggplot
@@ -602,6 +614,7 @@ spatInSituPlotHex_single = function(gobject,
 #' @param sdimx spatial dimension x
 #' @param sdimy spatial dimension y
 #' @param bins number of hexbins in one direction
+#' @param alpha alpha of hexbin plot
 #' @param show_polygon overlay polygon information (cell shape)
 #' @param polygon_feat_type feature type associated with polygon information
 #' @param polygon_color color for polygon border
@@ -720,7 +733,7 @@ spatInSituPlotHex = function(gobject,
 
 
 
-
+#' @title plot_feature_raster_density_layer
 #' @name plot_feature_raster_density_layer
 #' @description low level function to plot density plots at the spatial in situ level
 #' @return ggplot
@@ -733,6 +746,9 @@ plot_feature_raster_density_layer = function(ggobject = NULL,
                                               sdimy = 'y',
                                               alpha = 0.5) {
 
+  # data.table variable
+  feat_ID = NULL
+  
   spatial_feat_info_subset = spatial_feat_info[feat_ID %in% unlist(sel_feat)]
 
   if(!is.null(ggobject) & methods::is(ggobject, 'ggplot')) {
@@ -757,6 +773,7 @@ plot_feature_raster_density_layer = function(ggobject = NULL,
 
 
 
+#' @title spatInSituPlotDensity_single
 #' @name spatInSituPlotDensity_single
 #' @description low level function to plot density plots at the spatial in situ level
 #' @return ggplot
@@ -858,6 +875,7 @@ spatInSituPlotDensity_single = function(gobject,
 #' @param feat_type feature types of the feats
 #' @param sdimx spatial dimension x
 #' @param sdimy spatial dimension y
+#' @param alpha alpha of density plot
 #' @param show_polygon overlay polygon information (cell shape)
 #' @param polygon_feat_type feature type associated with polygon information
 #' @param polygon_color color for polygon border

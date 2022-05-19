@@ -413,6 +413,8 @@ kmeans_arma_subset_binarize = function(x, n_iter = 5, extreme_nr = 20, sample_nr
 }
 
 
+
+#' @title kmeans_binarize_wrapper
 #' @name kmeans_binarize_wrapper
 #' @description wrapper for different binarization functions
 #' @keywords internal
@@ -436,13 +438,13 @@ kmeans_binarize_wrapper = function(expr_values,
   kmeans_algo = match.arg(arg = kmeans_algo, choices = c('kmeans', 'kmeans_arma', 'kmeans_arma_subset'))
 
   if(kmeans_algo == 'kmeans') {
-    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = Giotto:::kmeans_binarize,
+    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = kmeans_binarize,
                               nstart = nstart, iter.max = iter_max, set.seed = set.seed))
   } else if(kmeans_algo == 'kmeans_arma') {
-    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = Giotto:::kmeans_arma_binarize,
+    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = kmeans_arma_binarize,
                               n_iter = iter_max, set.seed = set.seed))
   } else if(kmeans_algo == 'kmeans_arma_subset') {
-    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = Giotto:::kmeans_arma_subset_binarize,
+    bin_matrix = t_flex(apply(X = expr_values, MARGIN = 1, FUN = kmeans_arma_subset_binarize,
                               n_iter = iter_max,
                               extreme_nr = extreme_nr,
                               sample_nr = sample_nr,
@@ -453,6 +455,9 @@ kmeans_binarize_wrapper = function(expr_values,
 
 }
 
+
+
+#' @title rank_binarize
 #' @name rank_binarize
 #' @description create binarized scores from a vector using arbitrary rank
 #' @keywords internal
@@ -469,6 +474,8 @@ rank_binarize = function(x, max_rank = 200) {
 }
 
 
+
+#' @title rank_binarize_wrapper
 #' @name rank_binarize_wrapper
 #' @description wrapper for rank binarization function
 #' @keywords internal
@@ -794,7 +801,7 @@ get10Xmatrix = function(path_to_data, gene_column_index = 1, remove_zero_rows = 
 
 
 
-
+#' @title get10XmatrixOLD
 #' @name get10XmatrixOLD
 #' @description This function creates an expression matrix from a 10X structured folder
 #' @param path_to_data path to the 10X folder
@@ -1076,13 +1083,16 @@ convertEnsemblToGeneSymbol = function(matrix,
 #' @description Read and create polygons for all cells, or for only selected FOVs.
 #' @param boundaries_path path to the cell_boundaries folder
 #' @param fovs subset of fovs to use
+#' @param custom_polygon_names a character vector to provide custom polygon names
+#'   (optional)
 #' @param polygon_feat_types a vector containing the polygon feature types
 #' @param flip_x_axis flip x axis of polygon coordinates (multiply by -1)
 #' @param flip_y_axis flip y axis of polygon coordinates (multiply by -1)
 #' @param smooth_polygons smooth polygons (default = TRUE)
 #' @param smooth_vertices number of vertices for smoothing
+#' @param set_neg_to_zero set negative values to zero when smoothing
 #' @param verbose be verbose
-#'
+#' @seealso \code{\link{smoothGiottoPolygons}}
 #' @export
 readPolygonFilesVizgenHDF5 = function(boundaries_path,
                                       fovs = NULL,
@@ -1095,6 +1105,13 @@ readPolygonFilesVizgenHDF5 = function(boundaries_path,
                                       set_neg_to_zero = FALSE,
                                       verbose = TRUE) {
 
+  # define for .()
+  x = NULL
+  y = NULL
+  cell_id = NULL
+  file_id = NULL
+  my_id = NULL
+  
   # define names
   poly_feat_names = paste0('z', polygon_feat_types)
   poly_feat_indexes = paste0('zIndex_', polygon_feat_types)
@@ -1211,9 +1228,10 @@ readPolygonFilesVizgenHDF5 = function(boundaries_path,
 #' @param flip_y_axis flip y axis of polygon coordinates (multiply by -1)
 #' @param smooth_polygons smooth polygons (default = TRUE)
 #' @param smooth_vertices number of vertices for smoothing
+#' @param set_neg_to_zero set negative values to zero when smoothing
 #' @param return_gobject return giotto object
 #' @param verbose be verbose
-#'
+#' @seealso \code{\link{smoothGiottoPolygons}}
 #' @export
 readPolygonFilesVizgen = function(gobject,
                                   boundaries_path,
@@ -1240,14 +1258,14 @@ readPolygonFilesVizgen = function(gobject,
 
 
   smooth_cell_polygons_list = readPolygonFilesVizgenHDF5(boundaries_path = boundaries_path,
-                                             fovs = fovs,
-                                             polygon_feat_types = polygon_feat_types,
-                                             flip_x_axis = flip_x_axis,
-                                             flip_y_axis = flip_y_axis,
-                                             smooth_polygons = smooth_polygons,
-                                             smooth_vertices = smooth_vertices,
-                                             set_neg_to_zero = set_neg_to_zero,
-                                             verbose = verbose)
+                                                         fovs = fovs,
+                                                         polygon_feat_types = polygon_feat_types,
+                                                         flip_x_axis = flip_x_axis,
+                                                         flip_y_axis = flip_y_axis,
+                                                         smooth_polygons = smooth_polygons,
+                                                         smooth_vertices = smooth_vertices,
+                                                         set_neg_to_zero = set_neg_to_zero,
+                                                         verbose = verbose)
 
 
   if(return_gobject) {

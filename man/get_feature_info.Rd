@@ -2,17 +2,17 @@
 % Please edit documentation in R/accessors.R
 \name{get_feature_info}
 \alias{get_feature_info}
-\title{get_feature_info}
+\title{Get feature info}
 \usage{
 get_feature_info(gobject, feat_type = NULL)
 }
 \arguments{
 \item{gobject}{giotto object}
 
-\item{feat_type}{name of feature}
+\item{feat_type}{name of feature (e.g. "rna", "dna", "protein")}
 }
 \description{
-get giotto points spatVector
+Get giotto points spatVector
 }
 \seealso{
 Other feature info data accessor functions: 

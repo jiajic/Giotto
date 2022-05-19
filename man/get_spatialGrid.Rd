@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{get_spatialGrid}
 \alias{get_spatialGrid}
-\title{get_spatialGrid}
+\title{Get spatial grid}
 \usage{
 get_spatialGrid(
   gobject,
@@ -15,16 +15,16 @@ get_spatialGrid(
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit (e.g. "cell")}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
 \item{name}{name of spatial grid}
 
-\item{return_network_Obj}{return grid object (default = FALSE)}
+\item{return_grid_Obj}{return grid object (default = FALSE)}
 }
 \description{
-function to get spatial grid
+Function to get spatial grid
 }
 \seealso{
 Other spatial grid data accessor functions: 

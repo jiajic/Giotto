@@ -2,24 +2,24 @@
 % Please edit documentation in R/accessors.R
 \name{get_expression_values}
 \alias{get_expression_values}
-\title{get_expression_values}
+\title{Get expression values}
 \usage{
 get_expression_values(gobject, feat_type = NULL, spat_unit = NULL, values)
 }
 \arguments{
 \item{gobject}{giotto object}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit (e.g. "cell")}
 
-\item{values}{expression values to extract}
+\item{values}{expression values to extract (e.g. "raw", "normalized", "scaled")}
 }
 \value{
 expression matrix
 }
 \description{
-function to get expression values from giotto object
+Function to get expression values from giotto object
 }
 \seealso{
 Other expression accessor functions: 

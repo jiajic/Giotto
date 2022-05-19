@@ -19,6 +19,7 @@ runGiottoHarmony(
   feats_to_use = NULL,
   toplevel_params = 2,
   return_gobject = TRUE,
+  verbose = NULL,
   ...
 )
 }
@@ -29,7 +30,14 @@ runGiottoHarmony(
 
 \item{feat_type}{feature type}
 
+\item{vars_use}{If meta_data is dataframe, this defines which variable(s) to
+remove (character vector).}
+
+\item{do_pca}{Whether to perform PCA on input matrix.}
+
 \item{expression_values}{expression values to use}
+
+\item{reduction}{reduction on cells or features}
 
 \item{dim_reduction_to_use}{use another dimension reduction set as input}
 
@@ -39,15 +47,15 @@ runGiottoHarmony(
 
 \item{name}{arbitrary name for Harmony run}
 
-\item{feats_to_use}{if dim_reduction_to_use = NULL, which genes to use}
+\item{feats_to_use}{if dim_reduction_to_use = NULL, which feats to use}
 
 \item{toplevel_params}{parameters to extract}
 
 \item{return_gobject}{boolean: return giotto object (default = TRUE)}
 
-\item{...}{additional Harmony parameters}
-
 \item{verbose}{be verbose}
+
+\item{...}{additional Harmony parameters}
 }
 \value{
 giotto object with updated Harmony dimension recuction
@@ -57,5 +65,5 @@ run UMAP
 }
 \details{
 See \code{\link[harmony]{HarmonyMatrix}} for more information about these and other parameters.
-This is a simple wrapper for the HarmonyMatrix function in the Harmony package.
+This is a simple wrapper for the HarmonyMatrix function in the Harmony package \doi{10.1038/s41592-019-0619-0}.
 }

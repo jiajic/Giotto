@@ -2,22 +2,22 @@
 % Please edit documentation in R/accessors.R
 \name{get_spatial_locations}
 \alias{get_spatial_locations}
-\title{get_spatial_locations}
+\title{Get spatial locations}
 \usage{
 get_spatial_locations(gobject, spat_unit = NULL, spat_loc_name = NULL)
 }
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit (e.g. "cell")}
 
-\item{spat_loc_name}{name of spatial locations (defaults to first name in spatial_locs slot)}
+\item{spat_loc_name}{name of spatial locations (defaults to first name in spatial_locs slot, e.g. "raw")}
 }
 \value{
 data.table with coordinates
 }
 \description{
-function to get a spatial location data.table
+Function to get a spatial location data.table
 }
 \seealso{
 Other spatial location data accessor functions: 

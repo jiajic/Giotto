@@ -587,7 +587,7 @@ calc_spatial_enrichment_DT = function(bin_matrix,
 
 
 
-
+#' @title binSpectSingleMatrix
 #' @name binSpectSingleMatrix
 #' @description binSpect for a single spatial network and a provided expression matrix
 #' @param expression_matrix expression matrix
@@ -977,6 +977,7 @@ binSpectSingle = function(gobject,
 #' @description binSpect for multiple spatial kNN networks
 #' @param gobject giotto object
 #' @param feat_type feature type
+#' @param spat_unit spatial unit
 #' @param bin_method method to binarize gene expression
 #' @param expression_values expression values to use
 #' @param subset_feats only select a subset of features to test
@@ -1227,12 +1228,11 @@ binSpectMulti = function(gobject,
 
 
 
-#' @title binSpectSingleMatrix
-#' @name binSpectSingleMatrix
+#' @title binSpectMultiMatrix
+#' @name binSpectMultiMatrix
 #' @description binSpect for a single spatial network and a provided expression matrix
 #' @param expression_matrix expression matrix
 #' @param spatial_networks list of spatial networks in data.table format
-#' @param bin_matrix a binarized matrix, when provided it will skip the binarization process
 #' @param bin_method method to binarize gene expression
 #' @param subset_feats only select a subset of features to test
 #' @param kmeans_algo kmeans algorithm to use (kmeans, kmeans_arma, kmeans_arma_subset)
@@ -1252,7 +1252,9 @@ binSpectMulti = function(gobject,
 #' @param do_parallel run calculations in parallel with mclapply
 #' @param cores number of cores to use if do_parallel = TRUE
 #' @param verbose be verbose
+#' @param knn_params list of parameters to create spatial kNN network
 #' @param set.seed set a seed before kmeans binarization
+#' @param summarize summarize the p-values or adjusted p-values
 #' @return data.table with results
 binSpectMultiMatrix = function(expression_matrix,
                                spatial_networks,
@@ -1777,11 +1779,17 @@ silhouetteRankTest = function(gobject,
   #write.table(x = as.matrix(expr_values),
   #            file = paste0(silh_output_dir,'/', 'expression.txt'),
   #            quote = F, sep = '\t', col.names=NA)
-  data.table::fwrite(data.table::as.data.table(expr_values, keep.rownames="gene"), file=fs::path(silh_output_dir, "expression.txt"), quot=F, sep="\t", col.names=T, row.names=F)
+  silh_output_dir_norm = normalizePath(silh_output_dir)
+  expr_values_path_norm = paste0(silh_output_dir_norm,'/', 'expression.txt')
+  
+  data.table::fwrite(data.table::as.data.table(expr_values, keep.rownames="gene"),
+                     file=expr_values_path_norm,
+                     quot=F,
+                     sep="\t",
+                     col.names=T,
+                     row.names=F)
 
   expr_values_path = paste0(silh_output_dir,'/', 'expression.txt')
-
-
 
   ## prepare python path and louvain script
   python_path = readGiottoInstructions(gobject, param = 'python_path')
@@ -1830,7 +1838,8 @@ silhouetteRankTest = function(gobject,
 #' @param save_param list of saving parameters, see \code{\link{showSaveParameters}}
 #' @param default_save_name default save name for saving, don't change, change save_name in save_param
 #' @return a list of data.frames with results and plot (optional)
-#' @details This function is a wrapper for the SpatialDE method implemented in the ...
+#' @details This function is a wrapper for the SpatialDE method originally implemented
+#' in python. See publication \doi{10.1038/nmeth.4636}
 #' @export
 spatialDE <- function(gobject = NULL,
                       feat_type = NULL,
@@ -2138,6 +2147,7 @@ FSV_show <- function(results,
 #' @param \dots Additional parameters to the \code{\link[trendsceek]{trendsceek_test}} function
 #' @return data.frame with trendsceek spatial genes results
 #' @details This function is a wrapper for the trendsceek_test method implemented in the trendsceek package
+#' Publication: \doi{10.1038/nmeth.4634}
 #' @export
 trendSceek <- function(gobject,
                        feat_type = NULL,
@@ -2239,6 +2249,7 @@ trendSceek <- function(gobject,
 #'  see \code{\link[SPARK]{spark.vc}} for additional parameters}
 #'  \item{3. spark.test }{ Testing multiple kernel matrices}
 #' }
+#' Publication: \doi{10.1101/810903}
 #' @export
 spark = function(gobject,
                  spat_loc_name = 'raw',
@@ -2783,7 +2794,7 @@ showPatternGenes <- function(gobject,
     return(subset)
   }
 
-  pl <- ggplot()
+  pl <- ggplot2::ggplot()
   pl <- pl + ggplot2::theme_classic()
   pl <- pl + ggplot2::geom_point(data = subset, aes_string(x = selected_PC, y = 'gene_ID'), size = point_size)
   pl <- pl + ggplot2::geom_vline(xintercept = 0, linetype = 2)
@@ -2979,6 +2990,9 @@ do_spatial_knn_smoothing = function(expression_matrix,
 }
 
 
+
+
+#' @title Evaluate provided spatial locations
 #' @name evaluate_provided_spatial_locations
 #' @keywords internal
 evaluate_provided_spatial_locations = function(spatial_locs) {
@@ -3000,6 +3014,8 @@ evaluate_provided_spatial_locations = function(spatial_locs) {
 }
 
 
+
+#' @title do_spatial_grid_averaging
 #' @name do_spatial_grid_averaging
 #' @description smooth gene expression over a defined spatial grid
 #' @return matrix with smoothened gene expression values based on spatial grid
@@ -3358,6 +3374,7 @@ detectSpatialCorFeats <- function(gobject,
 
 
 
+#' @title detectSpatialCorGenes
 #' @name detectSpatialCorGenes
 #' @description Detect genes that are spatially correlated
 #' @param gobject giotto object
@@ -3366,7 +3383,7 @@ detectSpatialCorFeats <- function(gobject,
 #' @param method method to use for spatial averaging
 #' @param expression_values gene expression values to use
 #' @param subset_feats subset of feats to use
-#' @param subset_genes deprecated, use subset_feats
+#' @param subset_genes deprecated, use \code{subset_feats}
 #' @param spatial_network_name name of spatial network to use
 #' @param network_smoothing  smoothing factor beteen 0 and 1 (default: automatic)
 #' @param spatial_grid_name name of spatial grid to use
@@ -3392,6 +3409,7 @@ detectSpatialCorGenes <- function(gobject,
                                   spat_unit = NULL,
                                   method = c('grid', 'network'),
                                   expression_values = c('normalized', 'scaled', 'custom'),
+                                  subset_feats = NULL,
                                   subset_genes = NULL,
                                   spatial_network_name = 'Delaunay_network',
                                   network_smoothing = NULL,
@@ -3399,6 +3417,11 @@ detectSpatialCorGenes <- function(gobject,
                                   min_cells_per_grid = 4,
                                   cor_method = c('pearson', 'kendall', 'spearman')) {
 
+  ## deprecated arguments
+  if(!is.null(subset_genes)) {
+    subset_feats = subset_genes
+    warning('subset_genes is deprecated, use subset_feats in the future \n')
+  }
 
   warning("Deprecated and replaced by detectSpatialCorFeats")
 
@@ -3407,7 +3430,7 @@ detectSpatialCorGenes <- function(gobject,
                         spat_unit = spat_unit,
                         method = method,
                         expression_values = expression_values,
-                        subset_feats = subset_genes,
+                        subset_feats = subset_feats,
                         spatial_network_name = spatial_network_name,
                         network_smoothing = network_smoothing,
                         spatial_grid_name = spatial_grid_name,
@@ -3506,6 +3529,7 @@ showSpatialCorFeats = function(spatCorObject,
 
 
 
+#' @title showSpatialCorGenes
 #' @name showSpatialCorGenes
 #' @description Shows and filters spatially correlated genes
 #' @param spatCorObject spatial correlation object
@@ -3602,6 +3626,7 @@ clusterSpatialCorFeats = function(spatCorObject,
 
 
 
+#' @title clusterSpatialCorGenes
 #' @name clusterSpatialCorGenes
 #' @description Cluster based on spatially correlated genes
 #' @param spatCorObject spatial correlation object
@@ -3747,6 +3772,7 @@ heatmSpatialCorFeats = function(gobject,
 
 
 
+#' @title heatmSpatialCorGenes
 #' @name heatmSpatialCorGenes
 #' @description Create heatmap of spatially correlated genes
 #' @inheritDotParams heatmSpatialCorFeats

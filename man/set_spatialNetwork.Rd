@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{set_spatialNetwork}
 \alias{set_spatialNetwork}
-\title{set_spatialNetwork}
+\title{Set spatial network}
 \usage{
 set_spatialNetwork(
   gobject,
@@ -15,9 +15,9 @@ set_spatialNetwork(
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit  (e.g. "cell")}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
 \item{name}{name of spatial network}
 
@@ -27,7 +27,7 @@ set_spatialNetwork(
 giotto object
 }
 \description{
-function to set a spatial network
+Function to set a spatial network
 }
 \seealso{
 Other spatial network data accessor functions: 
@@ -35,7 +35,6 @@ Other spatial network data accessor functions:
 
 Other functions to set data in giotto object: 
 \code{\link{set_NearestNetwork}()},
-\code{\link{set_dimReduction}()},
 \code{\link{set_expression_values}()},
 \code{\link{set_feature_info}()},
 \code{\link{set_giottoImage}()},

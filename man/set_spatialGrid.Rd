@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{set_spatialGrid}
 \alias{set_spatialGrid}
-\title{set_spatialGrid}
+\title{Set spatial grid}
 \usage{
 set_spatialGrid(
   gobject,
@@ -15,6 +15,10 @@ set_spatialGrid(
 \arguments{
 \item{gobject}{giotto object}
 
+\item{spat_unit}{spatial unit (e.g. "cell")}
+
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
+
 \item{name}{name of spatial grid}
 
 \item{spatial_grid}{spatial grid object}
@@ -23,7 +27,7 @@ set_spatialGrid(
 giotto object
 }
 \description{
-function to set a spatial grid
+Function to set a spatial grid
 }
 \seealso{
 Other spatial grid data accessor functions: 
@@ -31,7 +35,6 @@ Other spatial grid data accessor functions:
 
 Other functions to set data in giotto object: 
 \code{\link{set_NearestNetwork}()},
-\code{\link{set_dimReduction}()},
 \code{\link{set_expression_values}()},
 \code{\link{set_feature_info}()},
 \code{\link{set_giottoImage}()},

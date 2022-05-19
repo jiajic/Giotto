@@ -16,6 +16,8 @@ combineFeatureData(
 
 \item{feat_type}{feature type}
 
+\item{spat_unit}{spatial unit}
+
 \item{sel_feats}{selected features (default: NULL or no selection)}
 }
 \value{
@@ -24,6 +26,4 @@ data.table with combined spatial feature information
 \description{
 combine feature data information
 }
-\keyword{combine}
-\keyword{feature}
-\keyword{metadata}
+\concept{combine feature metadata}

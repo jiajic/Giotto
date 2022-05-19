@@ -2,14 +2,14 @@
 % Please edit documentation in R/accessors.R
 \name{set_polygon_info}
 \alias{set_polygon_info}
-\title{set_polygon_info}
+\title{Set polygon info}
 \usage{
 set_polygon_info(gobject, polygon_name = "cell", gpolygon)
 }
 \arguments{
 \item{gobject}{giotto object}
 
-\item{polygon_name}{name of polygons}
+\item{polygon_name}{name of polygons. Default "cell"}
 
 \item{gpolygon}{giotto polygon}
 }
@@ -17,7 +17,7 @@ set_polygon_info(gobject, polygon_name = "cell", gpolygon)
 giotto object
 }
 \description{
-set giotto polygon spatVector
+Set giotto polygon spatVector
 }
 \seealso{
 Other polygon info data accessor functions: 
@@ -25,7 +25,6 @@ Other polygon info data accessor functions:
 
 Other functions to set data in giotto object: 
 \code{\link{set_NearestNetwork}()},
-\code{\link{set_dimReduction}()},
 \code{\link{set_expression_values}()},
 \code{\link{set_feature_info}()},
 \code{\link{set_giottoImage}()},

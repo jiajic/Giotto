@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{get_spatial_enrichment}
 \alias{get_spatial_enrichment}
-\title{get_spatial_enrichment}
+\title{Get spatial enrichment}
 \usage{
 get_spatial_enrichment(
   gobject,
@@ -14,17 +14,17 @@ get_spatial_enrichment(
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit (e.g."cell")}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
-\item{enrichm_name}{name of spatial enrichment results}
+\item{enrichm_name}{name of spatial enrichment results. Default "DWLS"}
 }
 \value{
 data.table with fractions
 }
 \description{
-function to get a spatial enrichment data.table
+Function to get a spatial enrichment data.table
 }
 \seealso{
 Other spatial enrichment data accessor functions: 

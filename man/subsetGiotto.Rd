@@ -35,13 +35,7 @@ subsetGiotto(
 
 \item{poly_info}{polygon information to use}
 
-\item{x_max}{maximum x-coordinate for feature coordinates}
-
-\item{x_min}{minimum x-coordinate for feature coordinates}
-
-\item{y_max}{maximum y-coordinate for feature coordinates}
-
-\item{y_min}{minimum y-coordinate for feature coordinates}
+\item{x_max, x_min, y_max, y_min}{minimum and maximum x and y coordinates to keep for feature coordinates}
 
 \item{verbose}{be verbose}
 
@@ -51,23 +45,8 @@ subsetGiotto(
 giotto object
 }
 \description{
-subsets Giotto object including previous analyses.
+Subsets Giotto object including previous analyses.
 }
 \details{
 Subsets a Giotto object for a specific spatial unit and feature type
-}
-\examples{
-\donttest{
-
-data(mini_giotto_single_cell)
-
-random_cells = sample(slot(mini_giotto_single_cell, 'cell_ID'), 10)
-random_genes = sample(slot(mini_giotto_single_cell, 'gene_ID'), 10)
-
-subset_obj = subsetGiotto(mini_giotto_single_cell,
-                         cell_ids = random_cells,
-                         feat_ids = random_genes)
-
-}
-
 }

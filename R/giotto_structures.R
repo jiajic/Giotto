@@ -7,12 +7,12 @@
 
 #' @title S4 giotto polygon Class
 #' @description Giotto class to store and operate on polygon-like data
-#' @keywords giotto, polygon, class
+#' @concept giotto polygon class
 #' @slot name name of polygon shapes
 #' @slot spatVector terra spatVector to store polygon shapes
 #' @slot spatVectorCentroids centroids of polygon shapes
 #' @slot overlaps information about overlapping points and polygons
-#' @details
+#' @details holds polygon data
 #'
 #' @export
 giottoPolygon <- setClass(
@@ -121,6 +121,9 @@ create_giotto_polygon_object = function(name = 'cell',
 #' @keywords internal
 identify_background_range_polygons = function(spatVector) {
 
+  # define for data.table
+  x = y = geom = V1 = NULL
+  
   # identify polygon with the largest average range for x and y
   gDT = data.table::as.data.table(terra::geom(spatVector))
 
@@ -155,6 +158,7 @@ create_segm_polygons = function(maskfile,
                                 shift_horizontal_step = TRUE,
                                 remove_background_polygon = FALSE) {
 
+  
   if(!file.exists(maskfile)) {
     stop('path : ', maskfile, ' does not exist \n')
   }
@@ -168,11 +172,11 @@ create_segm_polygons = function(maskfile,
 
   ## flip axes ##
   if(flip_vertical == TRUE) {
-    terra_polygon = flip(terra_polygon, direction = 'vertical')
+    terra_polygon = terra::flip(terra_polygon, direction = 'vertical')
   }
 
   if(flip_horizontal == TRUE) {
-    terra_polygon = flip(terra_polygon, direction = 'horizontal')
+    terra_polygon = terra::flip(terra_polygon, direction = 'horizontal')
   }
 
   ## shift values ##
@@ -258,6 +262,9 @@ calculate_centroids_polygons = function(gpolygon,
 #' @keywords internal
 fix_multipart_geoms = function(spatVector) {
 
+  # data.table variables
+  x = y = geom = part = NULL
+  
   spatVecDT = spatVector_to_dt(spatVector)
   uniq_multi = unique(spatVecDT[part == 2]$geom)
 
@@ -317,6 +324,7 @@ fix_multipart_geoms = function(spatVector) {
 #' @name createGiottoPolygonsFromMask
 #' @description Creates Giotto polygon object from a mask file (e.g. segmentation results)
 #' @param maskfile path to mask file
+#' @param mask_method how the mask file defines individual segmentation annotations
 #' @param name name for polygons
 #' @param remove_background_polygon try to remove background polygon (default: FALSE)
 #' @param background_algo algorithm to remove background polygon
@@ -329,8 +337,8 @@ fix_multipart_geoms = function(spatVector) {
 #' @param calc_centroids calculate centroids for polygons
 #' @param fix_multipart try to split polygons with multiple parts (default: TRUE)
 #' @param remove_unvalid_polygons remove unvalid polygons (default: TRUE)
-#' @return
-#' @keywords mask polygon
+#' @return a giotto polygon object
+#' @concept mask polygon
 #' @export
 createGiottoPolygonsFromMask = function(maskfile,
                                         mask_method = c('guess', 'single', 'multiple'),
@@ -347,6 +355,12 @@ createGiottoPolygonsFromMask = function(maskfile,
                                         fix_multipart = TRUE,
                                         remove_unvalid_polygons = TRUE) {
 
+  # define for .()
+  x = NULL
+  y = NULL
+  geom = NULL
+  part = NULL
+  
   # select background algo
   background_algo = match.arg(background_algo, choices = 'range')
 
@@ -491,13 +505,16 @@ createGiottoPolygonsFromMask = function(maskfile,
 #' @param segmdfr data.frame-like object with polygon coordinate information (x, y, ID)
 #' @param name name for polygons
 #' @param calc_centroids calculate centroids for polygons
-#' @return
-#' @keywords polygon
+#' @return giotto polygon object
+#' @concept polygon
 #' @export
 createGiottoPolygonsFromDfr = function(segmdfr,
                                        name = 'cell',
                                        calc_centroids = FALSE) {
 
+  # define for data.table
+  geom = NULL
+  
   # input data.frame-like object
   # columns: x y cell_ID
   segmdt = data.table::as.data.table(segmdfr)
@@ -639,7 +656,7 @@ extract_polygon_list = function(polygonlist,
 #' @param gpolygons list of giotto polygon objects,
 #' see \code{\link{createGiottoPolygonsFromMask}} and \code{\link{createGiottoPolygonsFromDfr}}
 #' @return giotto object
-#' @keywords polygon
+#' @concept polygon
 #' @export
 addGiottoPolygons = function(gobject,
                              gpolygons) {
@@ -688,6 +705,9 @@ addGiottoPolygons = function(gobject,
 spatVector_to_dt = function(spatvector,
                             include_values = TRUE) {
 
+  # define for :=
+  geom = NULL
+  
   DT_geom = data.table::as.data.table(terra::geom(spatvector))
 
   if(include_values == TRUE) {
@@ -756,10 +776,10 @@ spline_poly <- function(xy, vertices = 20, k = 3, ...) {
   }
 
   # Spline the x and y coordinates.
-  data.spline <- spline(1:(n+2*k), data[,1], n=vertices, ...)
+  data.spline <- stats::spline(1:(n+2*k), data[,1], n=vertices, ...)
   x <- data.spline$x
   x1 <- data.spline$y
-  x2 <- spline(1:(n+2*k), data[,2], n=vertices, ...)$y
+  x2 <- stats::spline(1:(n+2*k), data[,2], n=vertices, ...)$y
 
   # Retain only the middle part.
   cbind(x1, x2)[k < x & x <= n+k, ]
@@ -775,8 +795,10 @@ spline_poly <- function(xy, vertices = 20, k = 3, ...) {
 #' @param vertices number of vertices
 #' @param k k
 #' @param set_neg_to_zero set negative values to zero (default: TRUE)
-#' @return
-#' @keywords polygon
+#' @param ... additional params to pass to \code{spline}
+#' @return Smoothed Giotto polygon object with reduced vertices
+#' @concept polygon
+#' @seealso \code{\link[stats]{spline}}
 #' @export
 smoothGiottoPolygons = function(gpolygon,
                                 vertices = 20,
@@ -784,6 +806,13 @@ smoothGiottoPolygons = function(gpolygon,
                                 set_neg_to_zero = TRUE,
                                 ...) {
 
+  # define for .()
+  x = NULL
+  y = NULL
+  
+  # define for data.table [] subsetting
+  geom = NULL
+  
   polygDT = spatVector_to_dt(gpolygon@spatVector)
 
   # store other values
@@ -853,10 +882,11 @@ smoothGiottoPolygons = function(gpolygon,
 
 #' @title S4 giotto points Class
 #' @description Giotto class to store and operate on points data
-#' @keywords giotto, points, class
+#' @concept giotto points class
 #' @slot feat_type name of feature type
 #' @slot spatVector terra spatVector to store point shapes
-#' @details
+#' @slot networks feature networks
+#' @details Contains vector-type feature data
 #'
 #' @export
 giottoPoints <- setClass(
@@ -878,12 +908,12 @@ giottoPoints <- setClass(
 
 #' @title S4 giotto feature network Class
 #' @description Giotto class to store and operate on feature network
-#' @keywords giotto, points, network, class
+#' @concept giotto points network class
 #' @slot name name of feature network
 #' @slot network_datatable feature network in data.table format
 #' @slot network_lookup_id table mapping numeric network ID to unique feature numerical IDs
 #' @slot full fully connected network
-#' @details
+#' @details contains feature network information
 #'
 #' @export
 featureNetwork <- setClass(
@@ -1014,7 +1044,7 @@ create_spatvector_object_from_dfr = function(x) {
 #' @param x spatVector or data.frame-like object with points coordinate information (x, y, feat ID)
 #' @param feat_type feature type
 #' @return giottoPoints
-#' @keywords polygon
+#' @concept polygon
 #' @export
 createGiottoPoints = function(x,
                               feat_type = 'rna') {
@@ -1092,7 +1122,7 @@ dt_to_spatVector_points = function(dt,
 #' @param gobject giotto object
 #' @param gpoints list of giotto point objects, see \code{\link{createGiottoPoints}}
 #' @return giotto object
-#' @keywords polygon
+#' @concept polygon
 #' @export
 addGiottoPoints = function(gobject,
                            gpoints) {
@@ -1243,7 +1273,7 @@ extract_points_list = function(pointslist) {
 #' @param minimum_k minimum neighbors allowed
 #' @param add_feat_ids whether to add feature information [boolean]
 #' @param verbose be verbose
-#' @param ... additional parameters to pass
+#' @param ... additional parameters to pass to \code{\link[dbscan]{kNN}}
 #' @keywords internal
 createSpatialFeaturesKNNnetwork_dbscan = function(gobject,
                                                   feat_type = NULL,
@@ -1255,7 +1285,9 @@ createSpatialFeaturesKNNnetwork_dbscan = function(gobject,
                                                   verbose = TRUE,
                                                   ...) {
 
-
+  # define for data.table
+  from_feat = from = to_feat = to = from_to_feat = NULL
+  
   ## 1. specify feat_type
   if(is.null(feat_type)) {
     gobject@feat_info[[1]]@feat_type
@@ -1346,8 +1378,12 @@ createSpatialFeaturesKNNnetwork_dbscan = function(gobject,
 #' @param add_feat_ids add feature id names (default = FALSE, increases object size)
 #' @param verbose be verbose
 #' @param return_gobject return giotto object (default: TRUE)
-#' @return
-#' @keywords Features
+#' @param toplevel_params toplevel value to pass when updating giotto params
+#' @param ... additional parameters to pass to \code{\link[dbscan]{kNN}}
+#' @return If \code{return_gobject = TRUE} a giotto object containing the network
+#'   will be returned. If \code{return_gobject = FALSE} the network will be returned
+#'   as a datatable.
+#' @concept feature
 #' @export
 createSpatialFeaturesKNNnetwork = function(gobject,
                                            method = c('dbscan'),
@@ -1431,8 +1467,10 @@ createSpatialFeaturesKNNnetwork = function(gobject,
 #' @param feat_type feature type
 #' @param spat_loc_name name to give to the created spatial locations
 #' @param return_gobject return giotto object (default: TRUE)
-#' @return
-#' @keywords centroid
+#' @return If \code{return_gobject = TRUE} the giotto object containing the calculated
+#'   polygon centroids will be returned. If \code{return_gobject = FALSE} only the
+#'   generated polygon centroids will be returned.
+#' @concept centroid
 #' @export
 addSpatialCentroidLocationsLayer = function(gobject,
                                             poly_info = 'cell',
@@ -1440,6 +1478,11 @@ addSpatialCentroidLocationsLayer = function(gobject,
                                             spat_loc_name = 'raw',
                                             return_gobject = TRUE) {
 
+  # define for .()
+  x = NULL
+  y = NULL
+  poly_ID = NULL
+  
   # Set feat_type and spat_unit
   poly_info = set_default_spat_unit(gobject = gobject,
                                     spat_unit = poly_info)
@@ -1506,8 +1549,10 @@ addSpatialCentroidLocationsLayer = function(gobject,
 #' @param spat_loc_name name to give to the created spatial locations
 #' @param return_gobject return giotto object (default: TRUE)
 #' @param verbose be verbose
-#' @return
-#' @keywords centroid
+#' @return If \code{return_gobject = TRUE} the giotto object containing the calculated
+#'   polygon centroids will be returned. If \code{return_gobject = FALSE} only the
+#'   generated polygon centroids will be returned.
+#' @concept centroid
 #' @export
 addSpatialCentroidLocations = function(gobject,
                                        poly_info = 'cell',
@@ -1604,7 +1649,8 @@ polygon_to_raster = function(polygon, field = NULL) {
 #' @description calculate overlap between cellular structures (polygons) and features (points)
 #' @param gobject giotto object
 #' @param name_overlap name for the overlap results (default to feat_info parameter)
-#' @param poly_info polygon information
+#' @param spatial_info polygon information
+#' @param poly_ID_names (optional) list of poly_IDs to use
 #' @param feat_info feature information
 #' @param feat_subset_column feature info column to subset features with
 #' @param feat_subset_ids ids within feature info column to use for subsetting
@@ -1612,7 +1658,7 @@ polygon_to_raster = function(polygon, field = NULL) {
 #' @param verbose be verbose
 #' @return giotto object or spatVector with overlapping information
 #' @details Serial overlapping function.
-#' @keywords overlap
+#' @concept overlap
 #' @export
 calculateOverlapRaster = function(gobject,
                                   name_overlap = NULL,
@@ -1624,6 +1670,14 @@ calculateOverlapRaster = function(gobject,
                                   return_gobject = TRUE,
                                   verbose = TRUE) {
 
+  # define for :=
+  poly_ID = NULL
+  poly_i = NULL
+  ID = NULL
+  x = NULL
+  y = NULL
+  feat_ID = NULL
+  feat_ID_uniq = NULL
 
   # set defaults if not provided
   if(is.null(feat_info)) {
@@ -1710,7 +1764,7 @@ calculateOverlapRaster = function(gobject,
 
 
 
-
+#' @title Overlap points -- single polygon
 #' @name overlap_points_single_polygon
 #' @description  overlap for a single polygon
 #' @keywords internal
@@ -1718,6 +1772,9 @@ overlap_points_single_polygon = function(spatvec,
                                          poly_ID_name,
                                          pointvec_dt) {
 
+  # define for data.table
+  x = y = NULL
+  
   ## extract single polygon and get spatextent
   one_polygon_spatvector = spatvec[spatvec$poly_ID == poly_ID_name]
   ext_limits = terra::ext(one_polygon_spatvector)
@@ -1743,9 +1800,12 @@ overlap_points_single_polygon = function(spatvec,
 
 ## ** polygon way ####
 
+
+#' @title Overlap points per polgyon
 #' @name overlap_points_per_polygon
-#' @description  loop to overlap each single polygon
+#' @description Loop to overlap each single polygon
 #' @keywords internal
+#' @seealso \code{\link{overlap_points_single_polygon}}
 overlap_points_per_polygon = function(spatvec,
                                       pointvec,
                                       poly_ID_names,
@@ -1794,13 +1854,16 @@ overlap_points_per_polygon = function(spatvec,
 #' @description calculate overlap between cellular structures (polygons) and features (points)
 #' @param gobject giotto object
 #' @param name_overlap name for the overlap results (default to feat_info parameter)
-#' @param poly_info polygon information
+#' @param spatial_info polygon information
 #' @param feat_info feature information
+#' @param poly_ID_names list of poly_IDs to use
+#' @param polygon_group_size number of polygons to process per group
 #' @param return_gobject return giotto object (default: TRUE)
 #' @param verbose be verbose
 #' @return giotto object or spatVector with overlapping information
-#' @details Serial overlapping function.
-#' @keywords overlap
+#' @details Serial overlapping function that works on groups of polygons at a time.
+#'   Number of polygons per group is defined by \code{polygon_group_size} param
+#' @concept overlap
 #' @export
 calculateOverlapSerial = function(gobject,
                                   name_overlap = NULL,
@@ -1871,7 +1934,7 @@ calculateOverlapSerial = function(gobject,
 
 
 
-
+#' @title Overlap points per polygon -- wrapped
 #' @name overlap_points_per_polygon_wrapped
 #' @description overlap wrapped polygons
 #' @keywords internal
@@ -1904,15 +1967,17 @@ overlap_points_per_polygon_wrapped = function(spatvec_wrapped,
 #' @description calculate overlap between cellular structures (polygons) and features (points)
 #' @param gobject giotto object
 #' @param name_overlap name for the overlap results (default to feat_info parameter)
-#' @param poly_info polygon information
+#' @param spatial_info polygon information
 #' @param feat_info feature information
+#' @param poly_ID_names list of poly_IDs to use
+#' @param polygon_group_size number of polygons to process per parallelization group
 #' @param return_gobject return giotto object (default: TRUE)
 #' @param verbose be verbose
 #' @return giotto object or spatVector with overlapping information
 #' @details parallel follows the future approach. This means that plan(multisession) does not work,
 #' since the underlying terra objects are internal C pointers. plan(multicore) is also not supported for
 #' Rstudio users.
-#' @keywords overlap
+#' @concept overlap
 #' @export
 calculateOverlapParallel = function(gobject,
                                     name_overlap = NULL,
@@ -2005,7 +2070,7 @@ calculateOverlapParallel = function(gobject,
 #' @param feat_info feature information
 #' @param return_gobject return giotto object (default: TRUE)
 #' @return giotto object or count matrix
-#' @keywords overlap
+#' @concept overlap
 #' @export
 overlapToMatrix = function(gobject,
                            name = 'raw',
@@ -2013,6 +2078,8 @@ overlapToMatrix = function(gobject,
                            feat_info = 'rna',
                            return_gobject = TRUE) {
 
+  # define for data.table
+  poly_ID = NULL
 
   overlap_spatvec = get_polygon_info(gobject = gobject,
                                      polygon_name = poly_info,
@@ -2085,7 +2152,7 @@ overlapToMatrix = function(gobject,
 #' @param new_poly_info name for new aggregated polygon information
 #' @param return_gobject return giotto object (default: TRUE)
 #' @return giotto object or count matrix
-#' @keywords overlap
+#' @concept overlap
 #' @export
 overlapToMatrixMultiPoly = function(gobject,
                                     name = 'raw',
@@ -2095,6 +2162,9 @@ overlapToMatrixMultiPoly = function(gobject,
                                     return_gobject = TRUE) {
 
 
+  # define for data.table
+  i = j = x = NULL
+  
   result_list = list()
   cell_ids_list = list()
 
@@ -2191,7 +2261,7 @@ overlapToMatrixMultiPoly = function(gobject,
 #' @param include_poly_info include information about polygon
 #' @param poly_info polygon information name
 #' @return data.table with combined spatial information
-#' @keywords combine cell metadata
+#' @concept combine cell metadata
 #' @export
 combineCellData = function(gobject,
                            feat_type = 'rna',
@@ -2286,15 +2356,18 @@ combineCellData = function(gobject,
 #' @description combine feature data information
 #' @param gobject giotto object
 #' @param feat_type feature type
+#' @param spat_unit spatial unit
 #' @param sel_feats selected features (default: NULL or no selection)
 #' @return data.table with combined spatial feature information
-#' @keywords combine feature metadata
+#' @concept combine feature metadata
 #' @export
 combineFeatureData = function(gobject,
                               feat_type = NULL,
                               spat_unit = NULL,
                               sel_feats = NULL) {
 
+  # define for data.table [] subsetting
+  feat_ID = NULL
 
   spat_unit = set_default_spat_unit(gobject = gobject,
                                     spat_unit = spat_unit)
@@ -2354,13 +2427,15 @@ combineFeatureData = function(gobject,
 #' @param sel_feats selected features (default: NULL or no selection)
 #' @param poly_info polygon information name
 #' @return data.table with combined spatial polygon information
-#' @keywords combine feature metadata
+#' @concept combine feature metadata
 #' @export
 combineFeatureOverlapData = function(gobject,
                                      feat_type = 'rna',
                                      sel_feats = NULL,
                                      poly_info = c('cell')) {
 
+  # define for data.table [] subsetting
+  feat_ID = NULL
 
   poly_info = set_default_spat_unit(gobject = gobject,
                                     spat_unit = poly_info)

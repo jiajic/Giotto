@@ -9,7 +9,7 @@
 Giotto class to store and operate on feature network
 }
 \details{
-
+contains feature network information
 }
 \section{Slots}{
 
@@ -23,7 +23,4 @@ Giotto class to store and operate on feature network
 \item{\code{full}}{fully connected network}
 }}
 
-\keyword{class}
-\keyword{giotto,}
-\keyword{network,}
-\keyword{points,}
+\concept{giotto points network class}

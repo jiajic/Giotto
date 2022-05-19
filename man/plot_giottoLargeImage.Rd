@@ -13,7 +13,8 @@ plot_giottoLargeImage(
   xmin_crop = NULL,
   ymax_crop = NULL,
   ymin_crop = NULL,
-  max_intensity = NULL
+  max_intensity = NULL,
+  asRGB = FALSE
 )
 }
 \arguments{
@@ -23,22 +24,18 @@ plot_giottoLargeImage(
 
 \item{giottoLargeImage}{giottoLargeImage object}
 
-\item{crop_extent}{extent object to focus on specific region of image}
+\item{crop_extent}{(optional) extent object to focus on specific region of image}
 
-\item{xmax_crop}{xmax crop boundary}
+\item{xmax_crop, xmin_crop, ymax_crop, ymin_crop}{(optional) crop min/max x and y bounds}
 
-\item{xmin_crop}{xmin crop boundary}
+\item{max_intensity}{(optional) value to treat as maximum intensity in color scale}
 
-\item{ymax_crop}{ymax crop boundary}
-
-\item{ymin_crop}{ymin crop boundary}
-
-\item{max_intensity}{value to treat as maximum intensity in color scale}
+\item{asRGB}{(optional) [boolean] force RGB plotting if not automatically detected}
 }
 \value{
 plot
 }
 \description{
-Plot a downsampled version of giottoLargeImage. Cropping can increase plot resolution of region of interest.
+Plot a \emph{downsampled} version of giottoLargeImage. Cropping can increase plot resolution of region of interest.
 }
 \keyword{internal}

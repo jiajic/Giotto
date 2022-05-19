@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{get_spatialNetwork}
 \alias{get_spatialNetwork}
-\title{get_spatialNetwork}
+\title{Get spatial network}
 \usage{
 get_spatialNetwork(
   gobject,
@@ -15,16 +15,16 @@ get_spatialNetwork(
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit (e.g. "cell")}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
 \item{name}{name of spatial network}
 
 \item{return_network_Obj}{return network object (default = FALSE)}
 }
 \description{
-function to get a spatial network
+Function to get a spatial network
 }
 \seealso{
 Other spatial network data accessor functions: 

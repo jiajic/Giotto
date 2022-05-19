@@ -2,19 +2,19 @@
 % Please edit documentation in R/accessors.R
 \name{get_polygon_info}
 \alias{get_polygon_info}
-\title{get_polygon_info}
+\title{Get polygon info}
 \usage{
 get_polygon_info(gobject, polygon_name = "cell", polygon_overlap = NULL)
 }
 \arguments{
 \item{gobject}{giotto object}
 
-\item{polygon_name}{name of polygons}
+\item{polygon_name}{name of polygons. Default "cell"}
 
 \item{polygon_overlap}{include polygon overlap information}
 }
 \description{
-get giotto polygon spatVector
+Get giotto polygon spatVector
 }
 \seealso{
 Other polygon info data accessor functions: 

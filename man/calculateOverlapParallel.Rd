@@ -20,13 +20,17 @@ calculateOverlapParallel(
 
 \item{name_overlap}{name for the overlap results (default to feat_info parameter)}
 
+\item{spatial_info}{polygon information}
+
 \item{feat_info}{feature information}
+
+\item{poly_ID_names}{list of poly_IDs to use}
+
+\item{polygon_group_size}{number of polygons to process per parallelization group}
 
 \item{return_gobject}{return giotto object (default: TRUE)}
 
 \item{verbose}{be verbose}
-
-\item{poly_info}{polygon information}
 }
 \value{
 giotto object or spatVector with overlapping information
@@ -39,4 +43,4 @@ parallel follows the future approach. This means that plan(multisession) does no
 since the underlying terra objects are internal C pointers. plan(multicore) is also not supported for
 Rstudio users.
 }
-\keyword{overlap}
+\concept{overlap}

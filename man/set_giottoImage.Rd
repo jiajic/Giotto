@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{set_giottoImage}
 \alias{set_giottoImage}
-\title{set_giottoImage}
+\title{Set giotto image object}
 \usage{
 set_giottoImage(
   gobject = NULL,
@@ -18,7 +18,7 @@ set_giottoImage(
 \item{image}{giotto image object to be attached without modification to the
 giotto object}
 
-\item{image_type}{type of giotto image object}
+\item{image_type}{type of giotto image object. Either "image" or "largeImage"}
 
 \item{name}{name of giotto image object}
 
@@ -28,7 +28,7 @@ giotto object}
 giotto object
 }
 \description{
-directly attach a giotto image to giotto object
+Directly attach a giotto image to giotto object
 }
 \details{
 \emph{\strong{Use with care!}} This function directly attaches giotto image
@@ -45,7 +45,6 @@ Other image data accessor functions:
 
 Other functions to set data in giotto object: 
 \code{\link{set_NearestNetwork}()},
-\code{\link{set_dimReduction}()},
 \code{\link{set_expression_values}()},
 \code{\link{set_feature_info}()},
 \code{\link{set_polygon_info}()},

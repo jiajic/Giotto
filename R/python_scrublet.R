@@ -12,6 +12,7 @@
 #' @param min_gene_variability_pctl scrublet internal PCA generation. highly variable gene percentile cutoff
 #' @param n_prin_comps number of PCs to use in PCA for detection
 #' @param return_gobject return as gobject if TRUE, data.frame with cell_ID if fALSE
+#' @seealso This function wraps the python package scrublet \doi{10.1016/j.cels.2018.11.005}
 #' @return list including doublet scores and classifications
 #' @export
 doScrubletDetect = function(gobject,
@@ -24,6 +25,7 @@ doScrubletDetect = function(gobject,
                             min_gene_variability_pctl = 85,
                             n_prin_comps = 30,
                             return_gobject = TRUE) {
+
   
   # verify if optional package is installed
   package_check(pkg_name = 'scrublet',
@@ -69,8 +71,8 @@ doScrubletDetect = function(gobject,
   # input is a sparse matrix with cells as rows and genes as columns   data.table::as.data.table()
   scr_input = expr_values
   scr_input = as.matrix(scr_input)
-  scr_input = Giotto:::t_flex(scr_input)
-  scr_input = Giotto:::evaluate_expr_matrix(inputmatrix = scr_input,
+  scr_input = t_flex(scr_input)
+  scr_input = evaluate_expr_matrix(inputmatrix = scr_input,
                                             sparse = TRUE)
   
   scrublet_out = python_scrublet(counts_matrix = scr_input,

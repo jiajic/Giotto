@@ -2,7 +2,7 @@
 % Please edit documentation in R/accessors.R
 \name{set_expression_values}
 \alias{set_expression_values}
-\title{set_expression_values}
+\title{Set expression values}
 \usage{
 set_expression_values(
   gobject,
@@ -15,19 +15,19 @@ set_expression_values(
 \arguments{
 \item{gobject}{giotto object}
 
-\item{spat_unit}{spatial unit}
+\item{spat_unit}{spatial unit  (e.g. "cell")}
 
-\item{feat_type}{feature type}
+\item{feat_type}{feature type (e.g. "rna", "dna", "protein")}
 
 \item{name}{name for the expression slot}
 
-\item{values}{expression values}
+\item{values}{matrix of expression values}
 }
 \value{
 giotto object
 }
 \description{
-function to set expression values for giotto object
+Function to set expression values for giotto object
 }
 \seealso{
 Other expression accessor functions: 
@@ -35,7 +35,6 @@ Other expression accessor functions:
 
 Other functions to set data in giotto object: 
 \code{\link{set_NearestNetwork}()},
-\code{\link{set_dimReduction}()},
 \code{\link{set_feature_info}()},
 \code{\link{set_giottoImage}()},
 \code{\link{set_polygon_info}()},

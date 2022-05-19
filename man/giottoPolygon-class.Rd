@@ -9,7 +9,7 @@
 Giotto class to store and operate on polygon-like data
 }
 \details{
-
+holds polygon data
 }
 \section{Slots}{
 
@@ -23,6 +23,4 @@ Giotto class to store and operate on polygon-like data
 \item{\code{overlaps}}{information about overlapping points and polygons}
 }}
 
-\keyword{class}
-\keyword{giotto,}
-\keyword{polygon,}
+\concept{giotto polygon class}
