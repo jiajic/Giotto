@@ -19,7 +19,8 @@
 #' @slot dimension_reduction slot to save dimension reduction coordinates
 #' @slot nn_network nearest neighbor network in igraph format
 #' @slot images slot to store giotto images
-#' @slot largeImages slot to store giottoLargeImage objects
+#' @slot largeImages slot to store giottoLargeImage objects (deprecated)
+#' @slot image_stacks slot to store giotto stacked image objects (giottoMultiIntensity)
 #' @slot parameters slot to save parameters that have been used
 #' @slot instructions slot for global function instructions
 #' @slot offset_file offset file used to stitch together image fields
@@ -52,6 +53,7 @@ giotto <- setClass(
     nn_network = "ANY",
     images = "ANY",
     largeImages = "ANY",
+    image_stacks = "ANY",
     parameters = "ANY",
     instructions = "ANY",
     offset_file = "ANY",
@@ -77,6 +79,7 @@ giotto <- setClass(
     nn_network = NULL,
     images = NULL,
     largeImages = NULL,
+    image_stacks = NULL,
     parameters = NULL,
     instructions = NULL,
     offset_file = NULL,

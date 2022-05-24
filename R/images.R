@@ -184,6 +184,96 @@ setMethod(
 )
 
 
+
+# giottoMultiIntensity class ####
+
+
+#' @title S4 giottoMultiIntensity Class
+#' @description class to handle intensity-data images as a combined stack
+#' @concept giotto object image stack
+#' @slot name name of giottoMultiIntensity object
+#' @slot rs_object terra raster (stack) object with multiple layers
+#' @slot extent tracks the extent of the raster stack object. Note that most
+#' processes should rely on the extent of the raster object instead of this.
+#' @slot overall_extent terra extent object covering the original extent of image
+#' @slot scale_factor image scaling relative to spatial locations
+#' @slot resolution spatial location units covered per pixel
+#' @slot max_intensity value to set as maximum intensity in color scaling
+#' @slot min_intensity minimum value found
+#' @slot is_int values are integers
+#' @slot file_path file path to the image if given
+#' @slot OS_platform Operating System to run Giotto analysis on
+#' @export
+giottoMultiIntensity <- setClass(
+  Class = "giottoMultiIntensity",
+  
+  slots = c(
+    name = "ANY",
+    rs_object = "ANY",
+    extent = "ANY",
+    overall_extent = "ANY",
+    scale_factor = "ANY",
+    resolution = "ANY",
+    max_intensity = "ANY",
+    min_intensity = "ANY",
+    is_int = "ANY",
+    file_path = "ANY",
+    OS_platform = "ANY"
+  ),
+  
+  prototype = list(
+    name = NULL,
+    rs_object = NULL,
+    extent = NULL,
+    overall_extent = NULL,
+    scale_factor = NULL,
+    resolution = NULL,
+    max_intensity = NULL,
+    min_intensity = NULL,
+    is_int = NULL,
+    file_path = NULL,
+    OS_platform = NULL
+  )
+)
+
+
+#' show method for giottoMultiIntensity class
+#' @param object giottoMultiIntensity object
+#' @aliases show,giottoMultiIntensity-method
+#' @docType methods
+#' @rdname show-methods
+
+setMethod(
+  f = "show",
+  signature = "giottoMultiIntensity",
+  definition = function(object) {
+    
+    cat("An object of class '",  class(object), "' with name ", object@name, "\n \n")
+    
+    cat("Image boundaries are: \n")
+    print(terra::ext(object@rs_object)[1:4])
+    
+    cat("Original image boundaries are: \n")
+    print(object@overall_extent[1:4])
+    
+    cat("\n Scale factor: \n")
+    print(object@scale_factor)
+    
+    cat("\n Resolution: \n")
+    print(object@resolution)
+    
+    cat('\n Estimated maximum intensity is: ', object@max_intensity, ' \n',
+        'Estimated minimum intensity is: ', object@min_intensity, ' \n')
+    
+    if(object@is_int == TRUE) cat('Values are integers')
+    if(object@is_int == FALSE) cat('Values are floating point')
+    
+    cat('\n File path is: ', object@file_path, '\n')
+    
+  }
+)
+
+
 # giottoImage creation ####
 
 
@@ -242,15 +332,16 @@ createGiottoImage = function(gobject = NULL,
   order = match.arg(order, choices = c('first_scale','first_adj'))
   scale_factor = c(x = scale_factor, y = scale_factor)
 
-  # create minimum giotto
-  g_image = giottoImage(name = name,
-                        mg_object = NULL,
-                        minmax = NULL,
-                        boundaries = NULL,
-                        scale_factor = NULL,
-                        resolution = NULL,
-                        file_path = NULL,
-                        OS_platform = .Platform[['OS.type']])
+  # create minimum giotto image class
+  g_image = new('giottoImage',
+                name = name,
+                mg_object = NULL,
+                minmax = NULL,
+                boundaries = NULL,
+                scale_factor = NULL,
+                resolution = NULL,
+                file_path = NULL,
+                OS_platform = .Platform[['OS.type']])
 
 
   ## 1.a. check magick image object
@@ -444,13 +535,14 @@ createGiottoLargeImage = function(raster_object,
                                   verbose = TRUE) {
 
   # create minimum giotto
-  g_imageL = giottoLargeImage(name = name,
-                              raster_object = NULL,
-                              overall_extent = NULL,
-                              scale_factor = NULL,
-                              resolution = NULL,
-                              file_path = NULL,
-                              OS_platform = .Platform[['OS.type']])
+  g_imageL = new('giottoLargeImage'
+                 name = name,
+                 raster_object = NULL,
+                 overall_extent = NULL,
+                 scale_factor = NULL,
+                 resolution = NULL,
+                 file_path = NULL,
+                 OS_platform = .Platform[['OS.type']])
 
 
   ## 1. check raster object and load as SpatRaster if necessary
@@ -638,6 +730,15 @@ createGiottoLargeImageList = function(raster_objects,
   return(result_list)
 
 }
+
+
+
+# giottoMultiIntensity creation ####
+#TODO
+
+
+
+
 
 # giottoImage or magick tools ####
 
