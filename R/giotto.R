@@ -194,7 +194,8 @@ giotto <- setClass(
 
 
 
-#' show method for giotto class
+##### show method for giotto class ####
+
 #' @param object giotto object
 #' @aliases show,giotto-method
 #' @docType methods
@@ -205,26 +206,25 @@ setMethod(
   signature = "giotto",
   definition = function(object) {
 
-    cat("An object of class",  class(object), "\n")
+    cat("An object of class",  class(object), "containing:\n")
 
-    for(spat_unit in names(object@expression_feat)) {
-      cat('spatial units = ', spat_unit, '\n')
-      for(feat_type in unique(object@expression_feat)) {
-        cat("features = ", feat_type, "\n")
+    cat('Expression data:\n\n')
+    print(list_giotto_data(object, 'expression'))
 
-        cat(
-          nrow(x = object@expression[[spat_unit]][[feat_type]][['raw']]),
-          "features across",
-          ncol(x = object@expression[[spat_unit]][[feat_type]][['raw']]),
-          "samples.\n \n"
-        )
-      }
-    }
+    cat('\nSpatial locations:\n\n')
+    print(list_giotto_data(object, 'spatial_locs'))
 
+    cat('\nSubcellular spatial information:\n\n')
+    print(list_giotto_data(object, 'spatial_info'))
 
-    cat('Steps and parameters used: \n \n')
-    print(object@parameters)
-    invisible(x = NULL)
+    cat('\nSubcellular feature information:\n\n')
+    print(list_giotto_data(object, 'feat_info'))
+
+    cat('\nCell metadata for:\n\n')
+    print(list_giotto_data(object, 'cell_metadata'))
+
+    cat('\nFeature metadata for:\n\n')
+    print(list_giotto_data(object, 'feat_metadata'))
   }
 )
 

@@ -87,3 +87,33 @@ setMethod('plot', signature(x = 'giottoPoints', y = 'missing'), function(x,
 })
 
 
+# checkObject() S4 generic ####
+
+#' #' @include giotto.R
+#' setGeneric('checkObject', function(object) standardGeneric('checkObject'))
+#'
+#' # checkObject() methods
+#' setMethod('checkObject', signature('giottoPoints'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('giottoPolygon'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('giottoImage'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('giottoLargeImage'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('giottoPoints'), function(object) print('1'))
+#'
+#' setOldClass('igraph')
+#' setMethod('checkObject', signature('igraph'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('spatialGridObj'), function(object) print('1'))
+#'
+#' setMethod('checkObject', signature('giotto'), function(object) head(object@cell_ID))
+
+
+
+
+
+
+
+

@@ -1,3 +1,80 @@
+## giotto master branch ####
+# @title Convert giotto v1 object to Giotto suite object
+# @name masterToSuite
+# @description Converts an object created under Giotto master branch (v1) into a Giotto suite object
+# @param gobject giotto v1 object to be converted
+# @param imagePath_list named list of image filepaths to the images in the giotto v1 object
+# @param spat_unit spatial unit (defaults to 'cell')
+# @param feat_type feature type (defaults to 'rna')
+# @param instructions giotto instructions to use (inherits from v1 object if not given)
+# @param verbose be verbose
+# @export
+# masterToSuite = function(gobject,
+#                          imagePath_list = NULL,
+#                          spat_unit = 'cell',
+#                          feat_type = 'rna',
+#                          instructions = NULL,
+#                          verbose = TRUE) {
+#
+#   # define for data.table
+#
+#
+#   # 0. Determine if object is made under version 1 (master branch)
+#   slot_used = list(
+#     raw_exprs = try(!is.null(gobject@raw_exprs), silent = TRUE),
+#     norm_expr = try(!is.null(gobject@norm_expr), silent = TRUE),
+#     norm_scaled_expr = try(!is.null(gobject@norm_scaled_expr), silent = TRUE),
+#     custom_expr = try(!is.null(gobject@custom_expr), silent = TRUE),
+#     spatial_locs = try(!is.null(gobject@spatial_locs), silent = TRUE),
+#     cell_metadata = try(!is.null(gobject@cell_metadata), silent = TRUE),
+#     gene_metadata = try(!is.null(gobject@gene_metadata), silent = TRUE),
+#     cell_ID = try(!is.null(gobject@cell_ID), silent = TRUE),
+#     gene_ID = try(!is.null(gobject@gene_ID), silent = TRUE),
+#     spatial_network = try(!is.null(gobject@spatial_network), silent = TRUE),
+#     spatial_grid = try(!is.null(gobject@spatial_grid), silent = TRUE),
+#     spatial_enrichment = try(!is.null(gobject@spatial_enrichment), silent = TRUE),
+#     dimension_reduction = try(!is.null(gobject@dimension_reduction), silent = TRUE),
+#     nn_network = try(!is.null(gobject@nn_network), silent = TRUE),
+#     image = try(!is.null(gobject@images), silent = TRUE),
+#     parameters = try(!is.null(gobject@parameters), silent = TRUE),
+#     instructions = try(!is.null(gobject@instructions), silent = TRUE),
+#     offset_file = try(!is.null(gobject@offset_file), silent = TRUE),
+#     OS_platform = try(!is.null(gobject@OS_platform), silent = TRUE)
+#   )
+#
+#   try_errs = lapply(slot_used, inherits, 'try-error')
+#
+#   if(any(unlist(try_errs))) stop('Object is not a valid Giotto v1 object.\n')
+#
+#
+#
+#   # Create new gobject
+#   suite_obj = new('giotto')
+#
+#   # Set default spatial unit and feat type if not given
+#
+#
+#   # 1. Expression
+#   if(isTRUE(verbose)) message('1. Starting Expression...')
+#   if(isTRUE(slot_used$raw_exprs)) {
+#
+#     if(!inherits(gobject@raw_exprs, 'dgCMatrix')) raw_exprs_mat = Matrix::Matrix(gobject@raw_exprs, sparse = TRUE)
+#
+#     # set value in suite object
+#     suite_obj = set_expression_values(gobject = suite_obj,
+#                                       spat_unit = spat_unit,
+#                                       feat_type = feat_type,
+#                                       name = 'raw',
+#                                       values = raw_exprs_mat)
+#   }
+#
+#   # if(isTRUE(slot_used$))
+  #TODO
+#
+#
+#
+# }
+
 
 ## sp classes ####
 
