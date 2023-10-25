@@ -2,11 +2,29 @@ Outline of package R script contents
 
 
 `convenience.R` - convenience loading functions for specific spatial platforms
-`general_help.R` - general helper functions
 
+`clustering.R` - clustering
+`cell_segmentation.R`
+`image_registration.R`
 
+`cross_section.R`
+`poly_influence.R`
 
 `auxiliary_giotto.R` - auxiliary functions
 `wnn.R` - weighted nearest neighbors functions
-`zzz.R` - onload functions
+`zzz.R` - on package load actions
+
+
+## Python
+`python_hmrf.R`
+`python_scrublet.R`
+
+`spatial_interaction.R`
+`spatial_interaction_spot.R`
+`spatial_interaction_visuals.R`
+
+## Meta
+`dd.R` - dummy documentations (for shared inherited documentation)
+`globals.R` - global variables for package checks
+`general_help.R` - general helper functions
 
