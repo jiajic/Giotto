@@ -15,4 +15,3 @@
 .Rbuildignore.save
 ^\.github$
 ^codecov\.yml$
-\vignettes
