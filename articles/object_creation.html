@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Giotto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.1</span>
       </span>
     </div>
 
@@ -51,15 +51,6 @@
     </li>
     <li>
       <a href="../articles/ecosystem.html">Giotto Ecosystem</a>
-    </li>
-    <li>
-      <a href="../articles/configuration.html">Giotto Configuration</a>
-    </li>
-    <li>
-      <a href="../articles/object_creation.html">Giotto Object Creation</a>
-    </li>
-    <li>
-      <a href="../articles/structure.html">Giotto Class Structure</a>
     </li>
     <li>
       <a href="../articles/structure.html">Giotto Class Structure</a>
@@ -233,6 +224,16 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/object_creation.html">Giotto Object Creation</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="../articles/configuration.html">Giotto Configuration</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Spatial manipulation</li>
     <li>
       <a href="../articles/spatial_transformations.html">Spatial transformations</a>
@@ -380,7 +381,7 @@ shown below this code block.</p>
 <span><span class="co"># Example 2.</span></span>
 <span><span class="co"># Create a Giotto object using objects already loaded into workspace</span></span>
 <span><span class="va">expression_matrix</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/readExprMatrix.html">readExprMatrix</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">osm_exprs</span><span class="op">)</span> <span class="co"># fast method to read expression matrix</span></span>
-<span><span class="va">cell_locations</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">osm_locs</span><span class="op">)</span></span>
+<span><span class="va">cell_locations</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">osm_locs</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">minimum_gobject2</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoObject.html">createGiottoObject</a></span><span class="op">(</span>expression <span class="op">=</span> <span class="va">expression_matrix</span>,</span>
 <span>                                      spatial_locs <span class="op">=</span> <span class="va">cell_locations</span><span class="op">)</span></span></code></pre></div>
@@ -477,7 +478,7 @@ modify one or more of these instructions after they have been added to a
 <span>                                    instructions <span class="op">=</span> <span class="va">instrs</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Add field annotations as cell metadata</span></span>
-<span><span class="va">metadata</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">meta_path</span><span class="op">)</span></span>
+<span><span class="va">metadata</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">meta_path</span><span class="op">)</span></span>
 <span><span class="va">custom_gobject</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addCellMetadata.html">addCellMetadata</a></span><span class="op">(</span><span class="va">custom_gobject</span>, </span>
 <span>                                 new_metadata <span class="op">=</span> <span class="va">metadata</span>,</span>
 <span>                                 by_column <span class="op">=</span> <span class="cn">T</span>, </span>
@@ -567,15 +568,15 @@ and are provided to plotting functions accordingly. To change these
 parameters from the default values, the instructions may be changed or
 replaced, or these parameters may be <em>manually overwritten</em>
 within plotting functions.</p>
-<p>See <code><a href="https://drieslab.github.io/Giotto/reference/showSaveParameters.html">showSaveParameters()</a></code> and the
+<p>See <code><a href="https://drieslab.github.io/GiottoVisuals/reference/showSaveParameters.html">showSaveParameters()</a></code> and the
 <code>Saving Options</code> tutorial for alternative methods to save
 plots.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot according to Giotto Instructions (default)</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot</a></span><span class="op">(</span><span class="va">custom_gobject</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot</a></span><span class="op">(</span><span class="va">custom_gobject</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Plot clusters, create, and save to a new subdirectory, all while overwriting formatting</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot</a></span><span class="op">(</span><span class="va">custom_gobject</span>, </span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot</a></span><span class="op">(</span><span class="va">custom_gobject</span>, </span>
 <span>         cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, </span>
 <span>         save_plot <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>         return_plot <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -596,25 +597,25 @@ classes</a></p>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.1</span> (<span class="dv">2022-06-23</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>apple<span class="sc">-</span><span class="fu">darwin17.0</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>    Running under<span class="sc">:</span> macOS Big Sur ... <span class="fl">10.16</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    BLAS<span class="sc">:</span>   <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRblas.<span class="fl">0.</span>dylib</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    LAPACK<span class="sc">:</span> <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRlapack.dylib</span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>    locale<span class="sc">:</span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>    [<span class="dv">1</span>] en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>C<span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
-<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>     [<span class="dv">1</span>] compiler_4.<span class="fl">2.1</span>  fastmap_1.<span class="fl">1.1</span>   cli_3.<span class="fl">6.1</span>       tools_4.<span class="fl">2.1</span>    </span>
-<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>     [<span class="dv">5</span>] htmltools_0.<span class="fl">5.5</span> rstudioapi_0<span class="fl">.14</span> yaml_2.<span class="fl">3.7</span>      rmarkdown_2<span class="fl">.21</span> </span>
-<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>     [<span class="dv">9</span>] knitr_1<span class="fl">.42</span>      xfun_0<span class="fl">.39</span>       digest_0.<span class="fl">6.31</span>   jsonlite_1.<span class="fl">8.4</span> </span>
-<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>    [<span class="dv">13</span>] rlang_1.<span class="fl">1.1</span>     evaluate_0<span class="fl">.21</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.1</span> (<span class="dv">2022-06-23</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>apple<span class="sc">-</span><span class="fu">darwin17.0</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    Running under<span class="sc">:</span> macOS Big Sur ... <span class="fl">10.16</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    BLAS<span class="sc">:</span>   <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRblas.<span class="fl">0.</span>dylib</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    LAPACK<span class="sc">:</span> <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRlapack.dylib</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    locale<span class="sc">:</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>C<span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">1</span>] compiler_4.<span class="fl">2.1</span>  fastmap_1.<span class="fl">1.1</span>   cli_3.<span class="fl">6.1</span>       tools_4.<span class="fl">2.1</span>    </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">5</span>] htmltools_0.<span class="fl">5.5</span> rstudioapi_0<span class="fl">.14</span> yaml_2.<span class="fl">3.7</span>      rmarkdown_2<span class="fl">.21</span> </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">9</span>] knitr_1<span class="fl">.42</span>      xfun_0<span class="fl">.39</span>       digest_0.<span class="fl">6.31</span>   jsonlite_1.<span class="fl">8.4</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">13</span>] rlang_1.<span class="fl">1.1</span>     evaluate_0<span class="fl">.21</span>  </span></code></pre></div>
 </div>
 </div>
   </div>

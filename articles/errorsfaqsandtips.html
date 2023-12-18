@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Giotto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.1</span>
       </span>
     </div>
 
@@ -51,15 +51,6 @@
     </li>
     <li>
       <a href="../articles/ecosystem.html">Giotto Ecosystem</a>
-    </li>
-    <li>
-      <a href="../articles/configuration.html">Giotto Configuration</a>
-    </li>
-    <li>
-      <a href="../articles/object_creation.html">Giotto Object Creation</a>
-    </li>
-    <li>
-      <a href="../articles/structure.html">Giotto Class Structure</a>
     </li>
     <li>
       <a href="../articles/structure.html">Giotto Class Structure</a>
@@ -233,6 +224,16 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/object_creation.html">Giotto Object Creation</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="../articles/configuration.html">Giotto Configuration</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Spatial manipulation</li>
     <li>
       <a href="../articles/spatial_transformations.html">Spatial transformations</a>
@@ -449,92 +450,92 @@ be multiple options for this terminal; choose the Anaconda Prompt with
 <p>Output from the following commands will be provided as a comparative
 guide. Once the terminal is open, identify the Conda environments on the
 machine by running the following:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># conda environments:</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># base                  *  C:\Users\matto\AppData\Local\R-MINI~1</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># giotto_env               C:\Users\matto\AppData\Local\R-MINI~1\envs\giotto_env</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#                          C:\Users\matto\AppData\Local\r-miniconda\envs\giotto_env</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#                          C:\Users\matto\anaconda3</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># conda environments:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base                  *  C:\Users\matto\AppData\Local\R-MINI~1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># giotto_env               C:\Users\matto\AppData\Local\R-MINI~1\envs\giotto_env</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                          C:\Users\matto\AppData\Local\r-miniconda\envs\giotto_env</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                          C:\Users\matto\anaconda3</span></span></code></pre></div>
 <p>Change your current directory to the R-MINI~1 subdirectory. Then,
 navigate to the Library/bin/ subdirectory within. Use the dir command to
 search bin for two groups of files. These files will be moved to a
 different directory, and should fix the issue. There may be more than
 two files per group here, and that is okay. All of the files with these
 names will be moved, regardless of the extension.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matto\AppData\Local\R<span class="sc">-</span>MINI<span class="sc">~</span><span class="dv">1</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd .\Library\bin</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\Library\bin</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM         686080 libssl-1_1-x64.dll</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM        2338816 libssl-1_1-x64.pdbo</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\Library\bin</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
-<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM        3416064 libcrypto-1_1-x64.dll</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM       10219520 libcrypto-1_1-x64.pdb</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matto\AppData\Local\R<span class="sc">-</span>MINI<span class="sc">~</span><span class="dv">1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd .\Library\bin</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\Library\bin</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM         686080 libssl-1_1-x64.dll</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM        2338816 libssl-1_1-x64.pdbo</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\Library\bin</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM        3416064 libcrypto-1_1-x64.dll</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:06 AM       10219520 libcrypto-1_1-x64.pdb</span></span></code></pre></div>
 <p>Once these files are located, they may be moved to R-MINI~1/DLLs/,
 the proper directory for the search path.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> pwd</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># Path</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># ----</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># C:\Users\matth\AppData\Local\r-miniconda\Library\bin</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> mv libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span> ..\..\DLLs\</span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> mv libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span> ..\..\DLLs\</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> pwd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Path</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ----</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C:\Users\matth\AppData\Local\r-miniconda\Library\bin</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> mv libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span> ..\..\DLLs\</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> mv libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span> ..\..\DLLs\</span></code></pre></div>
 <p>Finally, change to the DLLs directory within R-MINI~1 and verify that
 the files now exist there.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matth\AppData\Local\r<span class="sc">-</span>miniconda\DLLs\</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#     Directory: C:\Users\matth\AppData\Local\r-miniconda\DLLs</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM         686080 libssl-1_1-x64.dll</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM        2338816 libssl-1_1-x64.pdb</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\DLLs</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM        3416064 libcrypto-1_1-x64.dll</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM       10219520 libcrypto-1_1-x64.pdb</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matth\AppData\Local\r<span class="sc">-</span>miniconda\DLLs\</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libssl<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     Directory: C:\Users\matth\AppData\Local\r-miniconda\DLLs</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM         686080 libssl-1_1-x64.dll</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM        2338816 libssl-1_1-x64.pdb</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> dir libcrypto<span class="sc">-</span>1_1<span class="sc">-</span>x64.<span class="sc">*</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    Directory: C:\Users\matto\AppData\Local\r-miniconda\DLLs</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  Mode                 LastWriteTime         Length Name</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  ----                 -------------         ------ ----</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM        3416064 libcrypto-1_1-x64.dll</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#  -a----         11/4/2022  11:07 AM       10219520 libcrypto-1_1-x64.pdb</span></span></code></pre></div>
 <p>Now that these files have moved, this error should disappear.
 Activate the Giotto environment, and run python within it to test a
 package import. The OpenSSL error should no longer occur.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co"># conda environments:</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co"># base                  *  C:\Users\matto\AppData\Local\R-MINI~1</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co"># giotto_env               C:\Users\matto\AppData\Local\R-MINI~1\envs\giotto_env</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#                          C:\Users\matto\AppData\Local\r-miniconda\envs\giotto_env</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#                          C:\Users\matto\anaconda3</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda activate giotto_env</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>(giotto_env) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matto\AppData\Local\R<span class="sc">-</span>MINI<span class="sc">~</span><span class="dv">1</span>\envs\giotto_env</span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>(giotto_env) PS <span class="sc">&gt;</span> python</span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>Python <span class="dv">3</span>.<span class="fl">10.2</span> <span class="sc">|</span> packaged by conda<span class="sc">-</span>forge <span class="sc">|</span> (main, Mar  <span class="dv">8</span> <span class="dv">2022</span>, <span class="dv">15</span><span class="sc">:</span><span class="dv">47</span><span class="sc">:</span><span class="dv">33</span>) [MSC v<span class="fl">.1929</span> <span class="dv">64</span> <span class="fu">bit</span> (AMD64)] on win32</span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>Type <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> <span class="cf">for</span> more information.</span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;</span> import pandas, networkx, igraph, leidenalg, community, sklearn</span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># conda environments:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># base                  *  C:\Users\matto\AppData\Local\R-MINI~1</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># giotto_env               C:\Users\matto\AppData\Local\R-MINI~1\envs\giotto_env</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                          C:\Users\matto\AppData\Local\r-miniconda\envs\giotto_env</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                          C:\Users\matto\anaconda3</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda activate giotto_env</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>(giotto_env) PS <span class="sc">&gt;</span> cd C<span class="sc">:</span>\Users\matto\AppData\Local\R<span class="sc">-</span>MINI<span class="sc">~</span><span class="dv">1</span>\envs\giotto_env</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>(giotto_env) PS <span class="sc">&gt;</span> python</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>Python <span class="dv">3</span>.<span class="fl">10.2</span> <span class="sc">|</span> packaged by conda<span class="sc">-</span>forge <span class="sc">|</span> (main, Mar  <span class="dv">8</span> <span class="dv">2022</span>, <span class="dv">15</span><span class="sc">:</span><span class="dv">47</span><span class="sc">:</span><span class="dv">33</span>) [MSC v<span class="fl">.1929</span> <span class="dv">64</span> <span class="fu">bit</span> (AMD64)] on win32</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>Type <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> <span class="cf">for</span> more information.</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;</span> import pandas, networkx, igraph, leidenalg, community, sklearn</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -555,7 +556,7 @@ appearance of the message (i.e., (active_env) PS &gt;) preceding the
 textual entry. No output will be shown here as differences in OS,
 environments, and versions will vary.</p>
 <p>First, identify the environments on the machine:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span></code></pre></div>
 <p>To proceed, any r-miniconda associated environments will be deleted,
 and the base environment will be updated. If <strong>any</strong>
 environment is frequently used for other analyses and a python version
@@ -566,23 +567,23 @@ to the new, cloned environment. Ensure the path of the cloned
 environment is not associated with r-miniconda.</p>
 <p><strong>It is recommended that conda is updated within any cloned
 environment (see below).</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda create <span class="sc">--</span>name my_base_clone <span class="sc">--</span>clone base</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda create <span class="sc">--</span>name my_base_clone <span class="sc">--</span>clone base</span></code></pre></div>
 <p>Verify that the clone exists to the proper specifications before
 proceeding by comparing packages and python versions:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda activate my_base_clone</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda update conda</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> python <span class="sc">-</span>V</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda list</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda activate base</span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> python <span class="sc">-</span>V</span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda list </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda info <span class="sc">--</span>envs</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda activate my_base_clone</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda update conda</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> python <span class="sc">-</span>V</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda list</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>(my_base_clone) PS <span class="sc">&gt;</span> conda activate base</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> python <span class="sc">-</span>V</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda list </span></code></pre></div>
 <p>Ensure the base environment is activated. If the r-miniconda
 environments are still on the machine, remove them. Specify the
 r-miniconda environments other than giotto_env, as these will be unique
 to the machine. This may be done at the command line:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda env remove <span class="sc">--</span>name giotto_env</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda env remove <span class="sc">/</span>path<span class="sc">/</span>to<span class="sc">/</span>r<span class="sc">-</span>miniconda<span class="sc">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda env remove <span class="sc">--</span>name giotto_env</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda env remove <span class="sc">/</span>path<span class="sc">/</span>to<span class="sc">/</span>r<span class="sc">-</span>miniconda<span class="sc">/</span></span></code></pre></div>
 <p>Alternatively, in R, reticulate can uninstall miniconda and remove
 the associated environments:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -597,8 +598,8 @@ update conda and python within the base environment at a minimum.
 Updating to python v3.8.5 at a minimum is recommended. It is advisable
 to update conda and python within <em>each</em> environment on the
 machine if feasible.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda update conda</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda update python<span class="sc">==</span><span class="dv">3</span>.<span class="fl">8.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda update conda</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>(base) PS <span class="sc">&gt;</span> conda update python<span class="sc">==</span><span class="dv">3</span>.<span class="fl">8.5</span></span></code></pre></div>
 <p>Finally, close the terminal and open the RStudio, VSCode, or an
 alternative IDE. Running the following should ensure successful
 installation:</p>

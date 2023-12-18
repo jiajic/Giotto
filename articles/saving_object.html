@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Giotto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.1</span>
       </span>
     </div>
 
@@ -51,15 +51,6 @@
     </li>
     <li>
       <a href="../articles/ecosystem.html">Giotto Ecosystem</a>
-    </li>
-    <li>
-      <a href="../articles/configuration.html">Giotto Configuration</a>
-    </li>
-    <li>
-      <a href="../articles/object_creation.html">Giotto Object Creation</a>
-    </li>
-    <li>
-      <a href="../articles/structure.html">Giotto Class Structure</a>
     </li>
     <li>
       <a href="../articles/structure.html">Giotto Class Structure</a>
@@ -233,6 +224,16 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/object_creation.html">Giotto Object Creation</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="../articles/configuration.html">Giotto Configuration</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Spatial manipulation</li>
     <li>
       <a href="../articles/spatial_transformations.html">Spatial transformations</a>
@@ -348,14 +349,14 @@ package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ensure Giotto Suite is installed</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"Giotto"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/Giotto/">Giotto</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ensure Giotto Data is installed</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"GiottoData"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/GiottoData/">GiottoData</a></span><span class="op">)</span></span>
@@ -372,19 +373,19 @@ package.</p>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vizgen</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoData/reference/loadGiottoMini.html">loadGiottoMini</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">'vizgen'</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"/Library/Frameworks/R.framework/Versions/4.2/Resources/library/GiottoData//Mini_datasets/Vizgen/VizgenObject//Features/rna_feature_spatVector.shp"</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"rna"</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"aggregate_spatInfo_spatVector.shp"</span> <span class="st">"z0_spatInfo_spatVector.shp"</span>       </span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"z1_spatInfo_spatVector.shp"</span>       </span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"aggregate_spatInfo_spatVectorCentroids.shp"</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>    [<span class="dv">2</span>] <span class="st">"z0_spatInfo_spatVectorCentroids.shp"</span>       </span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"z1_spatInfo_spatVectorCentroids.shp"</span>       </span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"rna_aggregate_spatInfo_spatVectorOverlaps.shp"</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>    [<span class="dv">2</span>] <span class="st">"rna_z0_spatInfo_spatVectorOverlaps.shp"</span>       </span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"rna_z1_spatInfo_spatVectorOverlaps.shp"</span>       </span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span> <span class="st">"stack"</span>       </span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"/Library/Frameworks/R.framework/Versions/4.2/Resources/library/GiottoData//Mini_datasets/Vizgen/VizgenObject//Features/rna_feature_spatVector.shp"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"rna"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"aggregate_spatInfo_spatVector.shp"</span> <span class="st">"z0_spatInfo_spatVector.shp"</span>       </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"z1_spatInfo_spatVector.shp"</span>       </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"aggregate_spatInfo_spatVectorCentroids.shp"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>] <span class="st">"z0_spatInfo_spatVectorCentroids.shp"</span>       </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"z1_spatInfo_spatVectorCentroids.shp"</span>       </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"rna_aggregate_spatInfo_spatVectorOverlaps.shp"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>] <span class="st">"rna_z0_spatInfo_spatVectorOverlaps.shp"</span>       </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>] <span class="st">"rna_z1_spatInfo_spatVectorOverlaps.shp"</span>       </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span> <span class="st">"stack"</span>       </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"poly_ID"</span>      <span class="st">"feat_ID"</span>      <span class="st">"feat_ID_uniq"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="show-existing-info">4. Show Existing Info<a class="anchor" aria-label="anchor" href="#show-existing-info"></a>
@@ -394,37 +395,37 @@ before it was saved using <code><a href="https://drieslab.github.io/GiottoClass/
 object gives an overview of its contents.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">vizgen</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>    An object of class giotto </span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    <span class="sc">&gt;</span>Active spat_unit<span class="sc">:</span>  z0 </span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    <span class="sc">&gt;</span>Active feat_type<span class="sc">:</span>  rna </span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    [SUBCELLULAR INFO]</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    polygons      <span class="sc">:</span> z0 z1 aggregate </span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    features      <span class="sc">:</span> rna </span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    [AGGREGATE INFO]</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>    expression <span class="sc">-----------------------</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>      [z0][rna] raw</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>      [z1][rna] raw</span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>      [aggregate][rna] raw normalized scaled pearson</span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>    spatial locations <span class="sc">----------------</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>      [z0] raw</span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>      [z1] raw</span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>      [aggregate] raw</span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>    spatial networks <span class="sc">-----------------</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>      [aggregate] Delaunay_network kNN_network</span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>    dim reduction <span class="sc">--------------------</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>      [aggregate][rna] pca umap tsne</span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>    nearest neighbor networks <span class="sc">--------</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>      [aggregate][rna] sNN.pca</span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>    attached images <span class="sc">------------------</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>    giottoLargeImage <span class="sc">:</span> <span class="dv">4</span> items...</span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>    Use <span class="fu">objHistory</span>() to see steps and params used</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    An object of class giotto </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&gt;</span>Active spat_unit<span class="sc">:</span>  z0 </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&gt;</span>Active feat_type<span class="sc">:</span>  rna </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    [SUBCELLULAR INFO]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    polygons      <span class="sc">:</span> z0 z1 aggregate </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    features      <span class="sc">:</span> rna </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    [AGGREGATE INFO]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    expression <span class="sc">-----------------------</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      [z0][rna] raw</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      [z1][rna] raw</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] raw normalized scaled pearson</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    spatial locations <span class="sc">----------------</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      [z0] raw</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      [z1] raw</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      [aggregate] raw</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    spatial networks <span class="sc">-----------------</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      [aggregate] Delaunay_network kNN_network</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    dim reduction <span class="sc">--------------------</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] pca umap tsne</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    nearest neighbor networks <span class="sc">--------</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] sNN.pca</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    attached images <span class="sc">------------------</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    giottoLargeImage <span class="sc">:</span> <span class="dv">4</span> items...</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    Use <span class="fu">objHistory</span>() to see steps and params used</span></code></pre></div>
 <p>The object also functions as expected. Here we first set the active
 spatial unit as ‘aggregate’ and then plot the saved leiden clustering
 results.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/activeSpatUnit-generic.html">activeSpatUnit</a></span><span class="op">(</span><span class="va">vizgen</span><span class="op">)</span> <span class="op">=</span> <span class="st">'aggregate'</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">vizgen</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">vizgen</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">'leiden_clus'</span>,</span>
 <span>           largeImage_name <span class="op">=</span> <span class="st">'dapi_z0'</span>,</span>
@@ -475,34 +476,34 @@ loading.</li>
 <code class="sourceCode R"><span><span class="va">test_vizgen</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/loadGiotto.html">loadGiotto</a></span><span class="op">(</span>path_to_folder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'vizgen'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">test_vizgen</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>    An object of class giotto </span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>    <span class="sc">&gt;</span>Active spat_unit<span class="sc">:</span>  aggregate </span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    <span class="sc">&gt;</span>Active feat_type<span class="sc">:</span>  rna </span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    [SUBCELLULAR INFO]</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    polygons      <span class="sc">:</span> z0 z1 aggregate </span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    features      <span class="sc">:</span> rna </span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    [AGGREGATE INFO]</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>    expression <span class="sc">-----------------------</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>      [z0][rna] raw</span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>      [z1][rna] raw</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>      [aggregate][rna] raw normalized scaled pearson</span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>    spatial locations <span class="sc">----------------</span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>      [z0] raw</span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>      [z1] raw</span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>      [aggregate] raw</span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>    spatial networks <span class="sc">-----------------</span></span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>      [aggregate] Delaunay_network kNN_network</span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>    dim reduction <span class="sc">--------------------</span></span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>      [aggregate][rna] pca umap tsne</span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>    nearest neighbor networks <span class="sc">--------</span></span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>      [aggregate][rna] sNN.pca</span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>    attached images <span class="sc">------------------</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>    giottoLargeImage <span class="sc">:</span> <span class="dv">4</span> items...</span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a></span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    Use <span class="fu">objHistory</span>() to see steps and params used</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>    An object of class giotto </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&gt;</span>Active spat_unit<span class="sc">:</span>  aggregate </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&gt;</span>Active feat_type<span class="sc">:</span>  rna </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    [SUBCELLULAR INFO]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    polygons      <span class="sc">:</span> z0 z1 aggregate </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    features      <span class="sc">:</span> rna </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    [AGGREGATE INFO]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    expression <span class="sc">-----------------------</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      [z0][rna] raw</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      [z1][rna] raw</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] raw normalized scaled pearson</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    spatial locations <span class="sc">----------------</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>      [z0] raw</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>      [z1] raw</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>      [aggregate] raw</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    spatial networks <span class="sc">-----------------</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>      [aggregate] Delaunay_network kNN_network</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    dim reduction <span class="sc">--------------------</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] pca umap tsne</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    nearest neighbor networks <span class="sc">--------</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>      [aggregate][rna] sNN.pca</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    attached images <span class="sc">------------------</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    giottoLargeImage <span class="sc">:</span> <span class="dv">4</span> items...</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    Use <span class="fu">objHistory</span>() to see steps and params used</span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/activeSpatUnit-generic.html">activeSpatUnit</a></span><span class="op">(</span><span class="va">test_vizgen</span><span class="op">)</span> <span class="op">=</span> <span class="st">'aggregate'</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">test_vizgen</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">test_vizgen</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">'leiden_clus'</span>,</span>
 <span>           largeImage_name <span class="op">=</span> <span class="st">'dapi_z0'</span>,</span>
@@ -514,37 +515,37 @@ loading.</li>
 </h2>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.1</span> (<span class="dv">2022-06-23</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>apple<span class="sc">-</span><span class="fu">darwin17.0</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>    Running under<span class="sc">:</span> macOS Big Sur ... <span class="fl">10.16</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>    BLAS<span class="sc">:</span>   <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRblas.<span class="fl">0.</span>dylib</span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>    LAPACK<span class="sc">:</span> <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRlapack.dylib</span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>    locale<span class="sc">:</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>    [<span class="dv">1</span>] en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>C<span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a></span>
-<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>    other attached packages<span class="sc">:</span></span>
-<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a>    [<span class="dv">1</span>] GiottoData_0.<span class="fl">2.1</span> Giotto_3.<span class="fl">2.1</span>    </span>
-<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a></span>
-<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
-<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a>     [<span class="dv">1</span>] Rcpp_1.<span class="fl">0.10</span>        RColorBrewer_1<span class="fl">.1</span><span class="dv">-3</span> pillar_1.<span class="fl">9.0</span>       compiler_4.<span class="fl">2.1</span>    </span>
-<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a>     [<span class="dv">5</span>] tools_4.<span class="fl">2.1</span>        digest_0.<span class="fl">6.31</span>      jsonlite_1.<span class="fl">8.4</span>     evaluate_0<span class="fl">.20</span>     </span>
-<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a>     [<span class="dv">9</span>] lifecycle_1.<span class="fl">0.3</span>    tibble_3.<span class="fl">2.1</span>       gtable_0.<span class="fl">3.3</span>       lattice_0<span class="fl">.20</span><span class="dv">-45</span>   </span>
-<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a>    [<span class="dv">13</span>] png_0<span class="fl">.1</span><span class="dv">-8</span>          pkgconfig_2.<span class="fl">0.3</span>    rlang_1.<span class="fl">1.0</span>        igraph_1.<span class="fl">4.1</span>      </span>
-<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a>    [<span class="dv">17</span>] Matrix_1<span class="fl">.5</span><span class="dv">-3</span>       cli_3.<span class="fl">6.1</span>          rstudioapi_0<span class="fl">.14</span>    parallel_4.<span class="fl">2.1</span>    </span>
-<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a>    [<span class="dv">21</span>] yaml_2.<span class="fl">3.7</span>         xfun_0<span class="fl">.38</span>          fastmap_1.<span class="fl">1.1</span>      terra_1<span class="fl">.7</span><span class="dv">-22</span>      </span>
-<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a>    [<span class="dv">25</span>] withr_2.<span class="fl">5.0</span>        dplyr_1.<span class="fl">1.1</span>        knitr_1<span class="fl">.42</span>         generics_0.<span class="fl">1.3</span>    </span>
-<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a>    [<span class="dv">29</span>] vctrs_0.<span class="fl">6.1</span>        rprojroot_2.<span class="fl">0.3</span>    grid_4.<span class="fl">2.1</span>         tidyselect_1.<span class="fl">2.0</span>  </span>
-<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a>    [<span class="dv">33</span>] here_1.<span class="fl">0.1</span>         reticulate_1<span class="fl">.28</span>    glue_1.<span class="fl">6.2</span>         data.table_1.<span class="fl">14.8</span> </span>
-<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a>    [<span class="dv">37</span>] R6_2.<span class="fl">5.1</span>           fansi_1.<span class="fl">0.4</span>        rmarkdown_2<span class="fl">.21</span>     farver_2.<span class="fl">1.1</span>      </span>
-<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a>    [<span class="dv">41</span>] ggplot2_3.<span class="fl">4.2</span>      magrittr_2.<span class="fl">0.3</span>     scales_1.<span class="fl">2.1</span>       codetools_0<span class="fl">.2</span><span class="dv">-18</span>  </span>
-<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a>    [<span class="dv">45</span>] htmltools_0.<span class="fl">5.5</span>    colorspace_2<span class="fl">.1</span><span class="dv">-0</span>   labeling_0.<span class="fl">4.2</span>     utf8_1.<span class="fl">2.3</span>        </span>
-<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a>    [<span class="dv">49</span>] munsell_0.<span class="fl">5.0</span>     </span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.1</span> (<span class="dv">2022-06-23</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>apple<span class="sc">-</span><span class="fu">darwin17.0</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    Running under<span class="sc">:</span> macOS Big Sur ... <span class="fl">10.16</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    BLAS<span class="sc">:</span>   <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRblas.<span class="fl">0.</span>dylib</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    LAPACK<span class="sc">:</span> <span class="er">/</span>Library<span class="sc">/</span>Frameworks<span class="sc">/</span>R.framework<span class="sc">/</span>Versions<span class="sc">/</span><span class="fl">4.2</span><span class="sc">/</span>Resources<span class="sc">/</span>lib<span class="sc">/</span>libRlapack.dylib</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    locale<span class="sc">:</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>C<span class="sc">/</span>en_US.UTF<span class="dv">-8</span><span class="sc">/</span>en_US.UTF<span class="dv">-8</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    other attached packages<span class="sc">:</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] GiottoData_0.<span class="fl">2.1</span> Giotto_3.<span class="fl">2.1</span>    </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">1</span>] Rcpp_1.<span class="fl">0.10</span>        RColorBrewer_1<span class="fl">.1</span><span class="dv">-3</span> pillar_1.<span class="fl">9.0</span>       compiler_4.<span class="fl">2.1</span>    </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">5</span>] tools_4.<span class="fl">2.1</span>        digest_0.<span class="fl">6.31</span>      jsonlite_1.<span class="fl">8.4</span>     evaluate_0<span class="fl">.20</span>     </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">9</span>] lifecycle_1.<span class="fl">0.3</span>    tibble_3.<span class="fl">2.1</span>       gtable_0.<span class="fl">3.3</span>       lattice_0<span class="fl">.20</span><span class="dv">-45</span>   </span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">13</span>] png_0<span class="fl">.1</span><span class="dv">-8</span>          pkgconfig_2.<span class="fl">0.3</span>    rlang_1.<span class="fl">1.0</span>        igraph_1.<span class="fl">4.1</span>      </span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">17</span>] Matrix_1<span class="fl">.5</span><span class="dv">-3</span>       cli_3.<span class="fl">6.1</span>          rstudioapi_0<span class="fl">.14</span>    parallel_4.<span class="fl">2.1</span>    </span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">21</span>] yaml_2.<span class="fl">3.7</span>         xfun_0<span class="fl">.38</span>          fastmap_1.<span class="fl">1.1</span>      terra_1<span class="fl">.7</span><span class="dv">-22</span>      </span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">25</span>] withr_2.<span class="fl">5.0</span>        dplyr_1.<span class="fl">1.1</span>        knitr_1<span class="fl">.42</span>         generics_0.<span class="fl">1.3</span>    </span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">29</span>] vctrs_0.<span class="fl">6.1</span>        rprojroot_2.<span class="fl">0.3</span>    grid_4.<span class="fl">2.1</span>         tidyselect_1.<span class="fl">2.0</span>  </span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">33</span>] here_1.<span class="fl">0.1</span>         reticulate_1<span class="fl">.28</span>    glue_1.<span class="fl">6.2</span>         data.table_1.<span class="fl">14.8</span> </span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">37</span>] R6_2.<span class="fl">5.1</span>           fansi_1.<span class="fl">0.4</span>        rmarkdown_2<span class="fl">.21</span>     farver_2.<span class="fl">1.1</span>      </span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">41</span>] ggplot2_3.<span class="fl">4.2</span>      magrittr_2.<span class="fl">0.3</span>     scales_1.<span class="fl">2.1</span>       codetools_0<span class="fl">.2</span><span class="dv">-18</span>  </span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">45</span>] htmltools_0.<span class="fl">5.5</span>    colorspace_2<span class="fl">.1</span><span class="dv">-0</span>   labeling_0.<span class="fl">4.2</span>     utf8_1.<span class="fl">2.3</span>        </span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">49</span>] munsell_0.<span class="fl">5.0</span>     </span></code></pre></div>
 </div>
   </div>
 

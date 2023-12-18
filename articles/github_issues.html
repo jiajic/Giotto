@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Giotto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.1</span>
       </span>
     </div>
 
@@ -51,15 +51,6 @@
     </li>
     <li>
       <a href="../articles/ecosystem.html">Giotto Ecosystem</a>
-    </li>
-    <li>
-      <a href="../articles/configuration.html">Giotto Configuration</a>
-    </li>
-    <li>
-      <a href="../articles/object_creation.html">Giotto Object Creation</a>
-    </li>
-    <li>
-      <a href="../articles/structure.html">Giotto Class Structure</a>
     </li>
     <li>
       <a href="../articles/structure.html">Giotto Class Structure</a>
@@ -233,6 +224,16 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/object_creation.html">Giotto Object Creation</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="../articles/configuration.html">Giotto Configuration</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Spatial manipulation</li>
     <li>
       <a href="../articles/spatial_transformations.html">Spatial transformations</a>
@@ -344,75 +345,75 @@ this information.</p>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">R.version.string</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">0.4</span> (<span class="dv">2021-02-15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">0.4</span> (<span class="dv">2021-02-15</span>)</span></code></pre></div>
 <ul>
 <li>What version of Giotto are you using?</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"Giotto"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="dv">2</span>.<span class="dv">0</span>.<span class="fl">0.9044</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>.<span class="dv">0</span>.<span class="fl">0.9044</span></span></code></pre></div>
 <ul>
 <li>Are you using the Giotto environment or your own python path?</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Check Giotto environment</span></span>
 <span><span class="fu">Giotto</span><span class="fu">:::</span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/checkGiottoEnvironment.html">checkGiottoEnvironment</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>giotto environment found at </span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>natalie_dr<span class="sc">/</span>Library<span class="sc">/</span>r<span class="sc">-</span>miniconda<span class="sc">/</span>envs<span class="sc">/</span>giotto_env<span class="sc">/</span>bin<span class="sc">/</span>pythonw </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>giotto environment found at </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>natalie_dr<span class="sc">/</span>Library<span class="sc">/</span>r<span class="sc">-</span>miniconda<span class="sc">/</span>envs<span class="sc">/</span>giotto_env<span class="sc">/</span>bin<span class="sc">/</span>pythonw </span></code></pre></div>
 <ul>
 <li>Show sequential processing steps/commands in the Giotto object</li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">Giotto</span><span class="fu">:::</span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/showProcessingSteps.html">showProcessingSteps</a></span><span class="op">(</span><span class="va">my_giotto_object</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>Processing steps<span class="sc">:</span> </span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>0_normalize </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Processing steps<span class="sc">:</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>0_normalize </span></code></pre></div>
 <ul>
 <li>Show the structure of the Giotto object</li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">my_giotto_object</span>, max.level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>Formal class <span class="st">'giotto'</span> [package <span class="st">"Giotto"</span>] with <span class="dv">20</span> slots</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>..<span class="sc">@</span> expression         <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>List of <span class="dv">3</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>..<span class="sc">@</span> expression_feat    <span class="sc">:</span> chr <span class="st">"rna"</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>..<span class="sc">@</span> spatial_locs       <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>.. ..<span class="sc">$</span> raw<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">73655</span> obs. of  <span class="dv">4</span> variables<span class="sc">:</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>..<span class="sc">@</span> spatial_info       <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>..<span class="sc">@</span> cell_metadata      <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">73655</span> obs. of  <span class="dv">1</span> variable<span class="sc">:</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>..<span class="sc">@</span> feat_metadata      <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">161</span> obs. of  <span class="dv">1</span> variable<span class="sc">:</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>..<span class="sc">@</span> feat_info          <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>..<span class="sc">@</span> cell_ID            <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">73655</span>] <span class="st">"cell_1"</span> <span class="st">"cell_2"</span> <span class="st">"cell_3"</span> <span class="st">"cell_4"</span> ...</span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>..<span class="sc">@</span> feat_ID            <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">161</span>] <span class="st">"Ace2"</span> <span class="st">"Adora2a"</span> <span class="st">"Aldh1l1"</span> <span class="st">"Amigo2"</span> ...</span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>..<span class="sc">@</span> spatial_network    <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>..<span class="sc">@</span> spatial_grid       <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>..<span class="sc">@</span> spatial_enrichment <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>..<span class="sc">@</span> dimension_reduction<span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>..<span class="sc">@</span> nn_network         <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>..<span class="sc">@</span> images             <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>..<span class="sc">@</span> parameters         <span class="sc">:</span>List of <span class="dv">1</span></span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>.. ..<span class="sc">$</span> 0_normalize<span class="sc">:</span> Named chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>] <span class="st">"my_giotto_object"</span> <span class="st">"standard"</span> <span class="st">"TRUE"</span> <span class="st">"6000"</span> ...</span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>] <span class="st">"gobject"</span> <span class="st">"norm_methods"</span> <span class="st">"library_size_norm"</span> <span class="st">"scalefactor"</span> ...</span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>..<span class="sc">@</span> instructions       <span class="sc">:</span>List of <span class="dv">11</span></span>
-<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>.. ..<span class="sc">$</span> python_path<span class="sc">:</span> chr <span class="st">"/Users/natalie_dr/Library/r-miniconda/envs/giotto_env/bin/pythonw"</span></span>
-<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>.. ..<span class="sc">$</span> show_plot  <span class="sc">:</span> logi <span class="cn">TRUE</span></span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>.. ..<span class="sc">$</span> return_plot<span class="sc">:</span> logi <span class="cn">TRUE</span></span>
-<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>.. ..<span class="sc">$</span> save_plot  <span class="sc">:</span> logi <span class="cn">FALSE</span></span>
-<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a>.. ..<span class="sc">$</span> save_dir   <span class="sc">:</span> chr <span class="st">"/Users/natalie_dr/Desktop/my_giotto/giotto_user_help"</span></span>
-<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>.. ..<span class="sc">$</span> plot_format<span class="sc">:</span> chr <span class="st">"png"</span></span>
-<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>.. ..<span class="sc">$</span> dpi        <span class="sc">:</span> num <span class="dv">300</span></span>
-<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a>.. ..<span class="sc">$</span> units      <span class="sc">:</span> chr <span class="st">"in"</span></span>
-<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a>.. ..<span class="sc">$</span> height     <span class="sc">:</span> num <span class="dv">9</span></span>
-<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a>.. ..<span class="sc">$</span> width      <span class="sc">:</span> num <span class="dv">9</span></span>
-<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>.. ..<span class="sc">$</span> is_docker  <span class="sc">:</span> logi <span class="cn">FALSE</span></span>
-<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>..<span class="sc">@</span> offset_file        <span class="sc">:</span> <span class="cn">NULL</span></span>
-<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a>..<span class="sc">@</span> OS_platform        <span class="sc">:</span> chr <span class="st">"unix"</span></span>
-<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a>..<span class="sc">@</span> join_info          <span class="sc">:</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Formal class <span class="st">'giotto'</span> [package <span class="st">"Giotto"</span>] with <span class="dv">20</span> slots</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> expression         <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>List of <span class="dv">3</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> expression_feat    <span class="sc">:</span> chr <span class="st">"rna"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> spatial_locs       <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> raw<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">73655</span> obs. of  <span class="dv">4</span> variables<span class="sc">:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> spatial_info       <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> cell_metadata      <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">73655</span> obs. of  <span class="dv">1</span> variable<span class="sc">:</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> feat_metadata      <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span>Classes ‘data.table’ and <span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">161</span> obs. of  <span class="dv">1</span> variable<span class="sc">:</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">".internal.selfref"</span>)<span class="ot">=</span><span class="er">&lt;</span>externalptr<span class="sc">&gt;</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> feat_info          <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> cell_ID            <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">73655</span>] <span class="st">"cell_1"</span> <span class="st">"cell_2"</span> <span class="st">"cell_3"</span> <span class="st">"cell_4"</span> ...</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> feat_ID            <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> rna<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">161</span>] <span class="st">"Ace2"</span> <span class="st">"Adora2a"</span> <span class="st">"Aldh1l1"</span> <span class="st">"Amigo2"</span> ...</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> spatial_network    <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> spatial_grid       <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> spatial_enrichment <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> dimension_reduction<span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> nn_network         <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> images             <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> parameters         <span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> 0_normalize<span class="sc">:</span> Named chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>] <span class="st">"my_giotto_object"</span> <span class="st">"standard"</span> <span class="st">"TRUE"</span> <span class="st">"6000"</span> ...</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>.. .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>] <span class="st">"gobject"</span> <span class="st">"norm_methods"</span> <span class="st">"library_size_norm"</span> <span class="st">"scalefactor"</span> ...</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> instructions       <span class="sc">:</span>List of <span class="dv">11</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> python_path<span class="sc">:</span> chr <span class="st">"/Users/natalie_dr/Library/r-miniconda/envs/giotto_env/bin/pythonw"</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> show_plot  <span class="sc">:</span> logi <span class="cn">TRUE</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> return_plot<span class="sc">:</span> logi <span class="cn">TRUE</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> save_plot  <span class="sc">:</span> logi <span class="cn">FALSE</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> save_dir   <span class="sc">:</span> chr <span class="st">"/Users/natalie_dr/Desktop/my_giotto/giotto_user_help"</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> plot_format<span class="sc">:</span> chr <span class="st">"png"</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> dpi        <span class="sc">:</span> num <span class="dv">300</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> units      <span class="sc">:</span> chr <span class="st">"in"</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> height     <span class="sc">:</span> num <span class="dv">9</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> width      <span class="sc">:</span> num <span class="dv">9</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>.. ..<span class="sc">$</span> is_docker  <span class="sc">:</span> logi <span class="cn">FALSE</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> offset_file        <span class="sc">:</span> <span class="cn">NULL</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> OS_platform        <span class="sc">:</span> chr <span class="st">"unix"</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>..<span class="sc">@</span> join_info          <span class="sc">:</span> <span class="cn">NULL</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="warning-messages">Warning Messages<a class="anchor" aria-label="anchor" href="#warning-messages"></a>
@@ -423,9 +424,9 @@ this information.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_giotto_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoObject.html">createGiottoObject</a></span><span class="op">(</span>raw_exprs <span class="op">=</span> <span class="st">"path/to/expression/data"</span>,</span>
 <span>                                   spatial_locs <span class="op">=</span> <span class="st">"path/to/spatial/data"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>Warning message<span class="sc">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>In <span class="fu">createGiottoObject</span>(<span class="at">raw_exprs =</span> <span class="st">"/Users/username/path/to/data"</span>,  <span class="sc">:</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    raw_exprs argument is deprecated, use expression argument <span class="cf">in</span> the future </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Warning message<span class="sc">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>In <span class="fu">createGiottoObject</span>(<span class="at">raw_exprs =</span> <span class="st">"/Users/username/path/to/data"</span>,  <span class="sc">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    raw_exprs argument is deprecated, use expression argument <span class="cf">in</span> the future </span></code></pre></div>
 <p><strong>Solution</strong> The code has still run and your object has
 been created, but in the future use the following command:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -438,15 +439,15 @@ been created, but in the future use the following command:</p>
 <ul>
 <li>Is this an error from Giotto?</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">adjustGiottoMatrix</span>(<span class="at">gobject =</span> my_giotto_object, <span class="at">expression_values =</span> <span class="fu">c</span>(<span class="st">"normalized"</span>)<span class="sc">:</span> covariate column <span class="fu">name</span>(s) were not found <span class="cf">in</span> the cell metadata </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">adjustGiottoMatrix</span>(<span class="at">gobject =</span> my_giotto_object, <span class="at">expression_values =</span> <span class="fu">c</span>(<span class="st">"normalized"</span>)<span class="sc">:</span> covariate column <span class="fu">name</span>(s) were not found <span class="cf">in</span> the cell metadata </span></code></pre></div>
 <p><strong>Solution</strong> In this case, you would need to check your
 cell metadata (<code>my_giotto_object@cell_metadata</code>) and make
 appropriate adjustments.</p>
 <ul>
 <li>Is this an error from an external package?</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>Error <span class="cf">in</span> methods<span class="sc">::</span><span class="fu">as</span>(<span class="fu">as.matrix</span>(x[, <span class="sc">-</span><span class="dv">1</span>]), <span class="st">"Matrix"</span>) <span class="sc">:</span> </span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>no method or default <span class="cf">for</span> coercing <span class="st">"matrix"</span> to <span class="st">"Matrix"</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> methods<span class="sc">::</span><span class="fu">as</span>(<span class="fu">as.matrix</span>(x[, <span class="sc">-</span><span class="dv">1</span>]), <span class="st">"Matrix"</span>) <span class="sc">:</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>no method or default <span class="cf">for</span> coercing <span class="st">"matrix"</span> to <span class="st">"Matrix"</span></span></code></pre></div>
 <p><strong>Solution</strong> Ensure that the Matrix library is
 loaded:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -507,7 +508,7 @@ following code:</p>
 <span>                                                             <span class="st">'total_expr'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>I expected that my matrix would be appropriately adjusted, but I got
 the following error:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">adjustGiottoMatrix</span>(<span class="at">gobject =</span> my_giotto_object, <span class="at">expression_values =</span> <span class="fu">c</span>(<span class="st">"normalized"</span>)<span class="sc">:</span> covariate column <span class="fu">name</span>(s) were not found <span class="cf">in</span> the cell metadata </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">adjustGiottoMatrix</span>(<span class="at">gobject =</span> my_giotto_object, <span class="at">expression_values =</span> <span class="fu">c</span>(<span class="st">"normalized"</span>)<span class="sc">:</span> covariate column <span class="fu">name</span>(s) were not found <span class="cf">in</span> the cell metadata </span></code></pre></div>
 <p>For more context, I am running R version 4.04 and Giotto version
 2.0.0.9044. I can send you the data I used if necessary.</p>
 </div>

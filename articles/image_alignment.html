@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">Giotto</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">4.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">4.0.1</span>
       </span>
     </div>
 
@@ -51,15 +51,6 @@
     </li>
     <li>
       <a href="../articles/ecosystem.html">Giotto Ecosystem</a>
-    </li>
-    <li>
-      <a href="../articles/configuration.html">Giotto Configuration</a>
-    </li>
-    <li>
-      <a href="../articles/object_creation.html">Giotto Object Creation</a>
-    </li>
-    <li>
-      <a href="../articles/structure.html">Giotto Class Structure</a>
     </li>
     <li>
       <a href="../articles/structure.html">Giotto Class Structure</a>
@@ -233,6 +224,16 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/object_creation.html">Giotto Object Creation</a>
+    </li>
+    <li class="divider">
+    </li>
+<li>
+      <a href="../articles/configuration.html">Giotto Configuration</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Spatial manipulation</li>
     <li>
       <a href="../articles/spatial_transformations.html">Spatial transformations</a>
@@ -351,13 +352,13 @@ lung data <a href="./Nanostring_Lung12_jan26_21.html">analysis</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ensure Giotto Suite is installed</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"Giotto"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/Giotto/">Giotto</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Ensure Giotto Data is installed</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"GiottoData"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/GiottoData/">GiottoData</a></span><span class="op">)</span></span>
 <span></span>
@@ -521,10 +522,10 @@ standard practice for using Giotto with Visium Data.</p>
 <p>First create a new directory. This will be the Visium Directory.
 Then, open a terminal within that directory, and enter the following
 commands:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">wget</span> https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_raw_feature_bc_matrix.tar.gz</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> Visium_FFPE_Human_Normal_Prostate_raw_feature_bc_matrix.tar.gz</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">wget</span> https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_spatial.tar.gz</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> Visium_FFPE_Human_Normal_Prostate_spatial.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_raw_feature_bc_matrix.tar.gz</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> Visium_FFPE_Human_Normal_Prostate_raw_feature_bc_matrix.tar.gz</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://cf.10xgenomics.com/samples/spatial-exp/1.3.0/Visium_FFPE_Human_Normal_Prostate/Visium_FFPE_Human_Normal_Prostate_spatial.tar.gz</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xzvf</span> Visium_FFPE_Human_Normal_Prostate_spatial.tar.gz</span></code></pre></div>
 <p>This will create two subdirectories within the Visium Directory,
 titled “raw_feature_bc_matrix” and “spatial”. These subdirectories will
 contain barcode and expression information, or images and scaling
@@ -560,7 +561,7 @@ will be plotted.</p>
 <span>                                          instructions <span class="op">=</span> <span class="va">instrs</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># visualize spots that are in tissue</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">FFPE_prostate</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">FFPE_prostate</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">'in_tissue'</span>,</span>
 <span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'high_res_IT'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -634,7 +635,7 @@ the spatial locations.</em></p>
 <strong>scalefactors_json.json</strong> file found within the
 <strong>spatial</strong> subdirectory.</p>
 <p><strong>scalefactors_json.json</strong> for this <a href="https://www.10xgenomics.com/resources/datasets/normal-human-prostate-ffpe-1-standard-1-3-0" class="external-link">dataset</a>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>{<span class="st">"tissue_hires_scalef"</span><span class="sc">:</span> <span class="fl">0.072809346</span>, <span class="st">"tissue_lowres_scalef"</span><span class="sc">:</span> <span class="fl">0.021842804</span>, <span class="st">"fiducial_diameter_fullres"</span><span class="sc">:</span> <span class="fl">304.63145798068047</span>, <span class="st">"spot_diameter_fullres"</span><span class="sc">:</span> <span class="fl">188.58137874994503</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">"tissue_hires_scalef"</span><span class="sc">:</span> <span class="fl">0.072809346</span>, <span class="st">"tissue_lowres_scalef"</span><span class="sc">:</span> <span class="fl">0.021842804</span>, <span class="st">"fiducial_diameter_fullres"</span><span class="sc">:</span> <span class="fl">304.63145798068047</span>, <span class="st">"spot_diameter_fullres"</span><span class="sc">:</span> <span class="fl">188.58137874994503</span>}</span></code></pre></div>
 <p>Providing the appropriate factor to the <strong>scale_factor</strong>
 parameter will result in automatic alignment.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -646,36 +647,36 @@ parameter will result in automatic alignment.</p>
 <p>Alignment values:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lowResG_img</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res </span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">23520</span> </span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
-<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="fl">3949.001</span> </span>
-<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
-<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">3682</span> </span>
-<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="fl">2077.699</span> </span>
-<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
-<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">27469</span> </span>
-<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="fl">4.547474e-13</span> </span>
-<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="sc">-</span><span class="fl">25225.7</span> </span>
-<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
-<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a>            x         y </span>
-<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
-<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a></span>
-<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
-<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a>           x        y </span>
-<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
-<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a></span>
-<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
-<span id="cb11-30"><a href="#cb11-30" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">23520</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="fl">3949.001</span> </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">3682</span> </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="fl">2077.699</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">27469</span> </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="fl">4.547474e-13</span> </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="sc">-</span><span class="fl">25225.7</span> </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>            x         y </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>           x        y </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
 <p><strong>Without spatial locations</strong></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lowResG_img_no_locs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoImage.html">createGiottoImage</a></span><span class="op">(</span>mg_object <span class="op">=</span> <span class="va">lowResPath</span>,</span>
@@ -684,36 +685,36 @@ parameter will result in automatic alignment.</p>
 <p>Alignment values:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lowResG_img_no_locs</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res_no_locs </span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">10</span> </span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">10</span> </span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
-<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
-<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">10</span> </span>
-<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">10</span> </span>
-<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a></span>
-<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
-<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a>            x         y </span>
-<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
-<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
-<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a>           x        y </span>
-<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
-<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a></span>
-<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
-<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res_no_locs </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">10</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">10</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">10</span> </span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">10</span> </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>            x         y </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>           x        y </span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
 <p><em>Note that only default values are given to minmax and boundaries
 in this case.</em></p>
 <p>(<strong>Optional</strong>) Providing spatial location information
@@ -738,36 +739,36 @@ TRUE</strong></p>
 <p>Alignment values:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lowResG_img_manual</span></span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res_manual </span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">23520</span> </span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
-<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
-<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
-<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
-<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
-<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a></span>
-<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
-<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">23520</span> </span>
-<span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">5066</span> </span>
-<span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
-<span id="cb17-19"><a href="#cb17-19" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
-<span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a></span>
-<span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
-<span id="cb17-22"><a href="#cb17-22" tabindex="-1"></a>            x         y </span>
-<span id="cb17-23"><a href="#cb17-23" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
-<span id="cb17-24"><a href="#cb17-24" tabindex="-1"></a></span>
-<span id="cb17-25"><a href="#cb17-25" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
-<span id="cb17-26"><a href="#cb17-26" tabindex="-1"></a>           x        y </span>
-<span id="cb17-27"><a href="#cb17-27" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
-<span id="cb17-28"><a href="#cb17-28" tabindex="-1"></a></span>
-<span id="cb17-29"><a href="#cb17-29" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
-<span id="cb17-30"><a href="#cb17-30" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    An object of class <span class="st">' giottoImage '</span> with name  low_res_manual </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    Min and max values are<span class="sc">:</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>     Max on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">23520</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     Min on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">5066</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>     Max on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>     Min on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    Boundary adjustment are<span class="sc">:</span> </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>     Max adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>     Min adjustment on x<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>     Max adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>     Min adjustment on y<span class="sc">-</span>axis<span class="sc">:</span>  <span class="dv">0</span> </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    Boundaries are<span class="sc">:</span> </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="dv">23520</span> </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>     Image x<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="dv">5066</span> </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis max boundary<span class="sc">:</span>  <span class="sc">-</span><span class="dv">3682</span> </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>     Image y<span class="sc">-</span>axis min boundary<span class="sc">:</span>  <span class="sc">-</span><span class="dv">23148</span> </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    Scale factor<span class="sc">:</span> </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>            x         y </span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.0218428</span> <span class="fl">0.0218428</span> </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>     Resolution<span class="sc">:</span> </span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>           x        y </span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="fl">45.78167</span> <span class="fl">45.78167</span> </span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>     File Path<span class="sc">:</span> </span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] <span class="st">"~/Visium_FFPE_Human_Normal_Prostate/Spatial/tissue_lowres_image.png"</span></span></code></pre></div>
 <p><em>When</em> <strong>do_manual_adj = TRUE</strong><em>, automatic
 alignment is bypassed in favor of the four manual adjustment
 values.</em> <em>These values (Boundary adjustment) default to
@@ -782,7 +783,7 @@ values.</em> <em>These values (Boundary adjustment) default to
 <span><span class="va">FFPE_prostate</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addGiottoImage.html">addGiottoImage</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>, </span>
 <span>                              images <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">lowResG_img</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
 <span>          show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          image_name <span class="op">=</span> <span class="st">"low_res"</span>,</span>
 <span>          cell_color <span class="op">=</span> <span class="st">"in_tissue"</span>,</span>
@@ -820,7 +821,7 @@ do not match up with the spatial coordinates for some reason.</p>
 <code class="sourceCode R"><span><span class="va">FFPE_prostate</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addGiottoImage.html">addGiottoImage</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>, </span>
 <span>                               images <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">lowResG_img_update_manual</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           image_name <span class="op">=</span> <span class="st">"low_res_update_manual"</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">"in_tissue"</span>,</span>
@@ -845,7 +846,7 @@ do not match up with the spatial coordinates for some reason.</p>
 <code class="sourceCode R"><span><span class="va">FFPE_prostate</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addGiottoImage.html">addGiottoImage</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>, </span>
 <span>                               images <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">lowResG_img_to_update</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           image_name <span class="op">=</span> <span class="st">"low_res_to_update"</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">"in_tissue"</span>,</span>
@@ -860,7 +861,7 @@ do not match up with the spatial coordinates for some reason.</p>
 <span>                                  ymin_adj <span class="op">=</span> <span class="fl">2078</span>,</span>
 <span>                                  ymax_adj <span class="op">=</span> <span class="fl">3682</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/Giotto/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">FFPE_prostate</span>,</span>
 <span>           show_image <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>           image_name <span class="op">=</span> <span class="st">"low_res_to_update"</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">"in_tissue"</span>,</span>
@@ -873,41 +874,41 @@ do not match up with the spatial coordinates for some reason.</p>
 </h2>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.2</span> (<span class="dv">2022-10-31</span> ucrt)</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>w64<span class="sc">-</span>mingw32<span class="sc">/</span><span class="fu">x64</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>    Running under<span class="sc">:</span> Windows <span class="dv">10</span> <span class="fu">x64</span> (build <span class="dv">22621</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
-<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>    locale<span class="sc">:</span></span>
-<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a>    [<span class="dv">1</span>] LC_COLLATE<span class="ot">=</span>English_United States.utf8 </span>
-<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a>    [<span class="dv">2</span>] LC_CTYPE<span class="ot">=</span>English_United States.utf8   </span>
-<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a>    [<span class="dv">3</span>] LC_MONETARY<span class="ot">=</span>English_United States.utf8</span>
-<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a>    [<span class="dv">4</span>] LC_NUMERIC<span class="ot">=</span>C                          </span>
-<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a>    [<span class="dv">5</span>] LC_TIME<span class="ot">=</span>English_United States.utf8    </span>
-<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a></span>
-<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
-<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a></span>
-<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a>    other attached packages<span class="sc">:</span></span>
-<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a>    [<span class="dv">1</span>] GiottoData_0.<span class="fl">1.0</span> Giotto_3.<span class="fl">2.1</span>    </span>
-<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a></span>
-<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
-<span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a>     [<span class="dv">1</span>] reticulate_1<span class="fl">.26</span>    tidyselect_1.<span class="fl">2.0</span>   terra_1<span class="fl">.7</span><span class="dv">-18</span>       xfun_0<span class="fl">.38</span>         </span>
-<span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a>     [<span class="dv">5</span>] lattice_0<span class="fl">.20</span><span class="dv">-45</span>    colorspace_2<span class="fl">.1</span><span class="dv">-0</span>   vctrs_0.<span class="fl">6.1</span>        generics_0.<span class="fl">1.3</span>    </span>
-<span id="cb25-23"><a href="#cb25-23" tabindex="-1"></a>     [<span class="dv">9</span>] htmltools_0.<span class="fl">5.4</span>    yaml_2.<span class="fl">3.7</span>         utf8_1.<span class="fl">2.3</span>         rlang_1.<span class="fl">1.0</span>       </span>
-<span id="cb25-24"><a href="#cb25-24" tabindex="-1"></a>    [<span class="dv">13</span>] R.oo_1.<span class="fl">25.0</span>        pillar_1.<span class="fl">9.0</span>       glue_1.<span class="fl">6.2</span>         withr_2.<span class="fl">5.0</span>       </span>
-<span id="cb25-25"><a href="#cb25-25" tabindex="-1"></a>    [<span class="dv">17</span>] R.utils_2.<span class="fl">12.2</span>     rappdirs_0.<span class="fl">3.3</span>     RColorBrewer_1<span class="fl">.1</span><span class="dv">-3</span> lifecycle_1.<span class="fl">0.3</span>   </span>
-<span id="cb25-26"><a href="#cb25-26" tabindex="-1"></a>    [<span class="dv">21</span>] munsell_0.<span class="fl">5.0</span>      gtable_0.<span class="fl">3.3</span>       ragg_1.<span class="fl">2.4</span>         R.methodsS3_1.<span class="fl">8.2</span> </span>
-<span id="cb25-27"><a href="#cb25-27" tabindex="-1"></a>    [<span class="dv">25</span>] codetools_0<span class="fl">.2</span><span class="dv">-18</span>   evaluate_0<span class="fl">.20</span>      labeling_0.<span class="fl">4.2</span>     knitr_1<span class="fl">.42</span>        </span>
-<span id="cb25-28"><a href="#cb25-28" tabindex="-1"></a>    [<span class="dv">29</span>] fastmap_1.<span class="fl">1.0</span>      parallel_4.<span class="fl">2.2</span>     fansi_1.<span class="fl">0.4</span>        Rcpp_1.<span class="fl">0.10</span>       </span>
-<span id="cb25-29"><a href="#cb25-29" tabindex="-1"></a>    [<span class="dv">33</span>] scales_1.<span class="fl">2.1</span>       magick_2.<span class="fl">7.4</span>       jsonlite_1.<span class="fl">8.3</span>     systemfonts_1.<span class="fl">0.4</span> </span>
-<span id="cb25-30"><a href="#cb25-30" tabindex="-1"></a>    [<span class="dv">37</span>] farver_2.<span class="fl">1.1</span>       textshaping_0.<span class="fl">3.6</span>  ggplot2_3.<span class="fl">4.1</span>      png_0<span class="fl">.1</span><span class="dv">-7</span>         </span>
-<span id="cb25-31"><a href="#cb25-31" tabindex="-1"></a>    [<span class="dv">41</span>] digest_0.<span class="fl">6.30</span>      dplyr_1.<span class="fl">1.1</span>        grid_4.<span class="fl">2.2</span>         rprojroot_2.<span class="fl">0.3</span>   </span>
-<span id="cb25-32"><a href="#cb25-32" tabindex="-1"></a>    [<span class="dv">45</span>] cowplot_1.<span class="fl">1.1</span>      here_1.<span class="fl">0.1</span>         cli_3.<span class="fl">4.1</span>          tools_4.<span class="fl">2.2</span>       </span>
-<span id="cb25-33"><a href="#cb25-33" tabindex="-1"></a>    [<span class="dv">49</span>] magrittr_2.<span class="fl">0.3</span>     tibble_3.<span class="fl">2.1</span>       pkgconfig_2.<span class="fl">0.3</span>    Matrix_1<span class="fl">.5</span><span class="dv">-1</span>      </span>
-<span id="cb25-34"><a href="#cb25-34" tabindex="-1"></a>    [<span class="dv">53</span>] data.table_1.<span class="fl">14.6</span>  rmarkdown_2<span class="fl">.21</span>     rstudioapi_0<span class="fl">.14</span>    R6_2.<span class="fl">5.1</span>          </span>
-<span id="cb25-35"><a href="#cb25-35" tabindex="-1"></a>    [<span class="dv">57</span>] compiler_4.<span class="fl">2.2</span>    </span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    R version <span class="dv">4</span>.<span class="fl">2.2</span> (<span class="dv">2022-10-31</span> ucrt)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    Platform<span class="sc">:</span> x86_64<span class="sc">-</span>w64<span class="sc">-</span>mingw32<span class="sc">/</span><span class="fu">x64</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    Running under<span class="sc">:</span> Windows <span class="dv">10</span> <span class="fu">x64</span> (build <span class="dv">22621</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    Matrix products<span class="sc">:</span> default</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    locale<span class="sc">:</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] LC_COLLATE<span class="ot">=</span>English_United States.utf8 </span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">2</span>] LC_CTYPE<span class="ot">=</span>English_United States.utf8   </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">3</span>] LC_MONETARY<span class="ot">=</span>English_United States.utf8</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">4</span>] LC_NUMERIC<span class="ot">=</span>C                          </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">5</span>] LC_TIME<span class="ot">=</span>English_United States.utf8    </span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    attached base packages<span class="sc">:</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    other attached packages<span class="sc">:</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>] GiottoData_0.<span class="fl">1.0</span> Giotto_3.<span class="fl">2.1</span>    </span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">1</span>] reticulate_1<span class="fl">.26</span>    tidyselect_1.<span class="fl">2.0</span>   terra_1<span class="fl">.7</span><span class="dv">-18</span>       xfun_0<span class="fl">.38</span>         </span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">5</span>] lattice_0<span class="fl">.20</span><span class="dv">-45</span>    colorspace_2<span class="fl">.1</span><span class="dv">-0</span>   vctrs_0.<span class="fl">6.1</span>        generics_0.<span class="fl">1.3</span>    </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">9</span>] htmltools_0.<span class="fl">5.4</span>    yaml_2.<span class="fl">3.7</span>         utf8_1.<span class="fl">2.3</span>         rlang_1.<span class="fl">1.0</span>       </span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">13</span>] R.oo_1.<span class="fl">25.0</span>        pillar_1.<span class="fl">9.0</span>       glue_1.<span class="fl">6.2</span>         withr_2.<span class="fl">5.0</span>       </span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">17</span>] R.utils_2.<span class="fl">12.2</span>     rappdirs_0.<span class="fl">3.3</span>     RColorBrewer_1<span class="fl">.1</span><span class="dv">-3</span> lifecycle_1.<span class="fl">0.3</span>   </span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">21</span>] munsell_0.<span class="fl">5.0</span>      gtable_0.<span class="fl">3.3</span>       ragg_1.<span class="fl">2.4</span>         R.methodsS3_1.<span class="fl">8.2</span> </span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">25</span>] codetools_0<span class="fl">.2</span><span class="dv">-18</span>   evaluate_0<span class="fl">.20</span>      labeling_0.<span class="fl">4.2</span>     knitr_1<span class="fl">.42</span>        </span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">29</span>] fastmap_1.<span class="fl">1.0</span>      parallel_4.<span class="fl">2.2</span>     fansi_1.<span class="fl">0.4</span>        Rcpp_1.<span class="fl">0.10</span>       </span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">33</span>] scales_1.<span class="fl">2.1</span>       magick_2.<span class="fl">7.4</span>       jsonlite_1.<span class="fl">8.3</span>     systemfonts_1.<span class="fl">0.4</span> </span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">37</span>] farver_2.<span class="fl">1.1</span>       textshaping_0.<span class="fl">3.6</span>  ggplot2_3.<span class="fl">4.1</span>      png_0<span class="fl">.1</span><span class="dv">-7</span>         </span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">41</span>] digest_0.<span class="fl">6.30</span>      dplyr_1.<span class="fl">1.1</span>        grid_4.<span class="fl">2.2</span>         rprojroot_2.<span class="fl">0.3</span>   </span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">45</span>] cowplot_1.<span class="fl">1.1</span>      here_1.<span class="fl">0.1</span>         cli_3.<span class="fl">4.1</span>          tools_4.<span class="fl">2.2</span>       </span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">49</span>] magrittr_2.<span class="fl">0.3</span>     tibble_3.<span class="fl">2.1</span>       pkgconfig_2.<span class="fl">0.3</span>    Matrix_1<span class="fl">.5</span><span class="dv">-1</span>      </span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">53</span>] data.table_1.<span class="fl">14.6</span>  rmarkdown_2<span class="fl">.21</span>     rstudioapi_0<span class="fl">.14</span>    R6_2.<span class="fl">5.1</span>          </span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">57</span>] compiler_4.<span class="fl">2.2</span>    </span></code></pre></div>
 </div>
   </div>
 
