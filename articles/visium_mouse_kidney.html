@@ -62,9 +62,6 @@
       <a href="../articles/faqs.html">FAQs</a>
     </li>
     <li>
-      <a href="../articles/branches.html">Branches</a>
-    </li>
-    <li>
       <a href="../articles/github_issues.html">How to report a bug</a>
     </li>
   </ul>
@@ -213,6 +210,9 @@
         <li>
           <a href="../articles/singlecell_prostate_integration.html">Prostate Integration</a>
         </li>
+        <li>
+          <a href="../articles/singlecell_lung_adenocarcinoma.html">Human Lung Adenocarcinoma</a>
+        </li>
       </ul>
 </li>
   </ul>
@@ -271,6 +271,9 @@
     <li>
       <a href="../articles/interoperability_anndata.html">AnnData</a>
     </li>
+    <li>
+      <a href="../articles/interoperability_spatialexperiment.html">SpatialExperiment</a>
+    </li>
     <li class="divider">
     </li>
 <li class="dropdown-header">Try Giotto in the Cloud</li>
@@ -279,6 +282,9 @@
     </li>
     <li>
       <a href="../articles/docker.html">Docker</a>
+    </li>
+    <li>
+      <a href="../articles/singularity.html">Singularity</a>
     </li>
   </ul>
 </li>
@@ -294,6 +300,9 @@
     </li>
     <li>
       <a href="../articles/presentations.html">Presentations</a>
+    </li>
+    <li>
+      <a href="../articles/branches.html">Branches</a>
     </li>
   </ul>
 </li>
@@ -633,7 +642,7 @@ gene list:</p>
 <span><span class="fu"><a href="../reference/heatmSpatialCorFeats.html">heatmSpatialCorFeats</a></span><span class="op">(</span><span class="va">visium_kidney</span>, </span>
 <span>                     spatCorObject <span class="op">=</span> <span class="va">spat_cor_netw_DT</span>, </span>
 <span>                     use_clus_name <span class="op">=</span> <span class="st">'spat_netw_clus'</span>,</span>
-<span>                     save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'22-z1-heatmap_correlated_genes'</span>, </span>
+<span>                     save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'22-z1-heatmap_correlated_genes'</span>, </span>
 <span>                                    save_format <span class="op">=</span> <span class="st">'pdf'</span>,</span>
 <span>                                    base_height <span class="op">=</span> <span class="fl">6</span>, </span>
 <span>                                    base_width <span class="op">=</span> <span class="fl">8</span>, units <span class="op">=</span> <span class="st">'cm'</span><span class="op">)</span>,</span>
@@ -644,7 +653,7 @@ gene list:</p>
 <span><span class="va">netw_ranks</span> <span class="op">=</span> <span class="fu"><a href="../reference/rankSpatialCorGroups.html">rankSpatialCorGroups</a></span><span class="op">(</span><span class="va">visium_kidney</span>, </span>
 <span>                                  spatCorObject <span class="op">=</span> <span class="va">spat_cor_netw_DT</span>,</span>
 <span>                                  use_clus_name <span class="op">=</span> <span class="st">'spat_netw_clus'</span>,</span>
-<span>                                  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'22-z2-rank_correlated_groups'</span>,</span>
+<span>                                  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'22-z2-rank_correlated_groups'</span>,</span>
 <span>                                                 base_height <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>                                                 base_width <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/visium_mouse_kidney/22-z2-rank_correlated_groups.png"></p>

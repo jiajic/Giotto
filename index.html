@@ -62,9 +62,6 @@
       <a href="articles/faqs.html">FAQs</a>
     </li>
     <li>
-      <a href="articles/branches.html">Branches</a>
-    </li>
-    <li>
       <a href="articles/github_issues.html">How to report a bug</a>
     </li>
   </ul>
@@ -213,6 +210,9 @@
         <li>
           <a href="articles/singlecell_prostate_integration.html">Prostate Integration</a>
         </li>
+        <li>
+          <a href="articles/singlecell_lung_adenocarcinoma.html">Human Lung Adenocarcinoma</a>
+        </li>
       </ul>
 </li>
   </ul>
@@ -271,6 +271,9 @@
     <li>
       <a href="articles/interoperability_anndata.html">AnnData</a>
     </li>
+    <li>
+      <a href="articles/interoperability_spatialexperiment.html">SpatialExperiment</a>
+    </li>
     <li class="divider">
     </li>
 <li class="dropdown-header">Try Giotto in the Cloud</li>
@@ -279,6 +282,9 @@
     </li>
     <li>
       <a href="articles/docker.html">Docker</a>
+    </li>
+    <li>
+      <a href="articles/singularity.html">Singularity</a>
     </li>
   </ul>
 </li>
@@ -294,6 +300,9 @@
     </li>
     <li>
       <a href="articles/presentations.html">Presentations</a>
+    </li>
+    <li>
+      <a href="articles/branches.html">Branches</a>
     </li>
   </ul>
 </li>
@@ -322,22 +331,40 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><strong>Default branch change!</strong><br>
-With the release of <a href="https://github.com/drieslab/Giotto/releases/tag/v3.3.0" class="external-link">v3.3.0</a> the default branch of Giotto has been moved from <a href="https://github.com/drieslab/Giotto/tree/master" class="external-link">@master</a> to <a href="https://github.com/drieslab/Giotto/tree/suite" class="external-link">@suite</a>. If you want to install the original master version use <code>devtools::install_github("drieslab/Giotto@master")</code>. Visit the Giotto <a href="https://github.com/drieslab/Giotto/discussions" class="external-link">Discussions</a> page for more information.</p>
-<p><strong>Github Repository changes!</strong><br>
-The Giotto github repository has moved to <a href="https://github.com/drieslab/Giotto" class="external-link uri">https://github.com/drieslab/Giotto</a> and the associated spatial datasets have been moved to <a href="https://github.com/drieslab/spatial-datasets" class="external-link uri">https://github.com/drieslab/spatial-datasets</a>.</p>
-<p><strong>Website change!</strong><br>
-We have created a new <a href="https://giottosuite.readthedocs.io/en/latest/#" class="external-link">readthedocs website</a> to further improve and simplify Giotto documentation and to make it easier to use Giotto. It aggregates information from both the original Giotto package and our extended Giotto Suite, which is our extended work-in-development version.<br>
-- www.spatialgiotto.com links to the original <a href="https://giottosuite.readthedocs.io/en/master/" class="external-link">master version</a>. The old master pkgdown documentation can still be found at <a href="https://rubd.github.io/Giotto_site/" class="external-link uri">https://rubd.github.io/Giotto_site/</a><br>
-- www.giottosuite.com links to the extended <a href="https://giottosuite.readthedocs.io/en/latest/" class="external-link">suite version</a>. The old suite pkgdown documentation can still be found at <a href="https://drieslab.github.io/Giotto_site_suite/" class="uri">https://drieslab.github.io/Giotto_site_suite/</a></p>
 <p>Giotto Suite is a major upgrade to the Giotto package that provides tools to process, analyze and visualize <strong>spatial multi-omics data at all scales and multiple resolutions</strong>. The underlying framework is generalizable to virtually all current and emerging spatial technologies. Our Giotto Suite prototype pipeline is generally applicable on various different datasets, such as those created by state-of-the-art spatial technologies, including <em>in situ</em> hybridization (seqFISH+, merFISH, osmFISH, CosMx), sequencing (Slide-seq, Visium, STARmap, Seq-Scope, Stereo-Seq) and imaging-based multiplexing/proteomics (CyCIF, MIBI, CODEX). These technologies differ in terms of resolution (subcellular, single cell or multiple cells), spatial dimension (2D vs 3D), molecular modality (protein, RNA, DNA, …), and throughput (number of cells and analytes).</p>
-<p>The package is in heavy development. Please check back often!<br>
-For a version history/changelog, please see the <a href="https://github.com/drieslab/Giotto/blob/suite/NEWS.md" class="external-link">NEWS file</a>.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>To install Giotto suite use <code>devtools::install_github("drieslab/Giotto")</code>.</p>
+<p>Visit the Giotto <a href="https://github.com/drieslab/Giotto/discussions" class="external-link">Discussions</a> page for more information.</p>
+</div>
+<div class="section level2">
+<h2 id="website-update">Website Update!<a class="anchor" aria-label="anchor" href="#website-update"></a>
+</h2>
+<p>With Giotto version 4.0, we updated the website at <a href="http://giottosuite.com" class="external-link uri">http://giottosuite.com</a>, you can still find the previous website at <a href="https://giottosuite.readthedocs.io/en/latest/" class="external-link uri">https://giottosuite.readthedocs.io/en/latest/</a></p>
+</div>
+<div class="section level2">
+<h2 id="website-description">Website description<a class="anchor" aria-label="anchor" href="#website-description"></a>
+</h2>
+<ul>
+<li>
+<strong>Get started:</strong> Here you can find more advanced information about the Giotto object, Giotto ecosystem, Giotto configuration, and installation FAQs.</li>
+<li>
+<strong>Documentation:</strong> Here you will find all Giotto functions grouped by their purpose (Helpers, Getters &amp; Setters, Visualization, …)</li>
+<li>
+<strong>Examples:</strong> Here you can find end-to-end examples for different technologies and datasets.</li>
+<li>
+<strong>Tutorials:</strong> Here you can find various tutorials on working with Giotto (analysis, visualizations, working on the cloud, …)</li>
+<li>
+<strong>News:</strong> Here you can find the changelog for every Giotto release and video recordings from previous presentations.</li>
+</ul>
 <!-- <img src="inst/images/general_figs/overview_datasets.png" /> -->
+</div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <ul>
+<li><a href="https://www.biorxiv.org/content/10.1101/2023.11.26.568752v1" class="external-link">Jiaji George Chen, Joselyn Cristina Chávez-Fuentes, et al. Giotto Suite: a multi-scale and technology-agnostic spatial multi-omics analysis ecosystem. bioRxiv (2023).</a></li>
 <li><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02286-2" class="external-link">Dries, R., Zhu, Q. et al. Giotto: a toolbox for integrative analysis and visualization of spatial expression data. Genome Biology (2021).</a></li>
 <li><a href="https://genome.cshlp.org/content/31/10/1706.long" class="external-link">Dries, R., Chen, J. et al. Advances in spatial transcriptomic data analysis. Genome Research (2021).</a></li>
 <li><a href="https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/cpz1.405" class="external-link">Del Rossi, N., Chen, J. et al. Analyzing Spatial Transcriptomics Data Using Giotto. Current Protocols (2022).</a></li>

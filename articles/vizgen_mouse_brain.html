@@ -62,9 +62,6 @@
       <a href="../articles/faqs.html">FAQs</a>
     </li>
     <li>
-      <a href="../articles/branches.html">Branches</a>
-    </li>
-    <li>
       <a href="../articles/github_issues.html">How to report a bug</a>
     </li>
   </ul>
@@ -213,6 +210,9 @@
         <li>
           <a href="../articles/singlecell_prostate_integration.html">Prostate Integration</a>
         </li>
+        <li>
+          <a href="../articles/singlecell_lung_adenocarcinoma.html">Human Lung Adenocarcinoma</a>
+        </li>
       </ul>
 </li>
   </ul>
@@ -271,6 +271,9 @@
     <li>
       <a href="../articles/interoperability_anndata.html">AnnData</a>
     </li>
+    <li>
+      <a href="../articles/interoperability_spatialexperiment.html">SpatialExperiment</a>
+    </li>
     <li class="divider">
     </li>
 <li class="dropdown-header">Try Giotto in the Cloud</li>
@@ -279,6 +282,9 @@
     </li>
     <li>
       <a href="../articles/docker.html">Docker</a>
+    </li>
+    <li>
+      <a href="../articles/singularity.html">Singularity</a>
     </li>
   </ul>
 </li>
@@ -294,6 +300,9 @@
     </li>
     <li>
       <a href="../articles/presentations.html">Presentations</a>
+    </li>
+    <li>
+      <a href="../articles/branches.html">Branches</a>
     </li>
   </ul>
 </li>
@@ -382,151 +391,72 @@ locations in three dimensions (CSV)</li>
 </ul>
 <p>Show first 4 rows</p>
 <table class="table">
-<thead><tr>
-<th style="text-align:right;">
-V1
-</th>
-<th style="text-align:right;">
-barcode_id
-</th>
-<th style="text-align:right;">
-global_x
-</th>
-<th style="text-align:right;">
-global_y
-</th>
-<th style="text-align:right;">
-global_z
-</th>
-<th style="text-align:right;">
-x
-</th>
-<th style="text-align:right;">
-y
-</th>
-<th style="text-align:right;">
-fov
-</th>
-<th style="text-align:left;">
-gene
-</th>
+<colgroup>
+<col width="4%">
+<col width="15%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+<col width="14%">
+<col width="5%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">V1</th>
+<th align="right">barcode_id</th>
+<th align="right">global_x</th>
+<th align="right">global_y</th>
+<th align="right">global_z</th>
+<th align="right">x</th>
+<th align="right">y</th>
+<th align="right">fov</th>
+<th align="left">gene</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-159.9778
-</td>
-<td style="text-align:right;">
-4208.468
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1762.116
-</td>
-<td style="text-align:right;">
-159.9814
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-Htr1b
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">159.9778</td>
+<td align="right">4208.468</td>
+<td align="right">4</td>
+<td align="right">1762.116</td>
+<td align="right">159.9814</td>
+<td align="right">0</td>
+<td align="left">Htr1b</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-165.9403
-</td>
-<td style="text-align:right;">
-4321.805
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1817.324
-</td>
-<td style="text-align:right;">
-1209.3922
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-Htr1b
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">165.9403</td>
+<td align="right">4321.805</td>
+<td align="right">4</td>
+<td align="right">1817.324</td>
+<td align="right">1209.3922</td>
+<td align="right">0</td>
+<td align="left">Htr1b</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-158.4767
-</td>
-<td style="text-align:right;">
-4320.901
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1748.217
-</td>
-<td style="text-align:right;">
-1201.0283
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-Htr6
-</td>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">11</td>
+<td align="right">158.4767</td>
+<td align="right">4320.901</td>
+<td align="right">5</td>
+<td align="right">1748.217</td>
+<td align="right">1201.0283</td>
+<td align="right">0</td>
+<td align="left">Htr6</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-171.2179
-</td>
-<td style="text-align:right;">
-4283.950
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1866.191
-</td>
-<td style="text-align:right;">
-858.8855
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:left;">
-Adora1
-</td>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">13</td>
+<td align="right">171.2179</td>
+<td align="right">4283.950</td>
+<td align="right">0</td>
+<td align="right">1866.191</td>
+<td align="right">858.8855</td>
+<td align="right">0</td>
+<td align="left">Adora1</td>
 </tr>
 </tbody>
 </table>
@@ -537,76 +467,36 @@ Adora1
 </ul>
 <p>Show first 4 rows and columns</p>
 <table class="table">
-<thead><tr>
-<th style="text-align:right;">
-V1
-</th>
-<th style="text-align:right;">
-Oxgr1
-</th>
-<th style="text-align:right;">
-Htr1a
-</th>
-<th style="text-align:right;">
-Htr1b
-</th>
+<thead><tr class="header">
+<th align="right">V1</th>
+<th align="right">Oxgr1</th>
+<th align="right">Htr1a</th>
+<th align="right">Htr1b</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1.108834e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="right">1.108834e+38</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.351882e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="right">1.351882e+38</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.647670e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="right">1.647670e+38</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.657479e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="right">1.657479e+38</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
@@ -615,152 +505,73 @@ Htr1b
 <strong>cell metadata</strong> (CSV)</li>
 </ul>
 <p>Show first 4 rows</p>
-<table class="table">
-<thead><tr>
-<th style="text-align:right;">
-V1
-</th>
-<th style="text-align:right;">
-fov
-</th>
-<th style="text-align:right;">
-volume
-</th>
-<th style="text-align:right;">
-center_x
-</th>
-<th style="text-align:right;">
-center_y
-</th>
-<th style="text-align:right;">
-min_x
-</th>
-<th style="text-align:right;">
-max_x
-</th>
-<th style="text-align:right;">
-min_y
-</th>
-<th style="text-align:right;">
-max_y
-</th>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="16%">
+<col width="4%">
+<col width="12%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">V1</th>
+<th align="right">fov</th>
+<th align="right">volume</th>
+<th align="right">center_x</th>
+<th align="right">center_y</th>
+<th align="right">min_x</th>
+<th align="right">max_x</th>
+<th align="right">min_y</th>
+<th align="right">max_y</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1.108834e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-432.1414
-</td>
-<td style="text-align:right;">
-156.5633
-</td>
-<td style="text-align:right;">
-4271.326
-</td>
-<td style="text-align:right;">
-151.5305
-</td>
-<td style="text-align:right;">
-161.5961
-</td>
-<td style="text-align:right;">
-4264.620
-</td>
-<td style="text-align:right;">
-4278.033
-</td>
+<tr class="odd">
+<td align="right">1.108834e+38</td>
+<td align="right">0</td>
+<td align="right">432.1414</td>
+<td align="right">156.5633</td>
+<td align="right">4271.326</td>
+<td align="right">151.5305</td>
+<td align="right">161.5961</td>
+<td align="right">4264.620</td>
+<td align="right">4278.033</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.351882e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1351.8026
-</td>
-<td style="text-align:right;">
-156.5093
-</td>
-<td style="text-align:right;">
-4256.962
-</td>
-<td style="text-align:right;">
-148.2905
-</td>
-<td style="text-align:right;">
-164.7281
-</td>
-<td style="text-align:right;">
-4247.664
-</td>
-<td style="text-align:right;">
-4266.261
-</td>
+<tr class="even">
+<td align="right">1.351882e+38</td>
+<td align="right">0</td>
+<td align="right">1351.8026</td>
+<td align="right">156.5093</td>
+<td align="right">4256.962</td>
+<td align="right">148.2905</td>
+<td align="right">164.7281</td>
+<td align="right">4247.664</td>
+<td align="right">4266.261</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.647670e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1080.6533
-</td>
-<td style="text-align:right;">
-159.9653
-</td>
-<td style="text-align:right;">
-4228.180
-</td>
-<td style="text-align:right;">
-152.1785
-</td>
-<td style="text-align:right;">
-167.7521
-</td>
-<td style="text-align:right;">
-4220.556
-</td>
-<td style="text-align:right;">
-4235.805
-</td>
+<tr class="odd">
+<td align="right">1.647670e+38</td>
+<td align="right">0</td>
+<td align="right">1080.6533</td>
+<td align="right">159.9653</td>
+<td align="right">4228.180</td>
+<td align="right">152.1785</td>
+<td align="right">167.7521</td>
+<td align="right">4220.556</td>
+<td align="right">4235.805</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1.657479e+38
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1652.0007
-</td>
-<td style="text-align:right;">
-167.5793
-</td>
-<td style="text-align:right;">
-4323.868
-</td>
-<td style="text-align:right;">
-158.2265
-</td>
-<td style="text-align:right;">
-176.9321
-</td>
-<td style="text-align:right;">
-4314.192
-</td>
-<td style="text-align:right;">
-4333.545
-</td>
+<tr class="even">
+<td align="right">1.657479e+38</td>
+<td align="right">0</td>
+<td align="right">1652.0007</td>
+<td align="right">167.5793</td>
+<td align="right">4323.868</td>
+<td align="right">158.2265</td>
+<td align="right">176.9321</td>
+<td align="right">4314.192</td>
+<td align="right">4333.545</td>
 </tr>
 </tbody>
 </table>
@@ -868,50 +679,26 @@ factors to map the image to the spatial coordinates. For this
 dataset:</p>
 <p>micron_to_mosaic_pixel_transform.csv</p>
 <table class="table">
-<thead><tr>
-<th style="text-align:right;">
-V1
-</th>
-<th style="text-align:right;">
-V2
-</th>
-<th style="text-align:right;">
-V3
-</th>
+<thead><tr class="header">
+<th align="right">V1</th>
+<th align="right">V2</th>
+<th align="right">V3</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-9.205861
-</td>
-<td style="text-align:right;">
-0.00000
-</td>
-<td style="text-align:right;">
-279.2204
-</td>
+<tr class="odd">
+<td align="right">9.205861</td>
+<td align="right">0.00000</td>
+<td align="right">279.2204</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-9.20585
-</td>
-<td style="text-align:right;">
-349.8105
-</td>
+<tr class="even">
+<td align="right">0.000000</td>
+<td align="right">9.20585</td>
+<td align="right">349.8105</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0.00000
-</td>
-<td style="text-align:right;">
-1.0000
-</td>
+<tr class="odd">
+<td align="right">0.000000</td>
+<td align="right">0.00000</td>
+<td align="right">1.0000</td>
 </tr>
 </tbody>
 </table>

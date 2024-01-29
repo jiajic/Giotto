@@ -62,9 +62,6 @@
       <a href="../articles/faqs.html">FAQs</a>
     </li>
     <li>
-      <a href="../articles/branches.html">Branches</a>
-    </li>
-    <li>
       <a href="../articles/github_issues.html">How to report a bug</a>
     </li>
   </ul>
@@ -213,6 +210,9 @@
         <li>
           <a href="../articles/singlecell_prostate_integration.html">Prostate Integration</a>
         </li>
+        <li>
+          <a href="../articles/singlecell_lung_adenocarcinoma.html">Human Lung Adenocarcinoma</a>
+        </li>
       </ul>
 </li>
   </ul>
@@ -271,6 +271,9 @@
     <li>
       <a href="../articles/interoperability_anndata.html">AnnData</a>
     </li>
+    <li>
+      <a href="../articles/interoperability_spatialexperiment.html">SpatialExperiment</a>
+    </li>
     <li class="divider">
     </li>
 <li class="dropdown-header">Try Giotto in the Cloud</li>
@@ -279,6 +282,9 @@
     </li>
     <li>
       <a href="../articles/docker.html">Docker</a>
+    </li>
+    <li>
+      <a href="../articles/singularity.html">Singularity</a>
     </li>
   </ul>
 </li>
@@ -294,6 +300,9 @@
     </li>
     <li>
       <a href="../articles/presentations.html">Presentations</a>
+    </li>
+    <li>
+      <a href="../articles/branches.html">Branches</a>
     </li>
   </ul>
 </li>
@@ -331,7 +340,7 @@
 <div class="section level2">
 <h2 id="docker-image-with-rstudio">1. Docker Image with RStudio<a class="anchor" aria-label="anchor" href="#docker-image-with-rstudio"></a>
 </h2>
-<p>We have set up a <a href="https://hub.docker.com/r/giottopackage/rstudio_suite_modular" class="external-link">Docker
+<p>We have set up a <a href="https://hub.docker.com/r/giottopackage/rstudio_suite" class="external-link">Docker
 Image</a> linked to RStudio with Giotto pre-installed.</p>
 <div class="section level3">
 <h3 id="instructions">Instructions<a class="anchor" aria-label="anchor" href="#instructions"></a>
@@ -339,8 +348,7 @@ Image</a> linked to RStudio with Giotto pre-installed.</p>
 <p>Follow these instructions to create your own Docker container and run
 Giotto:</p>
 <ol style="list-style-type: decimal">
-<li>docker pull
-<code>giottopackage/rstudio_suite_modular:latest</code>
+<li>docker pull <code>giottopackage/rstudio_suite:latest</code>
 </li>
 <li>docker run
 <code>--rm -p 8787:8787 -e PASSWORD=mypassword giottopackage/rstudio_suite:latest</code>
@@ -380,7 +388,7 @@ declared in step 2.</li>
 <h2 id="docker-image-with-bash-terminal">2. Docker Image with bash terminal<a class="anchor" aria-label="anchor" href="#docker-image-with-bash-terminal"></a>
 </h2>
 <p>If you prefer to run your analysis directly on the terminal, we have
-set up a <a href="https://hub.docker.com/r/giottopackage/suite_modular" class="external-link">Docker
+set up a <a href="https://hub.docker.com/r/giottopackage/suite" class="external-link">Docker
 Image</a> able to run in a bash environment.</p>
 <div class="section level3">
 <h3 id="instructions-1">Instructions<a class="anchor" aria-label="anchor" href="#instructions-1"></a>
@@ -388,10 +396,10 @@ Image</a> able to run in a bash environment.</p>
 <p>Follow these instructions to create your own Docker container and run
 Giotto:</p>
 <ol style="list-style-type: decimal">
-<li>docker pull <code>giottopackage/suite_modular:latest</code>
+<li>docker pull <code>giottopackage/suite:latest</code>
 </li>
 <li>docker run
-<code>-ti giottopackage/suite_modular:latest /bin/bash</code>
+<code>-ti giottopackage/suite:latest /bin/bash</code>
 </li>
 <li>R</li>
 <li>Run the following <strong>in R</strong>:

@@ -14,6 +14,7 @@ articles:
   installation: installation.html
   interactive_selection: interactive_selection.html
   interoperability_anndata: interoperability_anndata.html
+  interoperability_spatialexperiment: interoperability_spatialexperiment.html
   merfish_mouse_hypothalamic: merfish_mouse_hypothalamic.html
   mini_seqfish: mini_seqfish.html
   nanostring_cosmx_lung_cancer: nanostring_cosmx_lung_cancer.html
@@ -25,8 +26,10 @@ articles:
   saving_plots: saving_plots.html
   seqfish_cortex: seqfish_cortex.html
   seqscope_mouse_liver: seqscope_mouse_liver.html
+  singlecell_lung_adenocarcinoma: singlecell_lung_adenocarcinoma.html
   singlecell_prostate_integration: singlecell_prostate_integration.html
   singlecell_prostate_standard: singlecell_prostate_standard.html
+  singularity: singularity.html
   spatial_genomics_mouse_kidney: spatial_genomics_mouse_kidney.html
   spatial_transformations: spatial_transformations.html
   structure: structure.html
@@ -39,7 +42,7 @@ articles:
   visualizations: visualizations.html
   vizgen_mouse_brain: vizgen_mouse_brain.html
   xenium_breast_cancer: xenium_breast_cancer.html
-last_built: 2023-12-21T21:36Z
+last_built: 2024-01-29T16:29Z
 urls:
   reference: https://drieslab.github.io/Giotto/reference
   article: https://drieslab.github.io/Giotto/articles
