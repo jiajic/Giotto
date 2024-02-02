@@ -355,7 +355,7 @@ environment.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Ensure Giotto Suite is installed</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"Giotto"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
+<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/Giotto"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/Giotto/">Giotto</a></span><span class="op">)</span></span>
@@ -365,9 +365,22 @@ environment.</p>
 <span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/GiottoData/">GiottoData</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Ensure the Python environment for Giotto has been installed</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/GiottoData/">GiottoData</a></span><span class="op">)</span></span></code></pre></div>
+<p>NOTE: With the most recent version of Giotto, the following error has
+been observed, particularly when installing the package from a
+terminal:</p>
+<p><img src="images/installation/timeout.png"></p>
+<p>This error is related to the time required for downloading the
+package. To solve the error, increase the limit of downloading time by
+running this code in your R console:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>timeout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"timeout"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>If you are doing the installation through a linux terminal, you can
+run instead this command to directly modify your R environment
+variable:</p>
+<pre><code>echo "R_DEFAULT_INTERNET_TIMEOUT = 1000" &gt;&gt; .Renviron</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Ensure the Python environment for Giotto has been installed</span></span>
 <span><span class="va">genv_exists</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/checkGiottoEnvironment.html">checkGiottoEnvironment</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="va">genv_exists</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="co"># The following command need only be run once to install the Giotto environment</span></span>
@@ -429,7 +442,7 @@ within a vector, and provide that vector to the
 <strong>installGiottoEnvironment</strong>; this function will identify
 the OS in use and install/not install packages (i.e. python.app)
 accordingly.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">### Note that the following code has been provided to indicate how to install</span></span>
 <span><span class="co">### Giotto with customized Python and Python package versions. It has been </span></span>
 <span><span class="co">### intentionally commented out so that it will not run and overwrite the </span></span>
@@ -458,7 +471,7 @@ miniconda path to create an environment is undesirable, the Giotto
 environment may be created within an existing anaconda/miniconda
 environment by specifying the <code>mini_install_path</code>
 argument:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/installGiottoEnvironment.html">installGiottoEnvironment</a></span><span class="op">(</span>mini_install_path <span class="op">=</span> <span class="st">"C:/my/conda/lives/here"</span><span class="op">)</span></span></code></pre></div>
 <p>If not provided, it is chosen by <a href="https://rstudio.github.io/reticulate/reference/conda-tools.html#finding-conda-1" class="external-link">reticulate::install_miniconda()</a>.
 Please note the required input format: - <strong>Correct
@@ -503,7 +516,7 @@ respective dependencies) for full functionality:</p>
 them.</p>
 <p><em>Note that “community” and “sklearn” are aliases of
 “python-louvain” and “scikit-learn”, respectively.</em></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Creating Giotto Instructions without specifying a Python path will make </span></span>
 <span><span class="co"># reticulate activate the default Giotto environment. </span></span>
 <span><span class="va">default_instrs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoInstructions.html">createGiottoInstructions</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -541,7 +554,7 @@ them.</p>
 <div class="section level2">
 <h2 id="troubleshooting-packages-not-found">6. Troubleshooting Packages not Found<a class="anchor" aria-label="anchor" href="#troubleshooting-packages-not-found"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Restart the R session, while maintaining workspace variables.</span></span>
 <span><span class="co"># If using RStudio, the following command will do exactly that:</span></span>
 <span><span class="fu">.rs.restartR</span><span class="op">(</span><span class="op">)</span></span>
@@ -648,39 +661,39 @@ at the time of the issue.</li>
 <div class="section level2">
 <h2 id="session-info">7. Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h2>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">2.2</span> (<span class="dv">2022-10-31</span> ucrt)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Platform<span class="sc">:</span> x86_64<span class="sc">-</span>w64<span class="sc">-</span>mingw32<span class="sc">/</span><span class="fu">x64</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Running under<span class="sc">:</span> Windows <span class="dv">10</span> <span class="fu">x64</span> (build <span class="dv">22621</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Matrix products<span class="sc">:</span> default</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>locale<span class="sc">:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] LC_COLLATE<span class="ot">=</span>English_United States.utf8 </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] LC_CTYPE<span class="ot">=</span>English_United States.utf8   </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">3</span>] LC_MONETARY<span class="ot">=</span>English_United States.utf8</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>] LC_NUMERIC<span class="ot">=</span>C                          </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">5</span>] LC_TIME<span class="ot">=</span>English_United States.utf8    </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>attached base packages<span class="sc">:</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>other attached packages<span class="sc">:</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] GiottoData_0.<span class="fl">1.0</span> Giotto_3.<span class="fl">2.1</span>    </span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] Rcpp_1.<span class="fl">0.10</span>       pillar_1.<span class="fl">9.0</span>      compiler_4.<span class="fl">2.2</span>    tools_4.<span class="fl">2.2</span>      </span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>[<span class="dv">5</span>] digest_0.<span class="fl">6.30</span>     jsonlite_1.<span class="fl">8.3</span>    evaluate_0<span class="fl">.20</span>     lifecycle_1.<span class="fl">0.3</span>  </span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>[<span class="dv">9</span>] tibble_3.<span class="fl">2.1</span>      gtable_0.<span class="fl">3.3</span>      lattice_0<span class="fl">.20</span><span class="dv">-45</span>   png_0<span class="fl">.1</span><span class="dv">-7</span>        </span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] pkgconfig_2.<span class="fl">0.3</span>   rlang_1.<span class="fl">1.0</span>       Matrix_1<span class="fl">.5</span><span class="dv">-1</span>      cli_3.<span class="fl">4.1</span>        </span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>[<span class="dv">17</span>] rstudioapi_0<span class="fl">.14</span>   parallel_4.<span class="fl">2.2</span>    yaml_2.<span class="fl">3.7</span>        xfun_0<span class="fl">.38</span>        </span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>[<span class="dv">21</span>] fastmap_1.<span class="fl">1.0</span>     terra_1<span class="fl">.7</span><span class="dv">-18</span>      dplyr_1.<span class="fl">1.1</span>       knitr_1<span class="fl">.42</span>       </span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>[<span class="dv">25</span>] rappdirs_0.<span class="fl">3.3</span>    generics_0.<span class="fl">1.3</span>    vctrs_0.<span class="fl">6.1</span>       grid_4.<span class="fl">2.2</span>       </span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>[<span class="dv">29</span>] tidyselect_1.<span class="fl">2.0</span>  reticulate_1<span class="fl">.26</span>   glue_1.<span class="fl">6.2</span>        data.table_1.<span class="fl">14.6</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>[<span class="dv">33</span>] R6_2.<span class="fl">5.1</span>          fansi_1.<span class="fl">0.4</span>       rmarkdown_2<span class="fl">.21</span>    ggplot2_3.<span class="fl">4.1</span>    </span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>[<span class="dv">37</span>] magrittr_2.<span class="fl">0.3</span>    scales_1.<span class="fl">2.1</span>      codetools_0<span class="fl">.2</span><span class="dv">-18</span>  htmltools_0.<span class="fl">5.4</span>  </span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>[<span class="dv">41</span>] colorspace_2<span class="fl">.1</span><span class="dv">-0</span>  utf8_1.<span class="fl">2.3</span>        munsell_0.<span class="fl">5.0</span>    </span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>R version <span class="dv">4</span>.<span class="fl">2.2</span> (<span class="dv">2022-10-31</span> ucrt)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Platform<span class="sc">:</span> x86_64<span class="sc">-</span>w64<span class="sc">-</span>mingw32<span class="sc">/</span><span class="fu">x64</span> (<span class="dv">64</span><span class="sc">-</span>bit)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Running under<span class="sc">:</span> Windows <span class="dv">10</span> <span class="fu">x64</span> (build <span class="dv">22621</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>Matrix products<span class="sc">:</span> default</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>locale<span class="sc">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] LC_COLLATE<span class="ot">=</span>English_United States.utf8 </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>] LC_CTYPE<span class="ot">=</span>English_United States.utf8   </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">3</span>] LC_MONETARY<span class="ot">=</span>English_United States.utf8</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>] LC_NUMERIC<span class="ot">=</span>C                          </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">5</span>] LC_TIME<span class="ot">=</span>English_United States.utf8    </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>attached base packages<span class="sc">:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] stats     graphics  grDevices utils     datasets  methods   base     </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>other attached packages<span class="sc">:</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] GiottoData_0.<span class="fl">1.0</span> Giotto_3.<span class="fl">2.1</span>    </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>loaded via a <span class="fu">namespace</span> (and not attached)<span class="sc">:</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] Rcpp_1.<span class="fl">0.10</span>       pillar_1.<span class="fl">9.0</span>      compiler_4.<span class="fl">2.2</span>    tools_4.<span class="fl">2.2</span>      </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>[<span class="dv">5</span>] digest_0.<span class="fl">6.30</span>     jsonlite_1.<span class="fl">8.3</span>    evaluate_0<span class="fl">.20</span>     lifecycle_1.<span class="fl">0.3</span>  </span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>[<span class="dv">9</span>] tibble_3.<span class="fl">2.1</span>      gtable_0.<span class="fl">3.3</span>      lattice_0<span class="fl">.20</span><span class="dv">-45</span>   png_0<span class="fl">.1</span><span class="dv">-7</span>        </span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] pkgconfig_2.<span class="fl">0.3</span>   rlang_1.<span class="fl">1.0</span>       Matrix_1<span class="fl">.5</span><span class="dv">-1</span>      cli_3.<span class="fl">4.1</span>        </span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>[<span class="dv">17</span>] rstudioapi_0<span class="fl">.14</span>   parallel_4.<span class="fl">2.2</span>    yaml_2.<span class="fl">3.7</span>        xfun_0<span class="fl">.38</span>        </span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>[<span class="dv">21</span>] fastmap_1.<span class="fl">1.0</span>     terra_1<span class="fl">.7</span><span class="dv">-18</span>      dplyr_1.<span class="fl">1.1</span>       knitr_1<span class="fl">.42</span>       </span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>[<span class="dv">25</span>] rappdirs_0.<span class="fl">3.3</span>    generics_0.<span class="fl">1.3</span>    vctrs_0.<span class="fl">6.1</span>       grid_4.<span class="fl">2.2</span>       </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>[<span class="dv">29</span>] tidyselect_1.<span class="fl">2.0</span>  reticulate_1<span class="fl">.26</span>   glue_1.<span class="fl">6.2</span>        data.table_1.<span class="fl">14.6</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>[<span class="dv">33</span>] R6_2.<span class="fl">5.1</span>          fansi_1.<span class="fl">0.4</span>       rmarkdown_2<span class="fl">.21</span>    ggplot2_3.<span class="fl">4.1</span>    </span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>[<span class="dv">37</span>] magrittr_2.<span class="fl">0.3</span>    scales_1.<span class="fl">2.1</span>      codetools_0<span class="fl">.2</span><span class="dv">-18</span>  htmltools_0.<span class="fl">5.4</span>  </span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>[<span class="dv">41</span>] colorspace_2<span class="fl">.1</span><span class="dv">-0</span>  utf8_1.<span class="fl">2.3</span>        munsell_0.<span class="fl">5.0</span>    </span></code></pre></div>
 </div>
   </div>
 

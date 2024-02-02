@@ -435,17 +435,27 @@ store the output using the assignment operator.</p>
 <span>                                                  height <span class="op">=</span> <span class="fl">320</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/interactive_selection/6-my_polygon_coordinates.png"></p>
 <p>Now, let’s add the polygon coordinates to the Giotto object:</p>
+<p>Create a polygon object</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## We must transform the data.table or data.frame with coordinates into a Giotto polygon object</span></span>
-<span><span class="va">my_giotto_polygons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoPolygon.html">createGiottoPolygonsFromDfr</a></span><span class="op">(</span><span class="va">my_polygon_coordinates</span>, name <span class="op">=</span> <span class="st">'selections'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## Then, add the polygons to the Giotto object</span></span>
-<span><span class="va">visium_brain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addGiottoPolygons.html">addGiottoPolygons</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">visium_brain</span>,</span>
+<span><span class="va">my_giotto_polygons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoPolygon.html">createGiottoPolygonsFromDfr</a></span><span class="op">(</span><span class="va">my_polygon_coordinates</span>, </span>
+<span>                                                  name <span class="op">=</span> <span class="st">'selections'</span><span class="op">)</span></span></code></pre></div>
+<p>If you plan to save and load your Giotto object after adding the
+selected polygons, include the centroids of the polygon by using the
+following argument:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## We must transform the data.table or data.frame with coordinates into a Giotto polygon object</span></span>
+<span><span class="va">my_giotto_polygons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createGiottoPolygon.html">createGiottoPolygonsFromDfr</a></span><span class="op">(</span><span class="va">my_polygon_coordinates</span>, </span>
+<span>                                                  name <span class="op">=</span> <span class="st">'selections'</span>,</span>
+<span>                                                  calc_centroids <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Then, add the polygons to the Giotto object</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">visium_brain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addGiottoPolygons.html">addGiottoPolygons</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">visium_brain</span>,</span>
 <span>                                  gpolygons <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">my_giotto_polygons</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Finally, add the corresponding polygon ID to the cell Metadata. By
 default, the function will add a ‘no_polygon’ label to cells outside
 polygons, but you can customize it using the na.label argument.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Using the default parameters</span></span>
 <span><span class="va">visium_brain</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/addPolygonCells.html">addPolygonCells</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                                polygon_name <span class="op">=</span> <span class="st">'selections'</span><span class="op">)</span></span>
@@ -453,7 +463,7 @@ polygons, but you can customize it using the na.label argument.</p>
 <span><span class="co">## Let's see how it looks like now the cell_metadata</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/pDataDT.html">pDataDT</a></span><span class="op">(</span><span class="va">visium_brain</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/interactive_selection/7-new_metadata.png"></p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Customize the NA label</span></span>
 <span><span class="va">visium_brain</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/addPolygonCells.html">addPolygonCells</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                                polygon_name <span class="op">=</span> <span class="st">'selections'</span>,</span>
@@ -465,13 +475,13 @@ polygons, but you can customize it using the na.label argument.</p>
 </h2>
 <p>You can extract the coordinates and IDs from cells located within one
 or multiple regions of interest.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Provide the name of the polygon to extract cells from</span></span>
 <span><span class="fu"><a href="../reference/getCellsFromPolygon.html">getCellsFromPolygon</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                    polygon_name <span class="op">=</span> <span class="st">'selections'</span>,</span>
 <span>                    polygons <span class="op">=</span> <span class="st">'polygon 1'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/interactive_selection/9-get_cells_polygon_1.png"></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## If no polygon name is provided, the function will retrieve cells located within all polygons</span></span>
 <span><span class="fu"><a href="../reference/getCellsFromPolygon.html">getCellsFromPolygon</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                    polygon_name <span class="op">=</span> <span class="st">'selections'</span><span class="op">)</span></span></code></pre></div>
@@ -482,12 +492,12 @@ or multiple regions of interest.</p>
 </h2>
 <p>Let’s compare the expression levels of some genes of interest between
 the selected regions.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## You can provide a list of genes</span></span>
 <span><span class="fu"><a href="../reference/comparePolygonExpression.html">comparePolygonExpression</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                         selected_feats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Stmn1'</span>, <span class="st">'Psd'</span>, <span class="st">'Ly6h'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/interactive_selection/11-compare_genes.png"></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Or calculate the top genes expressed within each region, then provide the result to compare polygons.</span></span>
 <span><span class="va">scran_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/findMarkers_one_vs_all.html">findMarkers_one_vs_all</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>                                        spat_unit <span class="op">=</span> <span class="st">'cell'</span>,</span>
@@ -509,7 +519,7 @@ the selected regions.</p>
 <p>If you have run an analysis for finding clusters or have annotated
 cell types within the cell metadata slot, you can use the column name to
 compare the abundance of cell types between the selected regions.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## By default, the function will look for the leiden_cluster</span></span>
 <span><span class="fu"><a href="../reference/compareCellAbundance.html">compareCellAbundance</a></span><span class="op">(</span><span class="va">visium_brain</span><span class="op">)</span></span>
 <span></span>
@@ -523,7 +533,7 @@ compare the abundance of cell types between the selected regions.</p>
 <p>You can use the spatPlot( ) arguments to isolate and plot each
 region. Also, you can color each cell by cluster, cell type or
 expression level.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Compare clusters within each region</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>           cell_color <span class="op">=</span> <span class="st">'leiden_clus'</span>,</span>
@@ -533,7 +543,7 @@ expression level.</p>
 <span>           cow_n_col <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>           show_legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/interactive_selection/14-compare_spatplots.png"></p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Compare expression levels between regions</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatFeatPlot2D.html">spatFeatPlot2D</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>               expression_values <span class="op">=</span> <span class="st">'scaled'</span>,</span>
@@ -548,7 +558,7 @@ expression level.</p>
 <p>You can plot again all or some drawn polygons. The minimal input is
 the Giotto object containing polygon coordinates within the spatial_info
 slot, as well as the spatial plot.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Plot all polygons</span></span>
 <span><span class="fu"><a href="../reference/plotPolygons.html">plotPolygons</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>             polygon_name <span class="op">=</span> <span class="st">'selections'</span>,</span>
@@ -556,7 +566,7 @@ slot, as well as the spatial plot.</p>
 <p><img src="images/interactive_selection/16-plotPolygons.png"></p>
 <p>Additionaly, you can plot a few polygons by providing a vector with
 the polygon IDs.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Plot a subset of polygons</span></span>
 <span><span class="fu"><a href="../reference/plotPolygons.html">plotPolygons</a></span><span class="op">(</span><span class="va">visium_brain</span>,</span>
 <span>             polygon_name <span class="op">=</span> <span class="st">'selections'</span>,</span>
