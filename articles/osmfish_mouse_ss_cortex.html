@@ -240,6 +240,11 @@
     </li>
     <li class="divider">
     </li>
+<li>
+      <a href="https://drieslab.github.io/GiottoClass/articles/spatial_geometries.html">Spatial geometries</a>
+    </li>
+    <li class="divider">
+    </li>
 <li class="dropdown-header">Image alignment</li>
     <li>
       <a href="../articles/image_alignment.html">Image alignment</a>
@@ -351,14 +356,13 @@ cells.</p>
 <h2 id="set-up-giotto-environment">Set up Giotto environment<a class="anchor" aria-label="anchor" href="#set-up-giotto-environment"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Ensure Giotto Suite is installed.</span></span>
-<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"Giotto"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/Giotto@suite"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
+<code class="sourceCode R"><span><span class="co"># Ensure Giotto Suite and GiottoData, a small, helper module for tutorials, are installed.</span></span>
+<span><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Giotto"</span>, <span class="st">"GiottoData"</span><span class="op">)</span></span>
+<span><span class="va">need_install</span> <span class="op">&lt;-</span> <span class="va">pkgs</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">pkgs</span>, <span class="kw">function</span><span class="op">(</span><span class="va">pkg</span><span class="op">)</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="va">pkg</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
-<span><span class="co"># Ensure GiottoData, a small, helper module for tutorials, is installed.</span></span>
-<span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="st">"GiottoData"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"drieslab/GiottoData"</span><span class="op">)</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">need_install</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0L</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
+<span>  <span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"drieslab/%s"</span>, <span class="va">need_install</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://drieslab.github.io/Giotto/">Giotto</a></span><span class="op">)</span></span>
@@ -405,9 +409,9 @@ locally.</p>
 <span>                                  save_dir <span class="op">=</span> <span class="va">results_folder</span>,</span>
 <span>                                  python_path <span class="op">=</span> <span class="va">python_path</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">expr_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_expression.txt"</span><span class="op">)</span></span>
-<span><span class="va">loc_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_cell_coordinates.txt"</span><span class="op">)</span></span>
-<span><span class="va">meta_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_cell_metadata.txt"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">expr_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_expression.txt"</span><span class="op">)</span></span>
+<span><span class="va">loc_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_cell_coordinates.txt"</span><span class="op">)</span></span>
+<span><span class="va">meta_path</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">results_folder</span>, <span class="st">"osmFISH_prep_cell_metadata.txt"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="create-giotto-object-process-data">2. Create Giotto object &amp; process data<a class="anchor" aria-label="anchor" href="#create-giotto-object-process-data"></a>
@@ -423,12 +427,14 @@ locally.</p>
 <span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/addCellMetadata.html">addCellMetadata</a></span><span class="op">(</span><span class="va">osm_test</span>, new_metadata <span class="op">=</span> <span class="va">metadata</span>,</span>
 <span>                           by_column <span class="op">=</span> <span class="cn">T</span>, column_cell_ID <span class="op">=</span> <span class="st">'CellID'</span><span class="op">)</span></span>
 <span><span class="co">## filter</span></span>
-<span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filterGiotto.html">filterGiotto</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
-<span>                         expression_threshold <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                         feat_det_in_min_cells <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>                         min_det_feats_per_cell <span class="op">=</span> <span class="fl">10</span>,</span>
-<span>                         expression_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'raw'</span><span class="op">)</span>,</span>
-<span>                         verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filterGiotto.html">filterGiotto</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>    expression_threshold <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    feat_det_in_min_cells <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    min_det_feats_per_cell <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    expression_values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'raw'</span><span class="op">)</span>,</span>
+<span>    verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## normalize Giotto</span></span>
 <span><span class="co">## there are two ways for osmFISH object</span></span>
@@ -437,31 +443,64 @@ locally.</p>
 <span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/normalizeGiotto.html">normalizeGiotto</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># 2. osmFISH way</span></span>
-<span><span class="va">raw_expr_matrix</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/get_expression_values.html">get_expression_values</a></span><span class="op">(</span><span class="va">osm_test</span>, values <span class="op">=</span> <span class="st">"raw"</span><span class="op">)</span></span>
-<span><span class="va">norm_genes</span> <span class="op">=</span> <span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">/</span><span class="fu">GiottorowSums_flex</span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span></span>
+<span><span class="va">raw_expr_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/getExpression.html">getExpression</a></span><span class="op">(</span><span class="va">osm_test</span>, values <span class="op">=</span> <span class="st">"raw"</span>, output <span class="op">=</span> <span class="st">"matrix"</span><span class="op">)</span></span>
+<span><span class="va">norm_genes</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">/</span><span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">norm_genes_cells</span> <span class="op">=</span> <span class="fu">Giottot_flex</span><span class="op">(</span><span class="op">(</span><span class="fu">Giottot_flex</span><span class="op">(</span><span class="va">norm_genes</span><span class="op">)</span><span class="op">/</span><span class="fu">GiottocolSums_flex</span><span class="op">(</span><span class="va">norm_genes</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/set_expression_values.html">set_expression_values</a></span><span class="op">(</span><span class="va">osm_test</span>, values <span class="op">=</span> <span class="va">norm_genes_cells</span> , name <span class="op">=</span> <span class="st">"custom"</span><span class="op">)</span></span>
+<span><span class="va">norm_genes_cells</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="op">(</span><span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">norm_genes</span><span class="op">)</span><span class="op">/</span><span class="fu">Matrix</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums.html" class="external-link">colSums</a></span><span class="op">(</span><span class="va">norm_genes</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">raw_expr_matrix</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">norm_genes_cells</span> <span class="op">&lt;-</span> <span class="fu">Giotto</span><span class="fu">::</span><span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/createExprObj.html">createExprObj</a></span><span class="op">(</span><span class="va">norm_genes_cells</span>, name <span class="op">=</span> <span class="st">"custom"</span><span class="op">)</span></span>
+<span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://drieslab.github.io/GiottoClass/reference/setGiotto.html">setGiotto</a></span><span class="op">(</span><span class="va">osm_test</span>, x <span class="op">=</span> <span class="va">norm_genes_cells</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## add gene &amp; cell statistics</span></span>
 <span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/addStatistics.html">addStatistics</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># save according to giotto instructions</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_a_original_clusters'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>    cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>,</span>
+<span>    point_size <span class="op">=</span> <span class="fl">1.3</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_a_original_clusters'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/2_a_original_clusters.png"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'Region'</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_b_original_regions'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>           cell_color <span class="op">=</span> <span class="st">'Region'</span>,</span>
+<span>           cell_color_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>             <span class="st">"Excluded"</span> <span class="op">=</span> <span class="st">"lightsteelblue4"</span>,</span>
+<span>             <span class="st">"Hippocampus"</span> <span class="op">=</span> <span class="st">"gold"</span>,</span>
+<span>             <span class="st">"White matter"</span> <span class="op">=</span> <span class="st">"cyan"</span>,</span>
+<span>             <span class="st">"Internal Capsule Caudoputamen"</span> <span class="op">=</span> <span class="st">"#9730F2"</span>,</span>
+<span>             <span class="st">"Ventricle"</span> <span class="op">=</span> <span class="st">"green"</span>,</span>
+<span>             <span class="st">"Layer 2-3 lateral"</span> <span class="op">=</span> <span class="st">"blue"</span>,</span>
+<span>             <span class="st">"Layer 2-3 medial"</span> <span class="op">=</span> <span class="st">"yellowgreen"</span>,</span>
+<span>             <span class="st">"Layer 3-4"</span> <span class="op">=</span> <span class="st">"brown"</span>,</span>
+<span>             <span class="st">"Layer 4"</span> <span class="op">=</span> <span class="st">"orange"</span>,</span>
+<span>             <span class="st">"Layer 5"</span> <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>             <span class="st">"Layer 6"</span> <span class="op">=</span> <span class="st">"magenta"</span>,</span>
+<span>             <span class="st">"Pia Layer 1"</span> <span class="op">=</span> <span class="st">"mediumturquoise"</span></span>
+<span>           <span class="op">)</span>,</span>
+<span>           point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_b_original_regions'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/2_b_original_regions.png"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'ClusterID'</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_c_clusterID'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>    cell_color <span class="op">=</span> <span class="st">'ClusterID'</span>,</span>
+<span>    point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_c_clusterID'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/2_c_clusterID.png"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, color_as_factor <span class="op">=</span> <span class="cn">F</span>, gradient_midpoint <span class="op">=</span> <span class="fl">160</span>,</span>
-<span>         gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_d_total_expr_limits'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, </span>
+<span>  color_as_factor <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>  gradient_style <span class="op">=</span> <span class="st">"sequential"</span>,</span>
+<span>  gradient_midpoint <span class="op">=</span> <span class="fl">160</span>,</span>
+<span>  gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,</span>
+<span>  background_color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'2_d_total_expr_limits'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/2_d_total_expr_limits.png"></p>
 </div>
 <div class="section level2">
@@ -472,7 +511,10 @@ locally.</p>
 <span><span class="co"># only 33 genes so use all genes</span></span>
 <span></span>
 <span><span class="co">## run PCA on expression values (default)</span></span>
-<span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/runPCA.html">runPCA</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>, scale_unit <span class="op">=</span> <span class="cn">F</span>, center <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/runPCA.html">runPCA</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>                   expression_values <span class="op">=</span> <span class="st">'custom'</span>, </span>
+<span>                   scale_unit <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>                   center <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/screePlot.html">screePlot</a></span><span class="op">(</span><span class="va">osm_test</span>, ncp <span class="op">=</span> <span class="fl">30</span>,</span>
 <span>          save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_a_screeplot'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/3_a_screeplot.png"></p>
@@ -484,15 +526,28 @@ locally.</p>
 <code class="sourceCode R"><span><span class="co">## run UMAP and tSNE on PCA space (default)</span></span>
 <span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/runUMAP.html">runUMAP</a></span><span class="op">(</span><span class="va">osm_test</span>, dimensions_to_use <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">31</span>, n_threads <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotUMAP.html">plotUMAP</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_c_UMAP_reduction.png'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_c_UMAP_reduction'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/3_c_UMAP_reduction.png"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotUMAP.html">plotUMAP</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
-<span>         cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, color_as_factor <span class="op">=</span> <span class="cn">F</span>, gradient_midpoint <span class="op">=</span> <span class="fl">180</span>, gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">220</span><span class="op">)</span>,</span>
-<span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_d_UMAP_reduction_expression.png'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotUMAP.html">plotUMAP</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>  cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, </span>
+<span>  color_as_factor <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  point_size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  gradient_style <span class="op">=</span> <span class="st">"sequential"</span>,</span>
+<span>  gradient_midpoint <span class="op">=</span> <span class="fl">180</span>,</span>
+<span>  gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">220</span><span class="op">)</span>,</span>
+<span>  background_color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_d_UMAP_reduction_expression'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/3_d_UMAP_reduction_expression.png"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/runtSNE.html">runtSNE</a></span><span class="op">(</span><span class="va">osm_test</span>, dimensions_to_use <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">31</span>, perplexity <span class="op">=</span> <span class="fl">70</span>, check_duplicates <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">osm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/runtSNE.html">runtSNE</a></span><span class="op">(</span></span>
+<span>  <span class="va">osm_test</span>, </span>
+<span>  dimensions_to_use <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">31</span>, </span>
+<span>  perplexity <span class="op">=</span> <span class="fl">70</span>, </span>
+<span>  check_duplicates <span class="op">=</span> <span class="cn">F</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotTSNE.html">plotTSNE</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'3_e_tSNE_reduction'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/3_e_tSNE_reduction.png"></p>
 </div>
@@ -501,14 +556,25 @@ locally.</p>
 </h2>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## hierarchical clustering</span></span>
-<span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/doHclust.html">doHclust</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>, k <span class="op">=</span> <span class="fl">36</span><span class="op">)</span></span>
+<span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/doHclust.html">doHclust</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  expression_values <span class="op">=</span> <span class="st">'custom'</span>, </span>
+<span>  k <span class="op">=</span> <span class="fl">36</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotUMAP.html">plotUMAP</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'hclust'</span>, point_size <span class="op">=</span> <span class="fl">2.5</span>,</span>
 <span>         show_NN_network <span class="op">=</span> <span class="cn">F</span>, edge_alpha <span class="op">=</span> <span class="fl">0.05</span>,</span>
 <span>         save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'4_a_UMAP_hclust'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/4_a_UMAP_hclust.png"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## kmeans clustering</span></span>
-<span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/doKmeans.html">doKmeans</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'normalized'</span>, dim_reduction_to_use <span class="op">=</span> <span class="st">'pca'</span>, dimensions_to_use <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, centers <span class="op">=</span> <span class="fl">36</span>, nstart <span class="op">=</span> <span class="fl">2000</span><span class="op">)</span></span>
+<span><span class="va">osm_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/doKmeans.html">doKmeans</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  expression_values <span class="op">=</span> <span class="st">'normalized'</span>, </span>
+<span>  dim_reduction_to_use <span class="op">=</span> <span class="st">'pca'</span>, </span>
+<span>  dimensions_to_use <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, </span>
+<span>  centers <span class="op">=</span> <span class="fl">36</span>, </span>
+<span>  nstart <span class="op">=</span> <span class="fl">2000</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotUMAP.html">plotUMAP</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'kmeans'</span>,</span>
 <span>         point_size <span class="op">=</span> <span class="fl">2.5</span>, show_NN_network <span class="op">=</span> <span class="cn">F</span>, edge_alpha <span class="op">=</span> <span class="fl">0.05</span>, </span>
 <span>         save_param <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'4_b_UMAP_kmeans'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -561,22 +627,51 @@ locally.</p>
 </h2>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># expression and spatial</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'leiden_clus'</span>, spat_point_size <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>              save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_a_covis_leiden'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  cell_color <span class="op">=</span> <span class="st">'leiden_clus'</span>, </span>
+<span>  spat_point_size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>,</span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_a_covis_leiden'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/5_a_covis_leiden.png"></p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'leiden_clus_m'</span>, spat_point_size <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>              save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_b_covis_leiden_m'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  cell_color <span class="op">=</span> <span class="st">'leiden_clus_m'</span>, </span>
+<span>  spat_point_size <span class="op">=</span> <span class="fl">2</span>,  </span>
+<span>  plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>, </span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_b_covis_leiden_m'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/5_b_covis_leiden_m.png"></p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'leiden_clus_m'</span>, </span>
-<span>              dim_point_size <span class="op">=</span> <span class="fl">2</span>, spat_point_size <span class="op">=</span> <span class="fl">2</span>, select_cell_groups <span class="op">=</span> <span class="st">'m_8'</span>,</span>
-<span>              save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_c_covis_leiden_merged_selected'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  cell_color <span class="op">=</span> <span class="st">'leiden_clus_m'</span>, </span>
+<span>  dim_point_size <span class="op">=</span> <span class="fl">2</span>, </span>
+<span>  spat_point_size <span class="op">=</span> <span class="fl">2</span>, </span>
+<span>  select_cell_groups <span class="op">=</span> <span class="st">'29'</span>,  </span>
+<span>  plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>,</span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_c_covis_leiden_merged_selected'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/5_c_covis_leiden_merged_selected.png"></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, color_as_factor <span class="op">=</span> <span class="cn">F</span>,</span>
-<span>              gradient_midpoint <span class="op">=</span> <span class="fl">160</span>, gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,</span>
-<span>              save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_d_total_expr'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimPlot.html">spatDimPlot2D</a></span><span class="op">(</span></span>
+<span>  gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>  cell_color <span class="op">=</span> <span class="st">'total_expr'</span>, </span>
+<span>  color_as_factor <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  dim_point_shape <span class="op">=</span> <span class="st">"no_border"</span>,</span>
+<span>  spat_point_shape <span class="op">=</span> <span class="st">"no_border"</span>,</span>
+<span>  dim_point_size <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span>  spat_point_size <span class="op">=</span> <span class="fl">0.4</span>,</span>
+<span>  dim_background_color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  spat_background_color <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  gradient_style <span class="op">=</span> <span class="st">"sequential"</span>,</span>
+<span>  gradient_midpoint <span class="op">=</span> <span class="fl">160</span>, </span>
+<span>  gradient_limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,  </span>
+<span>  plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>,</span>
+<span>  save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'5_d_total_expr'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/5_d_total_expr.png"></p>
 </div>
 <div class="section level2">
@@ -587,11 +682,14 @@ locally.</p>
 <span><span class="va">dendsplits</span> <span class="op">=</span> <span class="fu"><a href="../reference/getDendrogramSplits.html">getDendrogramSplits</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
 <span>                                 expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
 <span>                                 cluster_column <span class="op">=</span> <span class="st">'leiden_clus_m'</span><span class="op">)</span></span>
-<span><span class="va">split_3_markers</span> <span class="op">=</span> <span class="fu"><a href="../reference/findMarkers.html">findMarkers</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
-<span>                                         method <span class="op">=</span> <span class="st">'gini'</span>,</span>
-<span>                                         expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
-<span>                                         cluster_column <span class="op">=</span> <span class="st">'leiden_clus_m'</span>,</span>
-<span>group_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">dendsplits</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">tree_1</span><span class="op">)</span>, group_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">dendsplits</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">tree_2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">split_3_markers</span> <span class="op">=</span> <span class="fu"><a href="../reference/findMarkers.html">findMarkers</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>    method <span class="op">=</span> <span class="st">'gini'</span>,</span>
+<span>    expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
+<span>    cluster_column <span class="op">=</span> <span class="st">'leiden_clus_m'</span>,</span>
+<span>    group_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">dendsplits</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">tree_1</span><span class="op">)</span>, </span>
+<span>    group_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">dendsplits</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">$</span><span class="va">tree_2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/6_a_dendrogram.png"></p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Individual populations ##</span></span>
@@ -604,22 +702,22 @@ locally.</p>
 <span><span class="va">topgenes</span> <span class="op">=</span> <span class="va">markers</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">.SD</span>, <span class="fl">1</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">'cluster'</span><span class="op">]</span><span class="op">$</span><span class="va">feats</span></span>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/violinPlot.html">violinPlot</a></span><span class="op">(</span><span class="va">osm_test</span>, feats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">topgenes</span><span class="op">)</span>, cluster_column <span class="op">=</span> <span class="st">'leiden_clus_m'</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
 <span>           strip_text <span class="op">=</span> <span class="fl">5</span>, strip_position <span class="op">=</span> <span class="st">'right'</span>,</span>
-<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_a_violinplot'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_a_violinplot'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/6_a_violinplot.png"></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotMetaDataHeatmap.html">plotMetaDataHeatmap</a></span><span class="op">(</span><span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
 <span>                    metadata_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'leiden_clus_m'</span><span class="op">)</span>, </span>
-<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_b_metaheatmap'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_b_metaheatmap'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/6_b_metaheatmap.png"></p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotMetaDataHeatmap.html">plotMetaDataHeatmap</a></span><span class="op">(</span><span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
 <span>                    metadata_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'leiden_clus_m'</span><span class="op">)</span>, </span>
-<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_e_metaheatmap_all_genes'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_e_metaheatmap_all_genes'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/6_e_metaheatmap_all_genes.png"></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/plotMetaDataHeatmap.html">plotMetaDataHeatmap</a></span><span class="op">(</span><span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'custom'</span>,</span>
 <span>                    metadata_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'ClusterName'</span><span class="op">)</span>, </span>
-<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_f_metaheatmap_all_genes_names'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>                    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'6_f_metaheatmap_all_genes_names'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/6_f_metaheatmap_all_genes_names.png"></p>
 </div>
 <div class="section level2">
@@ -637,11 +735,15 @@ metadata.</p>
 <span>                              sdimx_stepsize <span class="op">=</span> <span class="fl">2000</span>,</span>
 <span>                              sdimy_stepsize <span class="op">=</span> <span class="fl">2000</span>,</span>
 <span>                              minimum_padding <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span><span class="va">osm_test</span>, cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, show_grid <span class="op">=</span> <span class="cn">T</span>,</span>
-<span></span>
-<span>           grid_color <span class="op">=</span> <span class="st">'lightblue'</span>, spatial_grid_name <span class="op">=</span> <span class="st">'spatial_grid'</span>,</span>
-<span>           point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
-<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'8_grid_det_cell_types'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span></span>
+<span>    <span class="va">osm_test</span>, </span>
+<span>    cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, </span>
+<span>    show_grid <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    grid_color <span class="op">=</span> <span class="st">'lightblue'</span>, </span>
+<span>    spatial_grid_name <span class="op">=</span> <span class="st">'spatial_grid'</span>,</span>
+<span>    point_size <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">"8_grid_det_cell_types"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/8_grid_det_cell_types.png"></p>
 </div>
 <div class="section level2">
@@ -652,7 +754,7 @@ metadata.</p>
 <span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatPlot.html">spatPlot2D</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, show_network <span class="op">=</span> <span class="cn">T</span>,</span>
 <span>           network_color <span class="op">=</span> <span class="st">'blue'</span>,</span>
 <span>           point_size <span class="op">=</span> <span class="fl">1.5</span>, cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, legend_symbol_size <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'9_spatial_network_k10'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>           save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'9_spatial_network_k10'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/9_spatial_network_k10.png"></p>
 </div>
 <div class="section level2">
@@ -663,10 +765,18 @@ metadata.</p>
 <span><span class="va">kmtest</span> <span class="op">=</span> <span class="fu"><a href="../reference/binSpect.html">binSpect</a></span><span class="op">(</span><span class="va">osm_test</span>, calc_hub <span class="op">=</span> <span class="cn">T</span>, hub_min_int <span class="op">=</span> <span class="fl">5</span>,</span>
 <span>                  bin_method <span class="op">=</span> <span class="st">'kmeans'</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimFeatPlot2D.html">spatDimFeatPlot2D</a></span><span class="op">(</span><span class="va">osm_test</span>, expression_values <span class="op">=</span> <span class="st">'scaled'</span>,</span>
-<span>               feats <span class="op">=</span> <span class="va">kmtest</span><span class="op">$</span><span class="va">feats</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>,</span>
-<span>               cow_n_col <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>               save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'10_a_spatial_genes_km'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://drieslab.github.io/GiottoVisuals/reference/spatDimFeatPlot2D.html">spatDimFeatPlot2D</a></span><span class="op">(</span></span>
+<span>    <span class="va">osm_test</span>, </span>
+<span>    expression_values <span class="op">=</span> <span class="st">'scaled'</span>,</span>
+<span>    feats <span class="op">=</span> <span class="va">kmtest</span><span class="op">$</span><span class="va">feats</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>, </span>
+<span>    plot_alignment <span class="op">=</span> <span class="st">'horizontal'</span>,</span>
+<span>    spat_point_shape <span class="op">=</span> <span class="st">"no_border"</span>,</span>
+<span>    dim_point_shape <span class="op">=</span> <span class="st">"no_border"</span>,</span>
+<span>    spat_point_size <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>    dim_point_size <span class="op">=</span> <span class="fl">0.1</span>,</span>
+<span>    cow_n_col <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'10_a_spatial_genes_km'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/10_a_spatial_genes_km.png"></p>
 </div>
 <div class="section level2">
@@ -678,30 +788,142 @@ metadata.</p>
 <span>                                           cluster_column <span class="op">=</span> <span class="st">'ClusterName'</span>,</span>
 <span>                                           number_of_simulations <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="co">## barplot</span></span>
-<span><span class="fu"><a href="../reference/cellProximityBarplot.html">cellProximityBarplot</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, min_orig_ints <span class="op">=</span> <span class="fl">25</span>, min_sim_ints <span class="op">=</span> <span class="fl">25</span>,</span>
-<span>                     save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_a_barplot_cell_cell_enrichment'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/cellProximityBarplot.html">cellProximityBarplot</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>    CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, </span>
+<span>    min_orig_ints <span class="op">=</span> <span class="fl">25</span>, </span>
+<span>    min_sim_ints <span class="op">=</span> <span class="fl">25</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_a_barplot_cell_cell_enrichment'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/12_a_barplot_cell_cell_enrichment.png"></p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## heatmap</span></span>
-<span><span class="fu"><a href="../reference/cellProximityHeatmap.html">cellProximityHeatmap</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, order_cell_types <span class="op">=</span> <span class="cn">T</span>, scale <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>                     color_breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>, <span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span>, color_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'blue'</span>, <span class="st">'white'</span>, <span class="st">'red'</span><span class="op">)</span>,</span>
-<span>                     save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_b_heatmap_cell_cell_enrichment'</span>, unit <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/cellProximityHeatmap.html">cellProximityHeatmap</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>    CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, </span>
+<span>    order_cell_types <span class="op">=</span> <span class="cn">T</span>, </span>
+<span>    scale <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>    color_breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>, <span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span>, </span>
+<span>    color_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'blue'</span>, <span class="st">'white'</span>, <span class="st">'red'</span><span class="op">)</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_b_heatmap_cell_cell_enrichment'</span>, </span>
+<span>                      unit <span class="op">=</span> <span class="st">'in'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/12_b_heatmap_cell_cell_enrichment.png"></p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## network</span></span>
-<span><span class="fu"><a href="../reference/cellProximityNetwork.html">cellProximityNetwork</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>, CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, remove_self_edges <span class="op">=</span> <span class="cn">F</span>, only_show_enrichment_edges <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>                     save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_c_network_cell_cell_enrichment'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/cellProximityNetwork.html">cellProximityNetwork</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>, </span>
+<span>    CPscore <span class="op">=</span> <span class="va">cell_proximities</span>, </span>
+<span>    remove_self_edges <span class="op">=</span> <span class="cn">F</span>, </span>
+<span>    only_show_enrichment_edges <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_c_network_cell_cell_enrichment'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/12_c_network_cell_cell_enrichment.png"></p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## visualization</span></span>
 <span><span class="va">spec_interaction</span> <span class="op">=</span> <span class="st">"Astrocyte_Mfge8--Oligodendrocyte_Precursor_cells"</span></span>
-<span><span class="fu"><a href="../reference/cellProximitySpatPlot.html">cellProximitySpatPlot</a></span><span class="op">(</span>gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
-<span>                      interaction_name <span class="op">=</span> <span class="va">spec_interaction</span>,</span>
-<span>                      cluster_column <span class="op">=</span> <span class="st">'ClusterName'</span>, </span>
-<span>                      cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, cell_color_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Astrocyte_Mfge8'</span> <span class="op">=</span> <span class="st">'blue'</span>, <span class="st">'Oligodendrocyte_Precursor_cells'</span> <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>,</span>
-<span>                      coord_fix_ratio <span class="op">=</span> <span class="fl">0.5</span>,  point_size_select <span class="op">=</span> <span class="fl">3</span>, point_size_other <span class="op">=</span> <span class="fl">1.5</span>,</span>
-<span>                      save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_d_cell_cell_enrichment_selected'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/cellProximitySpatPlot.html">cellProximitySpatPlot</a></span><span class="op">(</span></span>
+<span>    gobject <span class="op">=</span> <span class="va">osm_test</span>,</span>
+<span>    interaction_name <span class="op">=</span> <span class="va">spec_interaction</span>,</span>
+<span>    cluster_column <span class="op">=</span> <span class="st">'ClusterName'</span>, </span>
+<span>    cell_color <span class="op">=</span> <span class="st">'ClusterName'</span>, </span>
+<span>    cell_color_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Astrocyte_Mfge8'</span> <span class="op">=</span> <span class="st">'blue'</span>, </span>
+<span>                        <span class="st">'Oligodendrocyte_Precursor_cells'</span> <span class="op">=</span> <span class="st">'red'</span><span class="op">)</span>,</span>
+<span>    coord_fix_ratio <span class="op">=</span> <span class="fl">0.5</span>,  </span>
+<span>    point_size_select <span class="op">=</span> <span class="fl">3</span>, </span>
+<span>    point_size_other <span class="op">=</span> <span class="fl">1.5</span>,</span>
+<span>    save_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>save_name <span class="op">=</span> <span class="st">'12_d_cell_cell_enrichment_selected'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><img src="images/osmfish_mouse_ss_cortex/12_d_cell_cell_enrichment_selected.png"></p>
+<div class="section level3">
+<h3 id="session-info">13. Session Info<a class="anchor" aria-label="anchor" href="#session-info"></a>
+</h3>
+<pre><code>R version 4.3.2 (2023-10-31)
+Platform: x86_64-apple-darwin20 (64-bit)
+Running under: macOS Ventura 13.4
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] Giotto_4.0.2       testthat_3.2.0     GiottoData_0.2.6.3 GiottoClass_0.1.3 
+[5] GiottoUtils_0.1.3 
+
+loaded via a namespace (and not attached):
+  [1] fs_1.6.3                    matrixStats_1.2.0           bitops_1.0-7               
+  [4] devtools_2.4.5              httr_1.4.7                  RColorBrewer_1.1-3         
+  [7] doParallel_1.0.17           profvis_0.3.8               tools_4.3.2                
+ [10] backports_1.4.1             utf8_1.2.4                  R6_2.5.1                   
+ [13] DT_0.31                     lazyeval_0.2.2              uwot_0.1.16                
+ [16] GetoptLong_1.0.5            urlchecker_1.0.1            withr_2.5.2                
+ [19] prettyunits_1.2.0           gridExtra_2.3               progressr_0.14.0           
+ [22] cli_3.6.2                   Biobase_2.62.0              textshaping_0.3.7          
+ [25] factoextra_1.0.7            Cairo_1.6-2                 flashClust_1.01-2          
+ [28] labeling_0.4.3              mvtnorm_1.2-4               arrow_13.0.0.1             
+ [31] systemfonts_1.0.5           dbscan_1.1-12               scater_1.30.1              
+ [34] sessioninfo_1.2.2           limma_3.58.1                rstudioapi_0.15.0          
+ [37] FNN_1.1.3.2                 generics_0.1.3              shape_1.4.6                
+ [40] gtools_3.9.5                dplyr_1.1.4                 dendextend_1.17.1          
+ [43] leaps_3.1                   Matrix_1.6-3                ggbeeswarm_0.7.2           
+ [46] fansi_1.0.6                 S4Vectors_0.40.2            abind_1.4-5                
+ [49] terra_1.7-55                lifecycle_1.0.4             scatterplot3d_0.3-44       
+ [52] yaml_2.3.8                  edgeR_4.0.2                 SummarizedExperiment_1.32.0
+ [55] SparseArray_1.2.3           Rtsne_0.17                  grid_4.3.2                 
+ [58] promises_1.2.1              dqrng_0.3.2                 crayon_1.5.2               
+ [61] miniUI_0.1.1.1              lattice_0.22-5              beachmat_2.18.0            
+ [64] cowplot_1.1.2               magick_2.8.2                pillar_1.9.0               
+ [67] knitr_1.45                  ComplexHeatmap_2.18.0       metapod_1.10.0             
+ [70] GenomicRanges_1.54.1        rjson_0.2.21                estimability_1.4.1         
+ [73] pak_0.7.1                   codetools_0.2-19            glue_1.7.0                 
+ [76] data.table_1.14.10          remotes_2.4.2.1             vctrs_0.6.5                
+ [79] png_0.1-8                   gtable_0.3.4                assertthat_0.2.1           
+ [82] cachem_1.0.8                xfun_0.41                   S4Arrays_1.2.0             
+ [85] mime_0.12                   tidygraph_1.2.3             SingleCellExperiment_1.24.0
+ [88] iterators_1.0.14            statmod_1.5.0               bluster_1.12.0             
+ [91] ellipsis_0.3.2              ArchR_1.0.2                 usethis_2.2.2              
+ [94] bit64_4.0.5                 RcppAnnoy_0.0.21            GenomeInfoDb_1.38.1        
+ [97] rprojroot_2.0.4             irlba_2.3.5.1               vipor_0.4.7                
+[100] colorspace_2.1-0            BiocGenerics_0.48.1         tidyselect_1.2.0           
+[103] processx_3.8.2              emmeans_1.8.9               bit_4.0.5                  
+[106] compiler_4.3.2              BiocNeighbors_1.20.0        desc_1.4.2                 
+[109] ggdendro_0.1.23             DelayedArray_0.28.0         plotly_4.10.3              
+[112] checkmate_2.3.1             scales_1.3.0                multinet_4.1.2             
+[115] callr_3.7.3                 multcompView_0.1-9          stringr_1.5.1              
+[118] SpatialExperiment_1.12.0    digest_0.6.34               rmarkdown_2.25             
+[121] XVector_0.42.0              htmltools_0.5.7             GiottoVisuals_0.1.5        
+[124] pkgconfig_2.0.3             sparseMatrixStats_1.14.0    MatrixGenerics_1.14.0      
+[127] FactoMineR_2.9              fastmap_1.1.1               rlang_1.1.3                
+[130] GlobalOptions_0.1.2         htmlwidgets_1.6.4           shiny_1.8.0                
+[133] DelayedMatrixStats_1.24.0   farver_2.1.1                jsonlite_1.8.8             
+[136] BiocParallel_1.36.0         BiocSingular_1.18.0         RCurl_1.98-1.13            
+[139] magrittr_2.0.3              scuttle_1.12.0              GenomeInfoDbData_1.2.11    
+[142] munsell_0.5.0               Rcpp_1.0.12                 viridis_0.6.4              
+[145] reticulate_1.34.0           stringi_1.8.3               ggraph_2.1.0               
+[148] brio_1.1.3                  zlibbioc_1.48.0             MASS_7.3-60                
+[151] plyr_1.8.9                  pkgbuild_1.4.2              parallel_4.3.2             
+[154] ggrepel_0.9.5               deldir_2.0-2                graphlayouts_1.0.2         
+[157] circlize_0.4.15             locfit_1.5-9.8              colorRamp2_0.1.0           
+[160] ps_1.7.5                    clustree_0.5.1              igraph_1.6.0               
+[163] reshape2_1.4.4              stats4_4.3.2                ScaledMatrix_1.10.0        
+[166] pkgload_1.3.3               evaluate_0.23               scran_1.30.2               
+[169] foreach_1.5.2               tweenr_2.0.2                httpuv_1.6.13              
+[172] tidyr_1.3.0                 purrr_1.0.2                 polyclip_1.10-6            
+[175] clue_0.3-65                 ggplot2_3.4.4               ggforce_0.4.1              
+[178] rsvd_1.0.5                  xtable_1.8-4                later_1.3.2                
+[181] viridisLite_0.4.2           ragg_1.2.6                  tibble_3.2.1               
+[184] memoise_2.0.1               beeswarm_0.4.0              IRanges_2.36.0             
+[187] cluster_2.1.4              </code></pre>
+</div>
 </div>
   </div>
 
