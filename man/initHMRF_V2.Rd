@@ -23,9 +23,10 @@ initHMRF_V2(
   use_metagene = FALSE,
   cluster_metagene = 50,
   top_metagene = 20,
-  existing_dim_reduction_to_use = NULL,
-  existing_dim_reduction_name = NULL,
-  existing_dimensions_to_use = NULL,
+  existing_spatial_enrichm_to_use = NULL,
+  use_neighborhood_composition = FALSE,
+  spatial_network_name_for_neighborhood = NULL,
+  metadata_to_use = NULL,
   hmrf_seed = 100,
   cl.method = c("km", "leiden", "louvain"),
   resolution.cl = 1,
@@ -74,11 +75,13 @@ initHMRF_V2(
 
 \item{top_metagene}{= number of genes in each cluster for the metagene calculation}
 
-\item{existing_dim_reduction_to_use}{name of dimension reduction method to use}
+\item{existing_spatial_enrichm_to_use}{name of existing spatial enrichment result to use}
 
-\item{existing_dim_reduction_name}{name of dimension reduction result to use as the expression value for clustering}
+\item{use_neighborhood_composition}{if neighborhood composition is used for hmrf}
 
-\item{existing_dimensions_to_use}{integers to selected dimensions in the specified dimension reduction result, set to NULL to select all}
+\item{spatial_network_name_for_neighborhood}{spatial network used to calculate neighborhood composition}
+
+\item{metadata_to_use}{metadata used to calculate neighborhood composition}
 
 \item{hmrf_seed}{random number seed to generate initial mean vector of HMRF model}
 
@@ -98,22 +101,55 @@ initHMRF_V2(
 
 \item{python_path}{python_path}
 }
+\value{
+This function returns a list containing:
+\itemize{
+\item \strong{y} (expression), nei (neighborhood structure)
+\item \strong{numnei} (number of neighbors)
+\item \strong{blocks} (graph colors)
+\item \strong{damp} (dampened factor)
+\item \strong{mu} (mean)
+\item \strong{sigma} (covariance)
+\item \strong{k}
+\item \strong{genes}
+\item \strong{edgelist}
+\item \strong{init.cl} (initial clusters)
+\item \strong{spat_unit}
+\item \strong{feat_type}
+}
+
+This information is needed for the second step, \code{doHMRF()}.
+}
 \description{
 Run initialzation for HMRF model
 }
 \details{
-This function is the initialization step of HMRF domain clustering. First, user specify which of Giotto's spatial genes to run,
-through use_spatial_genes. Spatial genes have been stored in the gene metadata table. A first pass of genes will filter genes that
-are not significantly spatial, as determined by filter_method. If filter_method is none, then top 2500 (gene_list_from_top) genes
-ranked by pvalue are considered spatial. If filter_method is elbow, then the exact cutoff is determined by the elbow in
-the -log10 P-value vs. gene rank plot. Second, users have a few options to decrease the dimension of the spatial genes for
-clustering, listed with selection priority:
-   1. use PCA of the spatial gene expressions (selected by use_pca)
-   2. use metagene expressions (selected by use_metagene)
-   3. sampling to select 500 spatial genes (controlled by gene_samples).
-Third, once spatial genes are finalized, we are using clustering method to initialize HMRF.
-There are 3 clustering algorithm: K-means, Leiden, and Louvain to determine initial centroids of HMRF. The initialization is
-then finished. This function returns a list containing y (expression), nei (neighborhood structure), numnei (number of neighbors),
-blocks (graph colors), damp (dampened factor), mu (mean), sigma (covariance), k, genes, edgelist, init.cl (initial clusters),
-spat_unit, feat_type. This information is needed for the second step, doHMRF.
+This function is the initialization step of HMRF domain clustering. This
+function performs 3 major steps:\cr\cr
+\strong{First}, the user specifies which of Giotto's spatial genes to run through
+param \code{use_spatial_genes}. Spatial genes have been stored in the gene metadata
+table. A first pass of genes will filter genes that are not significantly
+spatial, as determined by \code{filter_method.} If \code{filter_method} is "none", then
+the top 2500 (\code{gene_list_from_top}) genes ranked by pvalue are considered
+spatial. If \code{filter_method} is "elbow", then the exact cutoff is determined'
+by the elbow in the -log10 P-value vs. gene rank plot.\cr\cr
+\strong{Second}, users have a few options to decrease the dimension of the spatial
+genes for clustering, listed with selection priority:
+\enumerate{
+\item use PCA of the spatial gene expressions (selected by \code{use_pca})
+\item use metagene expressions (selected by \code{use_metagene})
+\item sampling to select 500 spatial genes (controlled by \code{gene_samples}).
+}
+
+\cr
+\strong{Third}, once spatial genes are finalized, we are using clustering method
+to initialize HMRF.
+Instead of select spatial genes for domain clustering, HMRF method can also
+be applied on unit neighborhood composition of any group membership
+(such as cell types), specified by parameter: \code{use_neighborhood_composition},
+\code{spatial_network_name_for_neighborhood} and \code{metadata_to_use}.
+HMRF also allows the user to do clustering with any customized spatial
+enrichment matrix (\code{existing_spatial_enrichm_to_use}).
+There are 3 clustering algorithm: K-means, Leiden, and Louvain to determine
+initial centroids of HMRF. The initialization is then finished.
 }
