@@ -1,1158 +1,1032 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://drieslab.github.io/Giotto/404.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/CODE_OF_CONDUCT.html</loc>
+    <loc>/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/CONTRIBUTING.html</loc>
+    <loc>/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/INDEX.html</loc>
+    <loc>/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/LICENSE.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/branches.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/codex_mouse_spleen.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/configuration.html</loc>
+    <loc>/reference/FSV_show.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/docker.html</loc>
+    <loc>/reference/PAGEEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/ecosystem.html</loc>
+    <loc>/reference/adapt_aspect_ratio.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/errorsfaqsandtips.html</loc>
+    <loc>/reference/addCellIntMetadata.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/faqs.html</loc>
+    <loc>/reference/addCellStatistics.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/github_issues.html</loc>
+    <loc>/reference/addFeatStatistics.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/image_alignment.html</loc>
+    <loc>/reference/addFeatsPerc.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/index.html</loc>
+    <loc>/reference/addHMRF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/installation.html</loc>
+    <loc>/reference/addHMRF_V2.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/interactive_selection.html</loc>
+    <loc>/reference/addPolygonCells.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/interoperability_anndata.html</loc>
+    <loc>/reference/addStatistics.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/interoperability_spatialexperiment.html</loc>
+    <loc>/reference/addVisiumPolygons.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/merfish_mouse_hypothalamic.html</loc>
+    <loc>/reference/adjustGiottoMatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/mini_seqfish.html</loc>
+    <loc>/reference/average_feat_feat_expression_in_groups.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/nanostring_cosmx_lung_cancer.html</loc>
+    <loc>/reference/binSpect.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/object_creation.html</loc>
+    <loc>/reference/binSpectMulti.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/osmfish_mouse_ss_cortex.html</loc>
+    <loc>/reference/binSpectMultiMatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/presentations.html</loc>
+    <loc>/reference/binSpectSingle.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/resolve_biosciences.html</loc>
+    <loc>/reference/binSpectSingleMatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/saving_object.html</loc>
+    <loc>/reference/calculateHVF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/saving_plots.html</loc>
+    <loc>/reference/calculate_spatial_enrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/seqfish_cortex.html</loc>
+    <loc>/reference/callSpdep.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/seqscope_mouse_liver.html</loc>
+    <loc>/reference/cellProximityBarplot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/singlecell_lung_adenocarcinoma.html</loc>
+    <loc>/reference/cellProximityEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/singlecell_prostate_integration.html</loc>
+    <loc>/reference/cellProximityEnrichmentEachSpot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/singlecell_prostate_standard.html</loc>
+    <loc>/reference/cellProximityEnrichmentSpots.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/singularity.html</loc>
+    <loc>/reference/cellProximityHeatmap.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/spatial_genomics_mouse_kidney.html</loc>
+    <loc>/reference/cellProximityNetwork.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/spatial_transformations.html</loc>
+    <loc>/reference/cellProximitySpatPlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/structure.html</loc>
+    <loc>/reference/cellProximitySpatPlot2D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/terra.html</loc>
+    <loc>/reference/cellProximitySpatPlot3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visium_cytassist_human_glioblastoma.html</loc>
+    <loc>/reference/cellProximityVisPlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visium_cytassist_lungcancer.html</loc>
+    <loc>/reference/cellProximityVisPlot_internals.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visium_mouse_brain.html</loc>
+    <loc>/reference/cell_proximity_spots.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visium_mouse_kidney.html</loc>
+    <loc>/reference/cell_proximity_tests.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visium_prostate_integration.html</loc>
+    <loc>/reference/checkAndFixSpatialGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/visualizations.html</loc>
+    <loc>/reference/chooseAvailableSpatialGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/vizgen_mouse_brain.html</loc>
+    <loc>/reference/clusterCells.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/articles/xenium_breast_cancer.html</loc>
+    <loc>/reference/clusterSpatialCorFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/authors.html</loc>
+    <loc>/reference/clusterSpatialCorGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/index.html</loc>
+    <loc>/reference/cluster_enrich_analysis.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/news/index.html</loc>
+    <loc>/reference/combCCcom.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/FSV_show.html</loc>
+    <loc>/reference/combineCPG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/PAGEEnrich.html</loc>
+    <loc>/reference/combineCellProximityGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/adapt_aspect_ratio.html</loc>
+    <loc>/reference/combineICF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addCellIntMetadata.html</loc>
+    <loc>/reference/combineICG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addCellStatistics.html</loc>
+    <loc>/reference/combineInteractionChangedFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addFeatStatistics.html</loc>
+    <loc>/reference/combineInteractionChangedGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addFeatsPerc.html</loc>
+    <loc>/reference/compareCellAbundance.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addHMRF.html</loc>
+    <loc>/reference/comparePolygonExpression.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addHMRF_V2.html</loc>
+    <loc>/reference/convertEnsemblToGeneSymbol.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addPolygonCells.html</loc>
+    <loc>/reference/createArchRProj.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addStatistics.html</loc>
+    <loc>/reference/createCrossSection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/addVisiumPolygons.html</loc>
+    <loc>/reference/createGiottoCosMxObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/adjustGiottoMatrix.html</loc>
+    <loc>/reference/createGiottoMerscopeObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/average_feat_feat_expression_in_groups.html</loc>
+    <loc>/reference/createGiottoObjectfromArchR.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/binSpect.html</loc>
+    <loc>/reference/createGiottoVisiumObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/binSpectMulti.html</loc>
+    <loc>/reference/createGiottoXeniumObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/binSpectMultiMatrix.html</loc>
+    <loc>/reference/createMerscopeLargeImage.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/binSpectSingle.html</loc>
+    <loc>/reference/createSpatialEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/binSpectSingleMatrix.html</loc>
+    <loc>/reference/createSpatialGenomicsObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/calculateHVF.html</loc>
+    <loc>/reference/create_2d_mesh_grid_line_obj.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/calculate_spatial_enrichment.html</loc>
+    <loc>/reference/create_crossSection_object.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/callSpdep.html</loc>
+    <loc>/reference/create_jackstrawplot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityBarplot.html</loc>
+    <loc>/reference/create_mesh_grid_lines.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityEnrichment.html</loc>
+    <loc>/reference/create_screeplot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityEnrichmentEachSpot.html</loc>
+    <loc>/reference/crossSectionGenePlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityEnrichmentSpots.html</loc>
+    <loc>/reference/crossSectionGenePlot3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityHeatmap.html</loc>
+    <loc>/reference/crossSectionPlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityNetwork.html</loc>
+    <loc>/reference/crossSectionPlot3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximitySpatPlot.html</loc>
+    <loc>/reference/data_access_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximitySpatPlot2D.html</loc>
+    <loc>/reference/detectSpatialCorFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximitySpatPlot3D.html</loc>
+    <loc>/reference/detectSpatialCorFeatsMatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityVisPlot.html</loc>
+    <loc>/reference/detectSpatialCorGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cellProximityVisPlot_internals.html</loc>
+    <loc>/reference/detectSpatialPatterns.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cell_proximity_spots.html</loc>
+    <loc>/reference/doCellSegmentation.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cell_proximity_tests.html</loc>
+    <loc>/reference/doClusterProjection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/checkAndFixSpatialGenes.html</loc>
+    <loc>/reference/doFeatureSetEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/chooseAvailableSpatialGenes.html</loc>
+    <loc>/reference/doGiottoClustree.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/clusterCells.html</loc>
+    <loc>/reference/doHMRF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/clusterSpatialCorFeats.html</loc>
+    <loc>/reference/doHMRF_V2.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/clusterSpatialCorGenes.html</loc>
+    <loc>/reference/doHclust.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/cluster_enrich_analysis.html</loc>
+    <loc>/reference/doKmeans.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combCCcom.html</loc>
+    <loc>/reference/doLeidenCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineCPG.html</loc>
+    <loc>/reference/doLeidenClusterIgraph.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineCellProximityGenes.html</loc>
+    <loc>/reference/doLeidenSubCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineICF.html</loc>
+    <loc>/reference/doLouvainCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineICG.html</loc>
+    <loc>/reference/doLouvainSubCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineInteractionChangedFeats.html</loc>
+    <loc>/reference/doRandomWalkCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/combineInteractionChangedGenes.html</loc>
+    <loc>/reference/doSNNCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/compareCellAbundance.html</loc>
+    <loc>/reference/doScrubletDetect.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/comparePolygonExpression.html</loc>
+    <loc>/reference/do_permuttest_spot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/convertEnsemblToGeneSymbol.html</loc>
+    <loc>/reference/do_spatial_grid_averaging.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createArchRProj.html</loc>
+    <loc>/reference/do_spatial_knn_smoothing.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createCrossSection.html</loc>
+    <loc>/reference/dot-cal_diff_per_interaction.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createGiottoCosMxObject.html</loc>
+    <loc>/reference/dot-cal_expr_residual.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createGiottoMerscopeObject.html</loc>
+    <loc>/reference/dot-combineInteractionChangedFeatures_per_interaction.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createGiottoObjectfromArchR.html</loc>
+    <loc>/reference/dot-createGiottoCosMxObject_aggregate.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createGiottoVisiumObject.html</loc>
+    <loc>/reference/dot-createGiottoCosMxObject_all.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createGiottoXeniumObject.html</loc>
+    <loc>/reference/dot-createGiottoCosMxObject_subcellular.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createMerscopeLargeImage.html</loc>
+    <loc>/reference/dot-createGiottoXeniumObject_aggregate.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createSpatialEnrich.html</loc>
+    <loc>/reference/dot-createGiottoXeniumObject_subcellular.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/createSpatialGenomicsObject.html</loc>
+    <loc>/reference/dot-create_cell_type_random_cell_IDs.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/create_2d_mesh_grid_line_obj.html</loc>
+    <loc>/reference/dot-create_feats_to_use_matrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/create_crossSection_object.html</loc>
+    <loc>/reference/dot-create_switch_string_unequal.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/create_jackstrawplot.html</loc>
+    <loc>/reference/dot-determine_switch_string_equal.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/create_mesh_grid_lines.html</loc>
+    <loc>/reference/dot-determine_switch_string_unequal.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/create_screeplot.html</loc>
+    <loc>/reference/dot-doLouvainCluster_community.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/crossSectionGenePlot.html</loc>
+    <loc>/reference/dot-doLouvainCluster_multinet.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/crossSectionGenePlot3D.html</loc>
+    <loc>/reference/dot-doLouvainSubCluster_community.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/crossSectionPlot.html</loc>
+    <loc>/reference/dot-doLouvainSubCluster_multinet.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/crossSectionPlot3D.html</loc>
+    <loc>/reference/dot-do_cell_proximity_test.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/data_access_params.html</loc>
+    <loc>/reference/dot-do_cell_proximity_test_spot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/detectSpatialCorFeats.html</loc>
+    <loc>/reference/dot-do_page_permutation.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/detectSpatialCorFeatsMatrix.html</loc>
+    <loc>/reference/dot-do_rank_permutation.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/detectSpatialCorGenes.html</loc>
+    <loc>/reference/dot-findCellProximityFeats_per_interaction.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/detectSpatialPatterns.html</loc>
+    <loc>/reference/dot-findICF_per_interaction_spot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doCellSegmentation.html</loc>
+    <loc>/reference/dot-get_img_corners.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doClusterProjection.html</loc>
+    <loc>/reference/dot-h5_read_bare.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doFeatureSetEnrichment.html</loc>
+    <loc>/reference/dot-igraph_remove_hetero_edges.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doGiottoClustree.html</loc>
+    <loc>/reference/dot-igraph_vertex_membership.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doHMRF.html</loc>
+    <loc>/reference/dot-kmeans_arma_binarize.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doHMRF_V2.html</loc>
+    <loc>/reference/dot-kmeans_arma_subset_binarize.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doHclust.html</loc>
+    <loc>/reference/dot-kmeans_binarize.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doKmeans.html</loc>
+    <loc>/reference/dot-lib_norm_giotto.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doLeidenCluster.html</loc>
+    <loc>/reference/dot-load_cosmx_folder_aggregate.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doLeidenClusterIgraph.html</loc>
+    <loc>/reference/dot-load_cosmx_folder_subcellular.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doLeidenSubCluster.html</loc>
+    <loc>/reference/dot-log_norm_giotto.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doLouvainCluster.html</loc>
+    <loc>/reference/dot-mean_expr_det_test.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doLouvainSubCluster.html</loc>
+    <loc>/reference/dot-node_clusters.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doRandomWalkCluster.html</loc>
+    <loc>/reference/dot-or_test_func.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doSNNCluster.html</loc>
+    <loc>/reference/dot-page_dt_method.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/doScrubletDetect.html</loc>
+    <loc>/reference/dot-plotRecovery_sub.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/do_permuttest_spot.html</loc>
+    <loc>/reference/dot-rank_binarize.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/do_spatial_grid_averaging.html</loc>
+    <loc>/reference/dot-read_cosmx_folder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/do_spatial_knn_smoothing.html</loc>
+    <loc>/reference/dot-read_xenium_folder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-cal_diff_per_interaction.html</loc>
+    <loc>/reference/dot-reg_img_minmax_finder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-cal_expr_residual.html</loc>
+    <loc>/reference/dot-rigid_transform_spatial_locations.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-combineInteractionChangedFeatures_per_interaction.html</loc>
+    <loc>/reference/dot-rna_osmfish_normalization.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-createGiottoCosMxObject_aggregate.html</loc>
+    <loc>/reference/dot-rna_pears_resid_normalization.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-createGiottoCosMxObject_all.html</loc>
+    <loc>/reference/dot-rna_standard_normalization.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-createGiottoCosMxObject_subcellular.html</loc>
+    <loc>/reference/dot-run_pca_biocsingular.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-createGiottoXeniumObject_aggregate.html</loc>
+    <loc>/reference/dot-run_pca_biocsingular_irlba_projection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-createGiottoXeniumObject_subcellular.html</loc>
+    <loc>/reference/dot-run_pca_factominer.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-create_cell_type_random_cell_IDs.html</loc>
+    <loc>/reference/dot-run_spat_autocor_global.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-create_feats_to_use_matrix.html</loc>
+    <loc>/reference/dot-run_spat_autocor_local.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-create_switch_string_unequal.html</loc>
+    <loc>/reference/dot-specific_CCCScores_spots.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-determine_switch_string_equal.html</loc>
+    <loc>/reference/dot-split_dendrogram_in_two.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-determine_switch_string_unequal.html</loc>
+    <loc>/reference/dot-trakem2_rigid_transforms.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-doLouvainCluster_community.html</loc>
+    <loc>/reference/dot-visium_read_scalefactors.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-doLouvainCluster_multinet.html</loc>
+    <loc>/reference/dot-visium_spot_poly.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-doLouvainSubCluster_community.html</loc>
+    <loc>/reference/enrich_analysis.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-doLouvainSubCluster_multinet.html</loc>
+    <loc>/reference/enrich_deconvolution.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-do_cell_proximity_test.html</loc>
+    <loc>/reference/estimateCellCellDistance.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-do_cell_proximity_test_spot.html</loc>
+    <loc>/reference/evaluate_provided_spatial_locations.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-do_page_permutation.html</loc>
+    <loc>/reference/exportGiottoViewer.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-do_rank_permutation.html</loc>
+    <loc>/reference/exprCellCellcom.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-findCellProximityFeats_per_interaction.html</loc>
+    <loc>/reference/extend_vector.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-findICF_per_interaction_spot.html</loc>
+    <loc>/reference/extended_gini_fun.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-get_img_corners.html</loc>
+    <loc>/reference/featExpDWLS.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-h5_read_bare.html</loc>
+    <loc>/reference/filterCPG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-igraph_remove_hetero_edges.html</loc>
+    <loc>/reference/filterCellProximityGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-igraph_vertex_membership.html</loc>
+    <loc>/reference/filterCombinations.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-kmeans_arma_binarize.html</loc>
+    <loc>/reference/filterDistributions.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-kmeans_arma_subset_binarize.html</loc>
+    <loc>/reference/filterGiotto.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-kmeans_binarize.html</loc>
+    <loc>/reference/filterICF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-lib_norm_giotto.html</loc>
+    <loc>/reference/filterICFSpot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-load_cosmx_folder_aggregate.html</loc>
+    <loc>/reference/filterICG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-load_cosmx_folder_subcellular.html</loc>
+    <loc>/reference/filterInteractionChangedFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-log_norm_giotto.html</loc>
+    <loc>/reference/filterInteractionChangedGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-mean_expr_det_test.html</loc>
+    <loc>/reference/filterSpatialGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-node_clusters.html</loc>
+    <loc>/reference/findCPG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-or_test_func.html</loc>
+    <loc>/reference/findCellProximityGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-page_dt_method.html</loc>
+    <loc>/reference/findCellTypesFromEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-plotRecovery_sub.html</loc>
+    <loc>/reference/findGiniMarkers.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-rank_binarize.html</loc>
+    <loc>/reference/findGiniMarkers_one_vs_all.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-read_cosmx_folder.html</loc>
+    <loc>/reference/findICF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-read_xenium_folder.html</loc>
+    <loc>/reference/findICFSpot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-reg_img_minmax_finder.html</loc>
+    <loc>/reference/findICG.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-rigid_transform_spatial_locations.html</loc>
+    <loc>/reference/findInteractionChangedFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-rna_osmfish_normalization.html</loc>
+    <loc>/reference/findInteractionChangedGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-rna_pears_resid_normalization.html</loc>
+    <loc>/reference/findMarkers.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-rna_standard_normalization.html</loc>
+    <loc>/reference/findMarkers_one_vs_all.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-run_pca_biocsingular.html</loc>
+    <loc>/reference/findMastMarkers.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-run_pca_biocsingular_irlba_projection.html</loc>
+    <loc>/reference/findMastMarkers_one_vs_all.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-run_pca_factominer.html</loc>
+    <loc>/reference/findNetworkNeighbors.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-run_spat_autocor_global.html</loc>
+    <loc>/reference/findScranMarkers.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-run_spat_autocor_local.html</loc>
+    <loc>/reference/findScranMarkers_one_vs_all.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-specific_CCCScores_spots.html</loc>
+    <loc>/reference/find_dampening_constant.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-split_dendrogram_in_two.html</loc>
+    <loc>/reference/find_x_y_ranges.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-trakem2_rigid_transforms.html</loc>
+    <loc>/reference/get10Xmatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-visium_read_scalefactors.html</loc>
+    <loc>/reference/get10XmatrixOLD.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/dot-visium_spot_poly.html</loc>
+    <loc>/reference/get10Xmatrix_h5.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/enrich_analysis.html</loc>
+    <loc>/reference/getBalancedSpatCoexpressionFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/enrich_deconvolution.html</loc>
+    <loc>/reference/getCellsFromPolygon.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/estimateCellCellDistance.html</loc>
+    <loc>/reference/getClusterSimilarity.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/evaluate_provided_spatial_locations.html</loc>
+    <loc>/reference/getDendrogramSplits.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/exportGiottoViewer.html</loc>
+    <loc>/reference/getGEFtxCoords.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/exprCellCellcom.html</loc>
+    <loc>/reference/get_cross_section_coordinates.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/extend_vector.html</loc>
+    <loc>/reference/get_sectionThickness.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/extended_gini_fun.html</loc>
+    <loc>/reference/gpoly_from_dfr_smoothed_wrapped.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/featExpDWLS.html</loc>
+    <loc>/reference/heatmSpatialCorFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterCPG.html</loc>
+    <loc>/reference/heatmSpatialCorGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterCellProximityGenes.html</loc>
+    <loc>/reference/hyperGeometricEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterCombinations.html</loc>
+    <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterDistributions.html</loc>
+    <loc>/reference/initHMRF_V2.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterGiotto.html</loc>
+    <loc>/reference/insertCrossSectionGenePlot3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterICF.html</loc>
+    <loc>/reference/insertCrossSectionSpatPlot3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterICFSpot.html</loc>
+    <loc>/reference/jackstrawPlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterICG.html</loc>
+    <loc>/reference/kmeans_binarize_wrapper.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterInteractionChangedFeats.html</loc>
+    <loc>/reference/loadHMRF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterInteractionChangedGenes.html</loc>
+    <loc>/reference/load_merscope_folder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/filterSpatialGenes.html</loc>
+    <loc>/reference/load_xenium_folder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findCPG.html</loc>
+    <loc>/reference/makeSignMatrixDWLS.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findCellProximityGenes.html</loc>
+    <loc>/reference/makeSignMatrixDWLSfromMatrix.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findCellTypesFromEnrichment.html</loc>
+    <loc>/reference/makeSignMatrixPAGE.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findGiniMarkers.html</loc>
+    <loc>/reference/makeSignMatrixRank.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findGiniMarkers_one_vs_all.html</loc>
+    <loc>/reference/make_simulated_network.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findICF.html</loc>
+    <loc>/reference/mergeClusters.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findICFSpot.html</loc>
+    <loc>/reference/mygini_fun.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findICG.html</loc>
+    <loc>/reference/normalizeGiotto.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findInteractionChangedFeats.html</loc>
+    <loc>/reference/numPts_below_line.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findInteractionChangedGenes.html</loc>
+    <loc>/reference/optimize_deconvolute_dwls.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findMarkers.html</loc>
+    <loc>/reference/optimize_solveDampenedWLS.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findMarkers_one_vs_all.html</loc>
+    <loc>/reference/parse_affine.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findMastMarkers.html</loc>
+    <loc>/reference/pieCellTypesFromEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findMastMarkers_one_vs_all.html</loc>
+    <loc>/reference/plotCCcomDotplot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findNetworkNeighbors.html</loc>
+    <loc>/reference/plotCCcomHeatmap.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findScranMarkers.html</loc>
+    <loc>/reference/plotCPF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/findScranMarkers_one_vs_all.html</loc>
+    <loc>/reference/plotCellProximityFeatSpot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/find_dampening_constant.html</loc>
+    <loc>/reference/plotCellProximityFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/find_x_y_ranges.html</loc>
+    <loc>/reference/plotCellTypesFromEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/get10Xmatrix.html</loc>
+    <loc>/reference/plotCombineCCcom.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/get10XmatrixOLD.html</loc>
+    <loc>/reference/plotCombineCellCellCommunication.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/get10Xmatrix_h5.html</loc>
+    <loc>/reference/plotCombineICF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/getBalancedSpatCoexpressionFeats.html</loc>
+    <loc>/reference/plotCombineInteractionChangedFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/getCellsFromPolygon.html</loc>
+    <loc>/reference/plotICF.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/getClusterSimilarity.html</loc>
+    <loc>/reference/plotICFSpot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/getDendrogramSplits.html</loc>
+    <loc>/reference/plotInteractionChangedFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/getGEFtxCoords.html</loc>
+    <loc>/reference/plotInteractive3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/get_cross_section_coordinates.html</loc>
+    <loc>/reference/plotInteractivePolygons.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/get_sectionThickness.html</loc>
+    <loc>/reference/plotPolygons.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/gpoly_from_dfr_smoothed_wrapped.html</loc>
+    <loc>/reference/plotRankSpatvsExpr.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/heatmSpatialCorFeats.html</loc>
+    <loc>/reference/plotRecovery.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/heatmSpatialCorGenes.html</loc>
+    <loc>/reference/plot_cell_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/hyperGeometricEnrich.html</loc>
+    <loc>/reference/plot_cow_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/index.html</loc>
+    <loc>/reference/plot_dimred_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/initHMRF_V2.html</loc>
+    <loc>/reference/plot_feat_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/insertCrossSectionGenePlot3D.html</loc>
+    <loc>/reference/plot_image_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/insertCrossSectionSpatPlot3D.html</loc>
+    <loc>/reference/plot_nn_net_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/jackstrawPlot.html</loc>
+    <loc>/reference/plot_output_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/kmeans_binarize_wrapper.html</loc>
+    <loc>/reference/plot_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/loadHMRF.html</loc>
+    <loc>/reference/plot_poly_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/load_merscope_folder.html</loc>
+    <loc>/reference/plot_spatenr_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/load_xenium_folder.html</loc>
+    <loc>/reference/plot_spatnet_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/makeSignMatrixDWLS.html</loc>
+    <loc>/reference/processGiotto.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/makeSignMatrixDWLSfromMatrix.html</loc>
+    <loc>/reference/projection_fun.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/makeSignMatrixPAGE.html</loc>
+    <loc>/reference/rankEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/makeSignMatrixRank.html</loc>
+    <loc>/reference/rankSpatialCorGroups.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/make_simulated_network.html</loc>
+    <loc>/reference/rank_binarize_wrapper.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/mergeClusters.html</loc>
+    <loc>/reference/readPolygonFilesVizgen.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/mygini_fun.html</loc>
+    <loc>/reference/readPolygonFilesVizgenHDF5.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/normalizeGiotto.html</loc>
+    <loc>/reference/readPolygonFilesVizgenHDF5_old.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/numPts_below_line.html</loc>
+    <loc>/reference/readPolygonVizgenParquet.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/optimize_deconvolute_dwls.html</loc>
+    <loc>/reference/read_crossSection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/optimize_solveDampenedWLS.html</loc>
+    <loc>/reference/read_data_folder.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/parse_affine.html</loc>
+    <loc>/reference/read_data_params.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/pieCellTypesFromEnrichment.html</loc>
+    <loc>/reference/reexports.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCCcomDotplot.html</loc>
+    <loc>/reference/registerGiottoObjectList.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCCcomHeatmap.html</loc>
+    <loc>/reference/registerGiottoObjectListFiji.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCPF.html</loc>
+    <loc>/reference/registerGiottoObjectListRvision.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCellProximityFeatSpot.html</loc>
+    <loc>/reference/registerImagesFIJI.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCellProximityFeats.html</loc>
+    <loc>/reference/reshape_to_data_point.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCellTypesFromEnrichment.html</loc>
+    <loc>/reference/reshape_to_mesh_grid_obj.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCombineCCcom.html</loc>
+    <loc>/reference/runDWLSDeconv.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCombineCellCellCommunication.html</loc>
+    <loc>/reference/runFijiMacro.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCombineICF.html</loc>
+    <loc>/reference/runGiottoHarmony.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotCombineInteractionChangedFeats.html</loc>
+    <loc>/reference/runHyperGeometricEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotICF.html</loc>
+    <loc>/reference/runIntegratedUMAP.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotICFSpot.html</loc>
+    <loc>/reference/runPAGEEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotInteractionChangedFeats.html</loc>
+    <loc>/reference/runPAGEEnrich_OLD.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotInteractive3D.html</loc>
+    <loc>/reference/runPCA.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotInteractivePolygons.html</loc>
+    <loc>/reference/runPCAprojection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotPolygons.html</loc>
+    <loc>/reference/runPCAprojectionBatch.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotRankSpatvsExpr.html</loc>
+    <loc>/reference/runPatternSimulation.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plotRecovery.html</loc>
+    <loc>/reference/runRankEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_cell_params.html</loc>
+    <loc>/reference/runSpatialDeconv.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_cow_params.html</loc>
+    <loc>/reference/runSpatialEnrich.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_dimred_params.html</loc>
+    <loc>/reference/runUMAP.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_feat_params.html</loc>
+    <loc>/reference/runUMAPprojection.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_image_params.html</loc>
+    <loc>/reference/runWNN.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_nn_net_params.html</loc>
+    <loc>/reference/run_spatial_sim_tests_multi.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_output_params.html</loc>
+    <loc>/reference/run_spatial_sim_tests_one_rep.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_params.html</loc>
+    <loc>/reference/runtSNE.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_poly_params.html</loc>
+    <loc>/reference/sampling_sp_genes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_spatenr_params.html</loc>
+    <loc>/reference/screePlot.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/plot_spatnet_params.html</loc>
+    <loc>/reference/selectPatternGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/processGiotto.html</loc>
+    <loc>/reference/showCellProportionSwitchedPie.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/projection_fun.html</loc>
+    <loc>/reference/showCellProportionSwitchedSanKey.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/rankEnrich.html</loc>
+    <loc>/reference/showPattern.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/rankSpatialCorGroups.html</loc>
+    <loc>/reference/showPattern2D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/rank_binarize_wrapper.html</loc>
+    <loc>/reference/showPattern3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/readPolygonFilesVizgen.html</loc>
+    <loc>/reference/showPatternGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/readPolygonFilesVizgenHDF5.html</loc>
+    <loc>/reference/showPolygonSizeInfluence.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/readPolygonFilesVizgenHDF5_old.html</loc>
+    <loc>/reference/showSpatialCorFeats.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/readPolygonVizgenParquet.html</loc>
+    <loc>/reference/showSpatialCorGenes.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/read_crossSection.html</loc>
+    <loc>/reference/signPCA.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/read_data_folder.html</loc>
+    <loc>/reference/silhouetteRank.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/read_data_params.html</loc>
+    <loc>/reference/silhouetteRankTest.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/reexports.html</loc>
+    <loc>/reference/simulateOneGenePatternGiottoObject.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/registerGiottoObjectList.html</loc>
+    <loc>/reference/solve_OLS_internal.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/registerGiottoObjectListFiji.html</loc>
+    <loc>/reference/solve_dampened_WLSj.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/registerGiottoObjectListRvision.html</loc>
+    <loc>/reference/spark.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/registerImagesFIJI.html</loc>
+    <loc>/reference/spatCellCellcom.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/reshape_to_data_point.html</loc>
+    <loc>/reference/spatCellCellcomSpots.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/reshape_to_mesh_grid_obj.html</loc>
+    <loc>/reference/spat_fisher_exact.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runDWLSDeconv.html</loc>
+    <loc>/reference/spat_odds_ratio.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runFijiMacro.html</loc>
+    <loc>/reference/spatialAEH.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runGiottoHarmony.html</loc>
+    <loc>/reference/spatialAutoCor.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runHyperGeometricEnrich.html</loc>
+    <loc>/reference/spatialDE.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runIntegratedUMAP.html</loc>
+    <loc>/reference/spatialSplitCluster.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPAGEEnrich.html</loc>
+    <loc>/reference/spdepAutoCorr.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPAGEEnrich_OLD.html</loc>
+    <loc>/reference/specificCellCellcommunicationScores.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPCA.html</loc>
+    <loc>/reference/spot_deconvolution.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPCAprojection.html</loc>
+    <loc>/reference/subClusterCells.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPCAprojectionBatch.html</loc>
+    <loc>/reference/transform_2d_mesh_to_3d_mesh.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runPatternSimulation.html</loc>
+    <loc>/reference/trendSceek.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runRankEnrich.html</loc>
+    <loc>/reference/viewHMRFresults.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runSpatialDeconv.html</loc>
+    <loc>/reference/viewHMRFresults2D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runSpatialEnrich.html</loc>
+    <loc>/reference/viewHMRFresults3D.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runUMAP.html</loc>
+    <loc>/reference/viewHMRFresults_V2.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runUMAPprojection.html</loc>
+    <loc>/reference/visium_micron_scalefactor.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runWNN.html</loc>
+    <loc>/reference/writeHMRFresults.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/run_spatial_sim_tests_multi.html</loc>
+    <loc>/reference/write_giotto_viewer_annotation.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/run_spatial_sim_tests_one_rep.html</loc>
+    <loc>/reference/write_giotto_viewer_dim_reduction.html</loc>
   </url>
   <url>
-    <loc>https://drieslab.github.io/Giotto/reference/runtSNE.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/sampling_sp_genes.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/screePlot.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/selectPatternGenes.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showCellProportionSwitchedPie.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showCellProportionSwitchedSanKey.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showPattern.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showPattern2D.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showPattern3D.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showPatternGenes.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showPolygonSizeInfluence.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showSpatialCorFeats.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/showSpatialCorGenes.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/signPCA.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/silhouetteRank.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/silhouetteRankTest.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/simulateOneGenePatternGiottoObject.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/solve_OLS_internal.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/solve_dampened_WLSj.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spark.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatCellCellcom.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatCellCellcomSpots.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spat_fisher_exact.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spat_odds_ratio.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatialAEH.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatialAutoCor.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatialDE.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spatialSplitCluster.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spdepAutoCorr.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/specificCellCellcommunicationScores.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/spot_deconvolution.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/subClusterCells.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/transform_2d_mesh_to_3d_mesh.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/trendSceek.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/viewHMRFresults.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/viewHMRFresults2D.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/viewHMRFresults3D.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/viewHMRFresults_V2.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/visium_micron_scalefactor.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/writeHMRFresults.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/write_giotto_viewer_annotation.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/write_giotto_viewer_dim_reduction.html</loc>
-  </url>
-  <url>
-    <loc>https://drieslab.github.io/Giotto/reference/write_giotto_viewer_numeric_annotation.html</loc>
+    <loc>/reference/write_giotto_viewer_numeric_annotation.html</loc>
   </url>
 </urlset>
