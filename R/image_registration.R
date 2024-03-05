@@ -4,6 +4,129 @@
 ### Image registration and creation of registered Giotto object ####
 
 
+
+.sift_detect <- function(x, ..., pkg_ptr) {
+
+  if (missing(pkg_ptr)) {
+    package_check("skimage", repository = "pip:scikit-image")
+    SKI <- reticulate::import("skimage", convert = TRUE, delay_load = TRUE)
+  } else {
+    SKI <- pkg_ptr
+  }
+
+  # TODO downsample in previous step
+
+  # make grayscale
+  if (length(dim(x)) > 2L) {
+    x <- SKI$color$rgb2gray(x)
+    x <- x * (1 / max(x)) # scale to 1 (not sure why values are so small)
+  }
+
+  # sift object
+  SIFT <- SKI$feature$SIFT()
+
+  SIFT$detect_and_extract(x)
+
+  out <- list(
+    keypoints = SIFT$keypoints,
+    descriptors = SIFT$descriptors
+  )
+
+  return(out)
+}
+
+#' @name .match_descriptor
+#' @title Match image descriptors
+#' @description
+#' Brute force matching of descriptors using \pkg{scikit-image}. Find matching
+#' image descriptors between moving images and a target image.
+#' @param descriptor_list list of descriptor matrices
+#' @param target_idx which item in the list is the target image. Default is 1
+#' @param cross_check whether to check that only the best match is returned
+#' @param max_ratio Maximum ratio of distances between first and second closest
+#' descriptor in the second set of descriptors. This threshold is useful to
+#' filter ambiguous matches between the two descriptor sets. The choice of this
+#' value depends on the statistics of the chosen descriptor, e.g., for SIFT
+#' descriptors a value of 0.8 is usually chosen, see D.G. Lowe, “Distinctive
+#' Image Features from Scale-Invariant Keypoints”, International Journal of
+#' Computer Vision, 2004.
+#' @param ... additional params to pass to `skimage.feature.match_descriptors()`
+#' @returns list
+.match_descriptor <- function(
+    descriptor_list,
+    target_idx = 1L,
+    cross_check = TRUE,
+    max_ratio = 0.8,
+    ...,
+    pkg_ptr
+) {
+
+  checkmate::assert_list(descriptor_list, min.len = 2L)
+  target_idx <- as.integer(target_idx)
+
+  if (missing(pkg_ptr)) {
+    package_check("skimage", repository = "pip:scikit-image")
+    SKI <- reticulate::import("skimage", convert = TRUE, delay_load = TRUE)
+  } else {
+    SKI <- pkg_ptr
+  }
+
+  target <- descriptor_list[[target_idx]]
+
+  out <- lapply(
+    seq_along(descriptor_list),
+    function(moving_idx) {
+      if (moving_idx == target_idx) {
+        return(matrix(
+          rep(seq_len(nrow(target)), 2L),
+          ncol = 2L,
+          byrow = FALSE
+        ))
+        # directly return all as matches
+      }
+
+      moving <- descriptor_list[[moving_idx]]
+
+      m <- .match_descriptor_single(
+        x = target,
+        y = moving,
+        ...,
+        pkg_ptr = pkg_ptr
+      )
+      m + 1 # since it is 0 indexed
+    }
+  )
+
+  return(out)
+}
+
+
+# wrapper for sklearn-image match_descriptors
+# returns a 2 col matrix of x to y index matches
+.match_descriptor_single <- function(x, y, ..., pkg_ptr) {
+
+  checkmate::assert_class(x, "matrix")
+  checkmate::assert_class(y, "matrix")
+
+  if (missing(pkg_ptr)) {
+    package_check("skimage", repository = "pip:scikit-image")
+    SKI <- reticulate::import("skimage", convert = TRUE, delay_load = TRUE)
+  } else {
+    SKI <- pkg_ptr
+  }
+
+  match_descriptors <- SKI$feature$match_descriptors
+  m <- match_descriptors(
+    descriptors1 = x,
+    descriptors2 = y,
+    ... # max_ratio of 0.6 - 0.8 recommended for sift, cross_check = TRUE
+  )
+
+  return(m)
+}
+
+
+
 #' @name .trakem2_rigid_transforms
 #' @title Read trakem2 rigid transforms
 #' @description Extract rigid registration transformation values from FIJI TrakEM2 xml file. Generated through register_virtual_stack_slices.
