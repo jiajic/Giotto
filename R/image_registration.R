@@ -3,8 +3,33 @@
 
 ### Image registration and creation of registered Giotto object ####
 
-
-
+#' @name .sift_detect
+#' @title SIFT descriptor detection
+#' @description
+#' Run SIFT descriptor detection through scikit-image
+#' @param x image matrix (numeric)
+#' @param ... additional params to pass (none implemented)
+#' @param pkg_ptr do not use
+#' @examples
+#' x <- magick::logo |>
+#' magick::image_data() |>
+#'     as.numeric()
+#' r <- terra::rast(x)
+#' # manipulate extent of `r` so that plot origin is top left
+#' ext(r) <- ext(r)[c(1,2,4,3)] * c(1,1,-1,1)
+#'
+#' res <- .sift_detect(x)
+#' # additional manipulations to go from c(y, x) to c(x, y) and invert to
+#' # -y values so that plot origin is top left as expected by image conventions
+#' pts <- res$keypoints
+#' pts <- pts[, c(2, 1)]
+#' pts[, 2] <- -pts[, 2]
+#'
+#' v <- pts |>
+#'     terra::vect(type = "points")
+#'
+#' terra::plotRGB(r * 255)
+#' terra::plot(v, add = TRUE)
 .sift_detect <- function(x, ..., pkg_ptr) {
 
   if (missing(pkg_ptr)) {
@@ -51,6 +76,7 @@
 #' Image Features from Scale-Invariant Keypoints”, International Journal of
 #' Computer Vision, 2004.
 #' @param ... additional params to pass to `skimage.feature.match_descriptors()`
+#' @param pkg_ptr do not use
 #' @returns list
 .match_descriptor <- function(
     descriptor_list,
