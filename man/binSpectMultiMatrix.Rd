@@ -25,9 +25,10 @@ binSpectMultiMatrix(
   group_size = "automatic",
   do_parallel = TRUE,
   cores = NA,
-  verbose = T,
+  verbose = TRUE,
   knn_params = NULL,
-  set.seed = NULL,
+  set.seed = deprecated(),
+  seed = 1234,
   summarize = c("adj.p.value", "p.value")
 )
 }
@@ -40,7 +41,8 @@ binSpectMultiMatrix(
 
 \item{subset_feats}{only select a subset of features to test}
 
-\item{kmeans_algo}{kmeans algorithm to use (kmeans, kmeans_arma, kmeans_arma_subset)}
+\item{kmeans_algo}{kmeans algorithm to use
+(kmeans, kmeans_arma, kmeans_arma_subset)}
 
 \item{nstart}{kmeans: nstart parameter}
 
@@ -54,19 +56,22 @@ binSpectMultiMatrix(
 
 \item{do_fisher_test}{perform fisher test}
 
-\item{adjust_method}{p-value adjusted method to use (see \code{\link[stats]{p.adjust}})}
+\item{adjust_method}{p-value adjusted method to use
+(see \code{\link[stats]{p.adjust}})}
 
 \item{calc_hub}{calculate the number of hub cells}
 
 \item{hub_min_int}{minimum number of cell-cell interactions for a hub cell}
 
-\item{get_av_expr}{calculate the average expression per gene of the high expressing cells}
+\item{get_av_expr}{calculate the average expression per gene of the high
+expressing cells}
 
 \item{get_high_expr}{calculate the number of high expressing cells  per gene}
 
 \item{implementation}{enrichment implementation (data.table, simple, matrix)}
 
-\item{group_size}{number of genes to process together with data.table implementation (default = automatic)}
+\item{group_size}{number of genes to process together with data.table
+implementation (default = automatic)}
 
 \item{do_parallel}{run calculations in parallel with mclapply}
 
@@ -76,7 +81,10 @@ binSpectMultiMatrix(
 
 \item{knn_params}{list of parameters to create spatial kNN network}
 
-\item{set.seed}{set a seed before kmeans binarization}
+\item{set.seed}{deprecated}
+
+\item{seed}{sets value as seed before kmeans binarization. If NULL, no seed
+is set.}
 
 \item{summarize}{summarize the p-values or adjusted p-values}
 }
@@ -84,5 +92,6 @@ binSpectMultiMatrix(
 data.table with results
 }
 \description{
-binSpect for a single spatial network and a provided expression matrix
+binSpect for a single spatial network and a provided
+expression matrix
 }

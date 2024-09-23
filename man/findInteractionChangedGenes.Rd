@@ -2,16 +2,20 @@
 % Please edit documentation in R/spatial_interaction.R
 \name{findInteractionChangedGenes}
 \alias{findInteractionChangedGenes}
-\title{findInteractionChangedGenes}
+\title{deprecated}
 \usage{
 findInteractionChangedGenes(...)
 }
 \arguments{
 \item{...}{params to pass to \code{findInteractionChangedFeats}}
 }
+\value{
+interaction changed genes
+}
 \description{
 Identifies cell-to-cell Interaction Changed Features (ICF),
-i.e. genes that are differentially expressed due to interactions with other cell types.
+i.e. genes that are differentially expressed due to interactions with other
+cell types.
 }
 \seealso{
 \code{\link{findInteractionChangedFeats}}

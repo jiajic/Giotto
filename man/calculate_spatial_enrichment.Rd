@@ -29,7 +29,7 @@
 .calc_spatial_enrichment_dt(
   bin_matrix,
   spatial_network,
-  calc_hub = F,
+  calc_hub = FALSE,
   hub_min_int = 3,
   group_size = "automatic",
   do_fisher_test = TRUE,
@@ -37,16 +37,22 @@
   cores = NA
 )
 }
+\value{
+spatial enrichment
+}
 \description{
 Calculate spatial enrichment. Multiple methods are provided.
 }
 \section{Functions}{
 \itemize{
-\item \code{.calc_spatial_enrichment_minimum()}: calculate using a 'simple' and efficient for loop
+\item \code{.calc_spatial_enrichment_minimum()}: calculate using a 'simple' and
+efficient for loop
 
-\item \code{.calc_spatial_enrichment_matrix()}: calculate using 'matrix' implementation
+\item \code{.calc_spatial_enrichment_matrix()}: calculate using 'matrix'
+implementation
 
-\item \code{.calc_spatial_enrichment_dt()}: calculate using 'data.table' implementation
+\item \code{.calc_spatial_enrichment_dt()}: calculate using 'data.table'
+implementation
 
 }}
 \keyword{internal}

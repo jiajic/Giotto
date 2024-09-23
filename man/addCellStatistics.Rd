@@ -10,7 +10,8 @@ addCellStatistics(
   spat_unit = NULL,
   expression_values = c("normalized", "scaled", "custom"),
   detection_threshold = 0,
-  return_gobject = TRUE
+  return_gobject = TRUE,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ addCellStatistics(
 \item{detection_threshold}{detection threshold to consider a gene detected}
 
 \item{return_gobject}{boolean: return giotto object (default = TRUE)}
+
+\item{verbose}{be verbose}
 }
 \value{
 giotto object if return_gobject = TRUE
@@ -35,8 +38,16 @@ adds cells statistics to the giotto object
 \details{
 This function will add the following statistics to cell metadata:
 \itemize{
-  \item{nr_feats: }{Denotes in how many features are detected per cell}
-  \item{perc_feats: }{Denotes what percentage of features is detected per cell}
-  \item{total_expr: }{Shows the total sum of feature expression per cell}
+  \item{\strong{nr_feats:} Denotes in how many features are detected per
+  cell}
+  \item{\strong{perc_feats:} Denotes what percentage of features is
+  detected per cell}
+  \item{\strong{total_expr:} Shows the total sum of feature expression per
+  cell}
 }
+}
+\examples{
+g <- GiottoData::loadGiottoMini("visium")
+
+addCellStatistics(g)
 }

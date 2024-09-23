@@ -2,6 +2,7 @@
 % Please edit documentation in R/spatial_interaction.R
 \name{combineInteractionChangedFeats}
 \alias{combineInteractionChangedFeats}
+\alias{combineICF}
 \title{combineInteractionChangedFeats}
 \usage{
 combineInteractionChangedFeats(
@@ -16,7 +17,22 @@ combineInteractionChangedFeats(
   min_spat_diff = 0,
   min_log2_fc = 0.5,
   do_parallel = TRUE,
-  verbose = T
+  verbose = TRUE
+)
+
+combineICF(
+  icfObject,
+  selected_ints = NULL,
+  selected_feats = NULL,
+  specific_feats_1 = NULL,
+  specific_feats_2 = NULL,
+  min_cells = 5,
+  min_int_cells = 3,
+  min_fdr = 0.05,
+  min_spat_diff = 0,
+  min_log2_fc = 0.5,
+  do_parallel = TRUE,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -26,9 +42,11 @@ combineInteractionChangedFeats(
 
 \item{selected_feats}{subset of selected Features (optional)}
 
-\item{specific_feats_1}{specific Featureset combo (need to position match specific_feats_2)}
+\item{specific_feats_1}{specific Featureset combo
+(need to position match specific_feats_2)}
 
-\item{specific_feats_2}{specific Featureset combo (need to position match specific_feats_1)}
+\item{specific_feats_2}{specific Featureset combo
+(need to position match specific_feats_1)}
 
 \item{min_cells}{minimum number of target cell type}
 
@@ -45,8 +63,21 @@ combineInteractionChangedFeats(
 \item{verbose}{verbose}
 }
 \value{
-combIcfObject that contains the filtered differential feature scores
+`combIcfObject` that contains the filtered differential feature
+scores
 }
 \description{
 Combine ICF scores in a pairwise manner.
+}
+\examples{
+g <- GiottoData::loadGiottoMini("visium")
+g_icf <- findInteractionChangedFeats(g,
+    cluster_column = "leiden_clus",
+    selected_feats = c("Gna12", "Ccnd2", "Btbd17"),
+    nr_permutations = 10
+)
+
+cicf <- combineInteractionChangedFeats(g_icf)
+force(cicf)
+combineICF(g_icf) # this is a shortened alias
 }

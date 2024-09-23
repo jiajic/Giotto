@@ -11,15 +11,11 @@ library(Giotto)
 
 # additional needed packages
 suppressWarnings({
-  # needed for reading .gz files.
-  if(!require(R.utils)) {
-    install.packages('R.utils', repos = 'http://cran.us.r-project.org')
-  }
+    # needed for reading .gz files.
+    if (!require(R.utils)) {
+        install.packages("R.utils", repos = "http://cran.us.r-project.org")
+    }
 })
 
-# install giotto environment
-if (!checkGiottoEnvironment()) {
-  installGiottoEnvironment()
-}
 
 test_check("Giotto")

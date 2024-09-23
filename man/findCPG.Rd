@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatial_interaction.R
 \name{findCPG}
 \alias{findCPG}
-\title{findCPG}
+\title{deprecated}
 \usage{
 findCPG(...)
 }
@@ -30,9 +30,13 @@ findCPG(...)
     \item{\code{seed_number}}{seed number}
   }}
 }
+\value{
+cell-to-cell Interaction Changed Genes
+}
 \description{
 Identifies cell-to-cell Interaction Changed Features (ICF),
-i.e. genes that are differentially expressed due to proximity to other cell types.
+i.e. genes that are differentially expressed due to proximity to other cell
+types.
 }
 \seealso{
 \code{\link{findICF}}

@@ -14,7 +14,8 @@ doScrubletDetect(
   min_cells = 1,
   min_gene_variability_pctl = 85,
   n_prin_comps = 30,
-  return_gobject = TRUE
+  return_gobject = TRUE,
+  seed = 1234
 )
 }
 \arguments{
@@ -26,24 +27,47 @@ doScrubletDetect(
 
 \item{expression_values}{expression values to use}
 
-\item{expected_doublet_rate}{expected transcriptomes that are doublets. 0.06 is from 10x Chromium guide.}
+\item{expected_doublet_rate}{expected transcriptomes that are doublets. 0.06
+is from 10x Chromium guide.}
 
-\item{min_counts}{scrublet internal data filtering, min counts found to be considered a cell}
+\item{min_counts}{scrublet internal data filtering, min counts found to be
+considered a cell}
 
-\item{min_cells}{scrublet internal data filtering. min cells expressed to be considered a feat}
+\item{min_cells}{scrublet internal data filtering. min cells expressed to be
+considered a feat}
 
-\item{min_gene_variability_pctl}{scrublet internal PCA generation. highly variable gene percentile cutoff}
+\item{min_gene_variability_pctl}{scrublet internal PCA generation. highly
+variable gene percentile cutoff}
 
 \item{n_prin_comps}{number of PCs to use in PCA for detection}
 
-\item{return_gobject}{return as gobject if TRUE, data.frame with cell_ID if FALSE}
+\item{return_gobject}{return as gobject if TRUE, data.frame with cell_ID if
+FALSE}
+
+\item{seed}{If a numeric is provided, then it will be used as a seed. If
+NULL, no seed will be set.}
 }
 \value{
-list including doublet scores and classifications
+if \code{return_gobject = FALSE}, a \code{data.table} cell_ID, doublet scores,
+and classifications are returned. If \code{TRUE}, that information is appended
+into the input \code{giotto} object's metadata and the \code{giotto} object is
+returned.
 }
 \description{
-run scrublet doublet detection for raw expression.
+Run \emph{scrublet} doublet detection for raw expression. Intended
+for single cell data
+}
+\examples{
+# Should only be done with single cell data, but this is just a
+# convenient example.
+g <- GiottoData::loadGiottoMini("visium")
+
+g <- doScrubletDetect(g)
+
+pDataDT(g) # doublet_scores and doublet cols are added
+dimPlot2D(g, cell_color = "doublet_scores", color_as_factor = FALSE)
 }
 \seealso{
-This function wraps the python package scrublet \doi{10.1016/j.cels.2018.11.005}
+This function wraps the python package scrublet
+\doi{10.1016/j.cels.2018.11.005}
 }

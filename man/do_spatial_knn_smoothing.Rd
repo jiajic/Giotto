@@ -12,27 +12,26 @@ do_spatial_knn_smoothing(
 )
 }
 \arguments{
+\item{expression_matrix}{gene expression values to use}
+
+\item{spatial_network}{spatial network to use}
+
 \item{subset_feats}{subset of features to use}
 
 \item{b}{smoothing factor beteen 0 and 1 (default: automatic)}
-
-\item{gobject}{giotto object}
-
-\item{expression_values}{gene expression values to use}
-
-\item{spatial_network_name}{name of spatial network to use}
 }
 \value{
-matrix with smoothened gene expression values based on kNN spatial network
+matrix with smoothened gene expression values based on kNN
+spatial network
 }
 \description{
 smooth gene expression over a kNN spatial network
 }
 \details{
-This function will smoothen the gene expression values per cell according to
-its neighbors in the selected spatial network. \cr
-b is a smoothening factor that defaults to 1 - 1/k, where k is the median number of
-k-neighbors in the selected spatial network. Setting b = 0 means no smoothing and b = 1
-means no contribution from its own expression.
+This function will smoothen the gene expression values per cell
+according to its neighbors in the selected spatial network. \cr
+b is a smoothening factor that defaults to 1 - 1/k, where k is the median
+number of k-neighbors in the selected spatial network. Setting b = 0 means
+no smoothing and b = 1 means no contribution from its own expression.
 }
 \keyword{internal}

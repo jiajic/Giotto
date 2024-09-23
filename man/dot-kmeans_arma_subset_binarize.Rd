@@ -9,10 +9,14 @@
   n_iter = 5,
   extreme_nr = 20,
   sample_nr = 200,
-  set.seed = NULL
+  seed = NULL
 )
 }
+\value{
+numeric
+}
 \description{
-create binarized scores from a subsetted vector using kmeans_arma
+create binarized scores from a subsetted vector using
+kmeans_arma
 }
 \keyword{internal}

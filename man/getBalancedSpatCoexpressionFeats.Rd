@@ -2,7 +2,7 @@
 % Please edit documentation in R/spatial_genes.R
 \name{getBalancedSpatCoexpressionFeats}
 \alias{getBalancedSpatCoexpressionFeats}
-\title{getBalancedSpatCoexpressionFeats}
+\title{Get balanced spatial coexpression features}
 \usage{
 getBalancedSpatCoexpressionFeats(
   spatCorObject,
@@ -16,7 +16,8 @@ getBalancedSpatCoexpressionFeats(
 \arguments{
 \item{spatCorObject}{spatial correlation object}
 
-\item{maximum}{maximum number of genes to get from each spatial co-expression module}
+\item{maximum}{maximum number of genes to get from each spatial
+co-expression module}
 
 \item{rank}{ranking method (see details)}
 
@@ -30,14 +31,17 @@ getBalancedSpatCoexpressionFeats(
 balanced vector with features for each co-expression module
 }
 \description{
-Extract features from spatial co-expression modules in a balanced manner
+Extract features from spatial co-expression modules in a
+balanced manner
 }
 \details{
-There are 3 different ways of selectig features from the spatial
+There are 3 different ways of selecting features from the spatial
 co-expression modules
-\itemize{
-  \item{1. weighted: }{Features are ranked based on summarized pairwise co-expression scores}
-  \item{2. random: }{A random selection of features, set seed for reproducibility}
-  \item{3. informed: }{Features are selected based on prior information/ranking}
+\enumerate{
+\item \strong{weighted:} Features are ranked based on summarized pairwise
+co-expression scores
+\item \strong{random:} A random selection of features, set seed for
+reproducibility
+\item \strong{informed:} Features are selected based on prior information/ranking
 }
 }
