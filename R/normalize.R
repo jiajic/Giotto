@@ -1,3 +1,86 @@
+
+
+# matrix classes ####
+
+setClassUnion("memoryMatrixClasses", c("Matrix", "matrix"))
+
+
+# generic methods ####
+
+
+setMethod("normalizeValues", signature("exprObj"), function(object, name, ...) {
+    res <- normalizeValues(object, ...)
+    new_exprobj <- create_expr_obj(
+        name = name,
+        exprMat = res,
+        spat_unit = spatUnit(object),
+        feat_type = featType(object),
+        provenance = prov(object),
+        misc = NULL
+    )
+    return(new_exprobj)
+})
+
+setMethod("normalizeValues", signature("memoryMatrixClasses"), function(object,
+        method = c("log", "library", "pearson_resid", "osmFISH", "quantile"),
+        ...) {
+    switch(
+        "log" = norm_log(x, ...),
+        "library" = norm_lib(x, ...),
+        "pearson_resid" = norm_pearson(x, ...),
+        "osmFISH" = norm_osmfish(x, ...),
+        "quantile" = norm_quantile(x, ...)
+    )
+})
+
+# * norm_log ####
+
+setMethod(
+    "norm_log", signature("ANY"), function(x, base = 2, offset = 1, ...) {
+        checkmate::assert_numeric(offset, len = 1L)
+        if (!is.matrix(x)) x <- as.matrix(x)
+        res <- log(x + offset, base = base)
+        return(res)
+    })
+
+setMethod(
+    "norm_log", signature("Matrix"), function(x, base = 2, offset = 1, ...) {
+        x@x <- log(x@x + offset, base = base)
+        return(x)
+    })
+
+# * norm_lib ####
+
+setMethod(
+    "norm_lib", signature("ANY"), function(x, scalefactor = 6e3) {
+        libsizes <- colSums_flex(x)
+
+        if (0 %in% libsizes) {
+            warning(wrap_txt(
+                "Total library size or counts for individual spat
+                units are 0.
+                This will likely result in normalization problems.
+                filter (filterGiotto) or impute (imputeGiotto) spatial
+                units."
+            ))
+        }
+
+        norm_expr <- t_flex(t_flex(x) / libsizes) * scalefactor
+        return(norm_expr)
+    }
+)
+
+
+
+
+
+
+
+
+
+
+# wrapper ####
+
 #' @title normalizeGiotto
 #' @name normalizeGiotto
 #' @description fast normalize and/or scale expression values of Giotto object

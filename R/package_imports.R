@@ -6,6 +6,7 @@
 #' @import GiottoClass
 #' @import GiottoVisuals
 #' @importClassesFrom data.table data.table
+#' @importClassesFrom Matrix Matrix
 #' @importFrom data.table setnames setorder setDT
 #' @importFrom data.table data.table
 #' @importFrom data.table frank
