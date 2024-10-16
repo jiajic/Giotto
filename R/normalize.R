@@ -199,7 +199,7 @@ normalizeGiotto <- function(
 .lib_norm_giotto <- function(mymatrix, scalefactor) {
     libsizes <- colSums_flex(mymatrix)
 
-    if (any(libsizes == 0)) {
+    if (0 %in% libsizes) {
         warning(wrap_txt("Total library size or counts for individual spat
                     units are 0.
                     This will likely result in normalization problems.
