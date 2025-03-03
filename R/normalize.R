@@ -477,6 +477,7 @@ NULL
 
 
 # VIRTUAL classes ####
+setClass("filterParam", contains = c("VIRTUAL", "processParam"))
 setClass("normParam", contains = c("VIRTUAL", "processParam"))
 setClass("scaleParam", contains = c("VIRTUAL", "processParam"))
 setClass("adjustParam", contains = c("VIRTUAL", "processParam"))
@@ -496,6 +497,9 @@ setClass("adjustParam", contains = c("VIRTUAL", "processParam"))
 }
 
 # extending method classes ####
+setClass("defaultFilterParam", contains = "filterParam")
+setClass("minCountFilterParam", contains = "filterParam")
+
 setClass("defaultNormParam", contains = "normParam")
 setClass("libraryNormParam", contains = "normParam")
 setClass("logNormParam", contains = "normParam")
@@ -517,6 +521,16 @@ setClassUnion("allMatrix", members = c("matrix", "Matrix"))
 
 
 # param factories ####
+
+#' @rdname filterParam
+#' @export
+filterParam <- function(method = "default", ...) {
+    method <- match.arg(tolower(method), choices = c("default", "mincount"))
+    switch(method,
+        "default" = .filter_param_default(...),
+        "mincount" = .filter_param_mincount(...)
+    )
+}
 
 #' @rdname process_param
 #' @export
@@ -656,6 +670,14 @@ setMethod("processData",
             x <- processData(x, p, ...)
         }
         return(x)
+    }
+)
+
+# ** filter ---------------- ####
+setMethod("processData",
+    signature(x = "allMatrix", param = "defaultFilterParam"),
+    function(x, param, ...) {
+        
     }
 )
 
@@ -1093,6 +1115,26 @@ normalizeGiotto <- function(gobject,
 # internals ####
 
 # * params setup ####
+.filter_param_default <- function(...) {
+    p <- new("defaultFilterParam", param = list(...))
+    p$expression_threshold <- p$expression_threshold %null% 1
+    p$feat_det_in_min_cells <- p$feat_det_in_min_cells %null% 100
+    p$min_det_feats_per_cell <- p$min_det_feats_per_cell %null% 100
+    p$tag_cells <- p$tag_cells %null% FALSE
+    p$tag_feats <- p$tag_feats %null% FALSE
+    p$tag_cells_name <- p$tag_cells_name %null% "tag"
+    p$tag_feats_name <- p$tag_feats_name %null% "tag"
+    p
+}
+.filter_param_mincount <- function(...) {
+    p <- new("minCountFilterParam", param = list(...))
+    p$min <- 100
+    p$MARGIN <- p$MARGIN %null% 2
+    p$threshold <- p$threshold %null% 1
+    p$tag <- FALSE
+    p$tag_name <- "tag"
+    p
+}
 .norm_param_lib <- function(...) {
     p <- new("libraryNormParam", param = list(...))
     p$scalefactor <- p$scalefactor %null% 6e3
@@ -1161,6 +1203,15 @@ normalizeGiotto <- function(gobject,
 
 
 # * implementations ####
+
+.filter_mincount <- function(x, min, MARGIN = 2, threshold = 1) {
+    sum_fun <- switch(MARGIN,
+        1 = rowSums_flex,
+        2 = colSums_flex
+    )
+    filter_index <- sum_fun(x >= threshold) >= min
+    # TODO return names to keep
+}
 
 .check_svkey <- function(x, type = c("all", "any")) {
     type <- match.arg(type, choices = c("all", "any"))
