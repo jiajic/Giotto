@@ -45,7 +45,7 @@ setMethod("show", signature("VisiumHDReader"), function(object) {
     d <- object@visiumHD_dir
     if (length(d) > 0L) {
         nch <- nchar(d)
-        d <- abbrev_path(d)
+        d <- GiottoUtils::str_abbreviate(d)
         cat(pre["dir"], d, "\n")
     } else {
         cat(pre["dir"], "\n")
@@ -740,8 +740,8 @@ setMethod("$<-", signature("VisiumHDReader"), function(x, name, value) {
 .validate_json_names <- function(json_scalefactors, expected_names) {
     if (!setequal(names(json_scalefactors)[1:5], expected_names)) {
         warning(GiottoUtils::wrap_txt(
-            "h5 scalefactors json names differ from expected.
-       [Expected]:", expected_names, "\n",
+            "h5 scalefactors json names differ from expected. [Expected]:", 
+            expected_names, "\n",
             "[Actual]:", names(json_scalefactors)
         ))
     }
