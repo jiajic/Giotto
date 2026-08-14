@@ -114,7 +114,7 @@ markersParam <- function(method = "scran", ...) {
 # that cannot hand scran a matrix at all (streaming stores) carry their own
 # equivalent; this one must not.
 #
-#' @rdname scranMarkersParam
+#' @rdname markers_scran
 #' @param x expression values. A `matrix`, a `Matrix`, or a `DelayedMatrix`
 #'   (which is what `expression_values = "scaled"` holds).
 #' @param param a [scranMarkersParam-class].
@@ -127,7 +127,7 @@ setMethod("analyzeData",
     }
 )
 
-#' @rdname scranMarkersParam
+#' @rdname markers_scran
 #' @export
 setMethod("analyzeData",
     signature(x = "Matrix", param = "scranMarkersParam"),
@@ -137,7 +137,7 @@ setMethod("analyzeData",
 )
 
 # Covers `ScaledMatrix`, which is what `expression_values = "scaled"` holds.
-#' @rdname scranMarkersParam
+#' @rdname markers_scran
 #' @export
 setMethod("analyzeData",
     signature(x = "DelayedMatrix", param = "scranMarkersParam"),
