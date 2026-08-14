@@ -69,6 +69,6 @@ comparisons and have no meaning independent of it; see
 }
 
 \seealso{
-\link{analyze_param}, \code{\link[=scranMarkersParam]{scranMarkersParam()}}, \code{\link[=findScranMarkers]{findScranMarkers()}}
+\link{analyze_param}, \code{\link[=markersParam]{markersParam()}}, \code{\link[=findScranMarkers]{findScranMarkers()}}
 }
 \concept{marker detection parameters}

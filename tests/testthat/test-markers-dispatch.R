@@ -61,8 +61,8 @@ test_that("analyzeData(<matrix>, scranMarkersParam) one_vs_rest pools the rest",
     fx <- .mk_gobject()
     lv <- c("a", "b", "c")
 
-    got <- analyzeData(as.matrix(fx$mat), scranMarkersParam(
-        comparison = "one_vs_rest"), groups = fx$clus)
+    got <- analyzeData(as.matrix(fx$mat), markersParam(
+        method = "scran", comparison = "one_vs_rest"), groups = fx$clus)
     expect_named(as.list(got), lv)
 
     for (k in lv) {

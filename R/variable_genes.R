@@ -25,8 +25,7 @@
 #' **Marker detection params** (one subclass of the virtual `markersParam`
 #' per detection method):
 #' - `scranMarkersParam` — pairwise group comparisons combined per group;
-#'   see [markers_scran]. Constructed with [scranMarkersParam()] rather than
-#'   through the factory below.
+#'   see [markers_scran]. Built with [markersParam()].
 #'
 #' @param method character. One of `"feat_stats"`, `"cell_stats"`,
 #'   `"cov_groups"`, `"cov_loess"`, `"var"`.

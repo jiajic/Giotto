@@ -4,6 +4,7 @@
 \name{markersParam-class}
 \alias{markersParam-class}
 \alias{scranMarkersParam-class}
+\alias{markersParam}
 \alias{analyze_param}
 \alias{analyzeParam}
 \alias{featStatsParam-class}
@@ -13,6 +14,8 @@
 \alias{varParam-class}
 \title{Parameter Classes for Data Analysis Operations}
 \usage{
+markersParam(method = "scran", ...)
+
 analyzeParam(method, ...)
 }
 \arguments{
@@ -48,6 +51,5 @@ thresholding or selection is a separate step.
 **Marker detection params** (one subclass of the virtual `markersParam`
 per detection method):
 - `scranMarkersParam` — pairwise group comparisons combined per group;
-  see [markers_scran]. Constructed with [scranMarkersParam()] rather than
-  through the factory below.
+  see [markers_scran]. Built with [markersParam()].
 }

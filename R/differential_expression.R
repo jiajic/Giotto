@@ -61,7 +61,7 @@
 #' \code{\link[scran]{findMarkers}}.
 #' @md
 #' @family marker detection parameters
-#' @seealso [analyze_param], [scranMarkersParam()], [findScranMarkers()]
+#' @seealso [analyze_param], [markersParam()], [findScranMarkers()]
 #' @returns marker detection results
 NULL
 
@@ -75,62 +75,30 @@ setClass("markersParam", contains = c("VIRTUAL", "analyzeParam"))
 setClass("scranMarkersParam", contains = "markersParam")
 
 
-#' @md
-#' @name scranMarkersParam
-#' @title Construct a [scranMarkersParam-class]
-#' @description Factory for the pairwise marker detection analysis parameter.
-#'   Parameter names follow scran's `findMarkers` in snake_case; see
-#'   \code{\link[scran]{findMarkers}} for the full statistical description.
-#' @param test_type character. Pairwise test to apply. `"t"` (default) is a
-#'   Welch \eqn{t}-test, `"wilcox"` a rank-sum test, `"binom"` a binomial test
-#'   of detection rates. Backends may support only a subset.
-#' @param pval_type character. How the pairwise p-values are combined into one
-#'   per group: `"any"`, `"some"`, or `"all"`.
-#' @param comparison character. `"pairwise"` (default) tests every ordered pair
-#'   of groups and combines them per group, as
-#'   \code{\link[scran]{findMarkers}} does. `"one_vs_rest"` instead tests each
-#'   group against the pooled remainder, returning one two-group table per
-#'   group — the shape [findScranMarkers_one_vs_all()] consumes.
-#' @param direction character. `"any"`, `"up"`, or `"down"`.
-#' @param lfc numeric (default = 0). Log-fold-change threshold to test
-#'   against.
-#' @param std_lfc logical (default = `FALSE`). Report the effect size as a
-#'   standardized log-fold-change (Cohen's d) rather than a raw one.
-#' @param min_prop numeric or `NULL`. Minimum proportion of comparisons a
-#'   feature must be significant in, for `pval_type = "some"`.
-#' @param log_p logical (default = `FALSE`). Report p-values on the log scale.
-#' @param full_stats logical (default = `FALSE`). Retain the per-comparison
-#'   statistics as nested columns.
-#' @param sorted logical (default = `TRUE`). Sort each group's table by
-#'   significance.
-#' @param ... additional named entries to attach to `@param`.
-#' @returns A [scranMarkersParam-class] object.
-#' @examples
-#' p <- scranMarkersParam(test_type = "t", pval_type = "any")
+# param factory ####
+
+#' @rdname analyze_param
 #' @export
-scranMarkersParam <- function(
-        test_type = c("t", "wilcox", "binom"),
-        pval_type = c("any", "some", "all"),
-        comparison = c("pairwise", "one_vs_rest"),
-        direction = c("any", "up", "down"),
-        lfc = 0,
-        std_lfc = FALSE,
-        min_prop = NULL,
-        log_p = FALSE,
-        full_stats = FALSE,
-        sorted = TRUE,
-        ...) {
+markersParam <- function(method = "scran", ...) {
+    method <- match.arg(tolower(method), c("scran"))
+    switch(method,
+        "scran" = .markers_param_scran(...)
+    )
+}
+
+#' @keywords internal
+#' @noRd
+.markers_param_scran <- function(...) {
     p <- new("scranMarkersParam", param = list(...))
-    p$test_type <- match.arg(test_type)
-    p$pval_type <- match.arg(pval_type)
-    p$comparison <- match.arg(comparison)
-    p$direction <- match.arg(direction)
-    p$lfc <- as.numeric(lfc)
-    p$std_lfc <- isTRUE(std_lfc)
-    p$min_prop <- min_prop
-    p$log_p <- isTRUE(log_p)
-    p$full_stats <- isTRUE(full_stats)
-    p$sorted <- isTRUE(sorted)
+    p$test_type <- p$test_type %null% "t"
+    p$pval_type <- p$pval_type %null% "any"
+    p$comparison <- p$comparison %null% "pairwise"
+    p$direction <- p$direction %null% "any"
+    p$lfc <- as.numeric(p$lfc %null% 0)
+    p$std_lfc <- isTRUE(p$std_lfc)
+    p$log_p <- isTRUE(p$log_p)
+    p$full_stats <- isTRUE(p$full_stats)
+    p$sorted <- p$sorted %null% TRUE
     p
 }
 
@@ -399,7 +367,7 @@ findScranMarkers <- function(
     # pass-through to `scran::findMarkers`.
     marker_results <- analyzeData(
         x = expr_data,
-        param = scranMarkersParam(...),
+        param = markersParam(method = "scran", ...),
         groups = cell_metadata[[cluster_column]]
     )
 
@@ -555,7 +523,7 @@ findScranMarkers_one_vs_all <- function(
     )
     marker_results <- analyzeData(
         x = expr_data,
-        param = scranMarkersParam(comparison = "one_vs_rest"),
+        param = markersParam(method = "scran", comparison = "one_vs_rest"),
         groups = cell_metadata[[cluster_column]]
     )
 
