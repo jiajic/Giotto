@@ -22,6 +22,12 @@
 #' **Variance param**:
 #' - `varParam` — per-feature variance on a scaled matrix
 #'
+#' **Marker detection params** (one subclass of the virtual `markersParam`
+#' per detection method):
+#' - `scranMarkersParam` — pairwise group comparisons combined per group;
+#'   see [markers_scran]. Constructed with [scranMarkersParam()] rather than
+#'   through the factory below.
+#'
 #' @param method character. One of `"feat_stats"`, `"cell_stats"`,
 #'   `"cov_groups"`, `"cov_loess"`, `"var"`.
 #' @param ... additional parameters passed to the specific param constructor.

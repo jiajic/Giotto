@@ -1,33 +1,76 @@
 # markersParam ####
 
-#' @md
-#' @name markersParam-class
-#' @title Marker detection parameter
+#' @name markers_scran
+#' @title Pairwise Marker Detection (scran)
 #' @description
-#' Virtual parent for the marker detection parameters dispatched on by
-#' [analyzeData()]. One subclass per detection method, mirroring the `method`
-#' argument of [findMarkers()].
-#' @seealso [analyzeData()], [scranMarkersParam()], [findMarkers()]
-#' @exportClass markersParam
-setClass("markersParam", contains = c("VIRTUAL", "analyzeParam"))
-
-#' @md
-#' @name scranMarkersParam-class
-#' @title Pairwise marker detection parameter (scran)
-#' @description
-#' Parameter class for [analyzeData()] dispatching to pairwise marker
-#' detection as implemented by \code{\link[scran]{findMarkers}}: each group is
-#' compared against the others and the comparisons are combined into one table
-#' of ranked markers per group.
+#' Detect marker features by comparing each group against the others, as
+#' implemented by \code{\link[scran]{findMarkers}}.
 #'
-#' The parameters are scran's, so
-#' \code{\link[scran]{findMarkers}} is the reference for what they mean —
-#' `pval_type` and `min_prop` in particular describe how scran combines the
-#' pairwise comparisons, and do not have a meaning independent of it.
+#' Every ordered pair of groups is tested, and the resulting p-values are
+#' combined into a single ranked table per group. With the default
+#' `test_type = "t"` the test is a Welch \eqn{t}-test on the per-group
+#' moments:
+#'
+#' \deqn{\LARGE
+#' t = \frac{\bar{x}_{i,a} - \bar{x}_{i,b}}
+#'          {\sqrt{s^2_{i,a}/n_a + s^2_{i,b}/n_b}}
+#' }
+#' Where:
+#'
+#' * (\eqn{\bar{x}_{i,a}}) is the mean of feature \eqn{i} over the cells of
+#' group \eqn{a}
+#' * (\eqn{s^2_{i,a}}) is the variance of feature \eqn{i} over the same cells
+#' * (\eqn{n_a}) is the number of cells in group \eqn{a}
+#'
+#' Because the statistic depends on the values only through
+#' \eqn{n}, \eqn{\bar{x}} and \eqn{s^2}, the expression matrix is visited
+#' once per analysis rather than once per comparison. That is what lets a
+#' streaming backend implement the same test without materializing the matrix.
 #'
 #' Which expression values are tested is the caller's choice — the methods use
 #' whatever matrix they are given.
-#' @seealso [analyzeData()], [scranMarkersParam()], [findScranMarkers()]
+#' @section params:
+#'
+#' \tabular{ll}{
+#'   `test_type` \tab character (default = "t"). Pairwise test: `"t"` Welch
+#'   \eqn{t}-test, `"wilcox"` rank-sum, `"binom"` binomial on detection
+#'   rates. Backends may support only a subset. \cr
+#'   `pval_type` \tab character (default = "any"). How the pairwise p-values
+#'   are combined per group: `"any"`, `"some"`, `"all"`. \cr
+#'   `comparison` \tab character (default = "pairwise"). `"pairwise"` tests
+#'   every ordered pair; `"one_vs_rest"` tests each group against the pooled
+#'   remainder. \cr
+#'   `direction` \tab character (default = "any"). `"any"`, `"up"`, `"down"`.
+#'   \cr
+#'   `lfc` \tab numeric (default = 0). Log-fold-change threshold to test
+#'   against. \cr
+#'   `std_lfc` \tab logical (default = FALSE). Report the effect size as a
+#'   standardized log-fold-change (Cohen's d). \cr
+#'   `min_prop` \tab numeric or NULL. Minimum proportion of comparisons a
+#'   feature must be significant in, for `pval_type = "some"`. \cr
+#'   `log_p` \tab logical (default = FALSE). Report p-values on the log
+#'   scale. \cr
+#'   `full_stats` \tab logical (default = FALSE). Retain the per-comparison
+#'   statistics as nested columns. \cr
+#'   `sorted` \tab logical (default = TRUE). Sort each group's table by
+#'   significance.
+#' }
+#'
+#' `pval_type` and `min_prop` describe how scran combines the pairwise
+#' comparisons and have no meaning independent of it; see
+#' \code{\link[scran]{findMarkers}}.
+#' @md
+#' @family marker detection parameters
+#' @seealso [analyze_param], [scranMarkersParam()], [findScranMarkers()]
+#' @returns marker detection results
+NULL
+
+
+#' @rdname analyze_param
+#' @exportClass markersParam
+setClass("markersParam", contains = c("VIRTUAL", "analyzeParam"))
+
+#' @rdname analyze_param
 #' @exportClass scranMarkersParam
 setClass("scranMarkersParam", contains = "markersParam")
 
