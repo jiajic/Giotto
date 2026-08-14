@@ -2,6 +2,9 @@
 % Please edit documentation in R/differential_expression.R
 \name{scranMarkersParam}
 \alias{scranMarkersParam}
+\alias{analyzeData,matrix,scranMarkersParam-method}
+\alias{analyzeData,Matrix,scranMarkersParam-method}
+\alias{analyzeData,DelayedMatrix,scranMarkersParam-method}
 \title{Construct a \link[=scranMarkersParam-class]{scranMarkersParam}}
 \usage{
 scranMarkersParam(
@@ -17,6 +20,12 @@ scranMarkersParam(
   sorted = TRUE,
   ...
 )
+
+\S4method{analyzeData}{matrix,scranMarkersParam}(x, param, ..., groups = NULL)
+
+\S4method{analyzeData}{Matrix,scranMarkersParam}(x, param, ..., groups = NULL)
+
+\S4method{analyzeData}{DelayedMatrix,scranMarkersParam}(x, param, ..., groups = NULL)
 }
 \arguments{
 \item{test_type}{character. Pairwise test to apply. \code{"t"} (default) is a
@@ -52,6 +61,13 @@ statistics as nested columns.}
 significance.}
 
 \item{...}{additional named entries to attach to \verb{@param}.}
+
+\item{x}{expression values. A `matrix`, a `Matrix`, or a `DelayedMatrix`
+(which is what `expression_values = "scaled"` holds).}
+
+\item{param}{a [scranMarkersParam-class].}
+
+\item{groups}{vector of group assignments, one per cell, in column order.}
 }
 \value{
 A \link[=scranMarkersParam-class]{scranMarkersParam} object.
