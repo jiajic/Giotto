@@ -1,3 +1,203 @@
+# markersParam ####
+
+#' @md
+#' @name markersParam-class
+#' @title Marker detection parameter
+#' @description
+#' Virtual parent for the marker detection parameters dispatched on by
+#' [analyzeData()]. One subclass per detection method, mirroring the `method`
+#' argument of [findMarkers()].
+#' @seealso [analyzeData()], [scranMarkersParam()], [findMarkers()]
+#' @exportClass markersParam
+setClass("markersParam", contains = c("VIRTUAL", "analyzeParam"))
+
+#' @md
+#' @name scranMarkersParam-class
+#' @title Pairwise marker detection parameter (scran)
+#' @description
+#' Parameter class for [analyzeData()] dispatching to pairwise marker
+#' detection as implemented by \code{\link[scran]{findMarkers}}: each group is
+#' compared against the others and the comparisons are combined into one table
+#' of ranked markers per group.
+#'
+#' The parameters are scran's, so
+#' \code{\link[scran]{findMarkers}} is the reference for what they mean —
+#' `pval_type` and `min_prop` in particular describe how scran combines the
+#' pairwise comparisons, and do not have a meaning independent of it.
+#'
+#' Which expression values are tested is the caller's choice — the methods use
+#' whatever matrix they are given.
+#' @seealso [analyzeData()], [scranMarkersParam()], [findScranMarkers()]
+#' @exportClass scranMarkersParam
+setClass("scranMarkersParam", contains = "markersParam")
+
+
+#' @md
+#' @name scranMarkersParam
+#' @title Construct a [scranMarkersParam-class]
+#' @description Factory for the pairwise marker detection analysis parameter.
+#'   Parameter names follow scran's `findMarkers` in snake_case; see
+#'   \code{\link[scran]{findMarkers}} for the full statistical description.
+#' @param test_type character. Pairwise test to apply. `"t"` (default) is a
+#'   Welch \eqn{t}-test, `"wilcox"` a rank-sum test, `"binom"` a binomial test
+#'   of detection rates. Backends may support only a subset.
+#' @param pval_type character. How the pairwise p-values are combined into one
+#'   per group: `"any"`, `"some"`, or `"all"`.
+#' @param comparison character. `"pairwise"` (default) tests every ordered pair
+#'   of groups and combines them per group, as
+#'   \code{\link[scran]{findMarkers}} does. `"one_vs_rest"` instead tests each
+#'   group against the pooled remainder, returning one two-group table per
+#'   group — the shape [findScranMarkers_one_vs_all()] consumes.
+#' @param direction character. `"any"`, `"up"`, or `"down"`.
+#' @param lfc numeric (default = 0). Log-fold-change threshold to test
+#'   against.
+#' @param std_lfc logical (default = `FALSE`). Report the effect size as a
+#'   standardized log-fold-change (Cohen's d) rather than a raw one.
+#' @param min_prop numeric or `NULL`. Minimum proportion of comparisons a
+#'   feature must be significant in, for `pval_type = "some"`.
+#' @param log_p logical (default = `FALSE`). Report p-values on the log scale.
+#' @param full_stats logical (default = `FALSE`). Retain the per-comparison
+#'   statistics as nested columns.
+#' @param sorted logical (default = `TRUE`). Sort each group's table by
+#'   significance.
+#' @param ... additional named entries to attach to `@param`.
+#' @returns A [scranMarkersParam-class] object.
+#' @examples
+#' p <- scranMarkersParam(test_type = "t", pval_type = "any")
+#' @export
+scranMarkersParam <- function(
+        test_type = c("t", "wilcox", "binom"),
+        pval_type = c("any", "some", "all"),
+        comparison = c("pairwise", "one_vs_rest"),
+        direction = c("any", "up", "down"),
+        lfc = 0,
+        std_lfc = FALSE,
+        min_prop = NULL,
+        log_p = FALSE,
+        full_stats = FALSE,
+        sorted = TRUE,
+        ...) {
+    p <- new("scranMarkersParam", param = list(...))
+    p$test_type <- match.arg(test_type)
+    p$pval_type <- match.arg(pval_type)
+    p$comparison <- match.arg(comparison)
+    p$direction <- match.arg(direction)
+    p$lfc <- as.numeric(lfc)
+    p$std_lfc <- isTRUE(std_lfc)
+    p$min_prop <- min_prop
+    p$log_p <- isTRUE(log_p)
+    p$full_stats <- isTRUE(full_stats)
+    p$sorted <- isTRUE(sorted)
+    p
+}
+
+
+# analyzeData(<matrix>, scranMarkersParam) ####
+
+# In-memory marker detection is a pass-through to scran, deliberately.
+#
+# scran's `findMarkers(test.type = "t")` already makes ONE optimal C++ pass
+# over the matrix for its per-group moments, so there is nothing to gain by
+# reimplementing it here -- and a great deal to lose, since a second
+# implementation would have to be kept in step with scran's forever. Backends
+# that cannot hand scran a matrix at all (streaming stores) carry their own
+# equivalent; this one must not.
+#
+#' @rdname analyzeData
+#' @param groups vector of group assignments, one per cell, in column order.
+#' @export
+setMethod("analyzeData",
+    signature(x = "matrix", param = "scranMarkersParam"),
+    function(x, param, ..., groups = NULL) {
+        .markers_scran(x, param, groups = groups)
+    }
+)
+
+#' @rdname analyzeData
+#' @export
+setMethod("analyzeData",
+    signature(x = "Matrix", param = "scranMarkersParam"),
+    function(x, param, ..., groups = NULL) {
+        .markers_scran(x, param, groups = groups)
+    }
+)
+
+# Covers `ScaledMatrix`, which is what `expression_values = "scaled"` holds.
+#' @rdname analyzeData
+#' @export
+setMethod("analyzeData",
+    signature(x = "DelayedMatrix", param = "scranMarkersParam"),
+    function(x, param, ..., groups = NULL) {
+        .markers_scran(x, param, groups = groups)
+    }
+)
+
+
+#' @keywords internal
+#' @noRd
+.markers_scran <- function(x, param, groups) {
+    package_check(pkg_name = "scran", repository = "Bioc")
+    if (is.null(groups)) {
+        stop("[analyzeData(scranMarkersParam)] `groups` is required: one group ",
+            "assignment per cell.", call. = FALSE)
+    }
+    if (identical(param$comparison %null% "pairwise", "one_vs_rest")) {
+        return(.markers_one_vs_rest_scran(x, groups, param))
+    }
+    do.call(scran::findMarkers,
+        c(list(x = x, groups = groups), .markers_scran_args(param)))
+}
+
+
+# Translate the param's snake_case fields to scran's dotted argument names.
+# Anything else on `@param` is passed through untouched, which is what lets
+# `findScranMarkers(...)` keep forwarding arbitrary scran arguments.
+#' @keywords internal
+#' @noRd
+.markers_scran_args <- function(param) {
+    p <- as.list(param@param)
+    rename <- c(
+        test_type = "test.type", pval_type = "pval.type",
+        std_lfc = "std.lfc", min_prop = "min.prop",
+        log_p = "log.p", full_stats = "full.stats"
+    )
+    # Not scran arguments: `comparison` selects which sweep this method runs.
+    p[["comparison"]] <- NULL
+    for (from in names(rename)) {
+        if (from %in% names(p)) {
+            p[[rename[[from]]]] <- p[[from]]
+            p[[from]] <- NULL
+        }
+    }
+    p[!vapply(p, is.null, logical(1L))]
+}
+
+
+# One scran call per group, each against the pooled remainder.
+#
+# This is G accumulator passes and stays that way: pooling the moments would
+# be one pass, but scran exposes no way to inject precomputed moments, so
+# sharing the pass in memory would mean transcribing its statistics. Level
+# names match the streaming backend so both produce the same table shape.
+#' @keywords internal
+#' @noRd
+.markers_one_vs_rest_scran <- function(x, groups, param) {
+    lvls <- levels(droplevels(
+        if (is.factor(groups)) groups else factor(groups)
+    ))
+    args <- .markers_scran_args(param)
+    out <- lapply(lvls, function(k) {
+        rest <- setdiff(lvls, k)
+        pooled <- ifelse(groups == k, k, paste0(rest, collapse = "_"))
+        res <- do.call(scran::findMarkers,
+            c(list(x = x, groups = pooled), args))
+        res[[k]]
+    })
+    names(out) <- lvls
+    S4Vectors::SimpleList(out)
+}
+
+
 #' @title findScranMarkers
 #' @name findScranMarkers
 #' @description Identify marker genes for all or selected clusters based on
@@ -146,22 +346,36 @@ findScranMarkers <- function(
     }
 
 
-    ## SCRAN ##
-    marker_results <- scran::findMarkers(
-        x = expr_data, groups = cell_metadata[[cluster_column]], ...
+    ## MARKERS ##
+    # Dispatched on the expression object, not called directly: `getExpression`
+    # returns whatever the slot holds, so a disk-backed store arrives here
+    # intact and routes to its own streaming method. In memory this is a
+    # pass-through to `scran::findMarkers`.
+    marker_results <- analyzeData(
+        x = expr_data,
+        param = scranMarkersParam(...),
+        groups = cell_metadata[[cluster_column]]
     )
 
-    # data.table variables
-    genes <- cluster <- feats <- NULL
-
-    savelist <- lapply(names(marker_results), FUN = function(x) {
-        dfr <- marker_results[[x]]
-        DT <- data.table::as.data.table(dfr)
-        DT[, feats := rownames(dfr)]
-        DT[, cluster := x]
+    lapply(names(marker_results), function(x) {
+        .markers_result_dt(marker_results[[x]], cluster = x)
     })
+}
 
-    return(savelist)
+
+# The one place a marker DataFrame becomes a data.table, shared by
+# `findScranMarkers()` and `findScranMarkers_one_vs_all()`. Both backends
+# return scran's shape, so neither needs to know which produced it.
+#' @keywords internal
+#' @noRd
+.markers_result_dt <- function(dfr, cluster) {
+    # data.table variables
+    feats <- NULL
+
+    DT <- data.table::as.data.table(dfr)
+    DT[, feats := rownames(dfr)]
+    DT[, "cluster" := cluster]
+    DT[]
 }
 
 
@@ -278,6 +492,27 @@ findScranMarkers_one_vs_all <- function(
     uniq_clusters <- mixedsort(unique(cell_metadata[[cluster_column]]))
 
 
+    # One dispatched call for the whole sweep, rather than one per cluster.
+    #
+    # The comparison is unchanged -- each cluster against the pooled remainder
+    # -- but the backend now decides how to get there. A streaming store takes
+    # one statistic pass and pools the rest group arithmetically; the in-memory
+    # method still runs one scran call per cluster, because scran offers no way
+    # to inject precomputed moments and sharing the pass there would mean
+    # reimplementing its statistics.
+    expr_data <- getExpression(
+        gobject = gobject,
+        spat_unit = spat_unit,
+        feat_type = feat_type,
+        values = values,
+        output = "matrix"
+    )
+    marker_results <- analyzeData(
+        x = expr_data,
+        param = scranMarkersParam(comparison = "one_vs_rest"),
+        groups = cell_metadata[[cluster_column]]
+    )
+
     # save list
     with_pbar({
         pb <- pbar(along = uniq_clusters)
@@ -285,30 +520,14 @@ findScranMarkers_one_vs_all <- function(
             seq_along(uniq_clusters),
             function(clus_i) {
                 selected_clus <- uniq_clusters[clus_i]
-                other_clus <- uniq_clusters[uniq_clusters != selected_clus]
 
                 if (verbose == TRUE) {
                     cat("start with cluster ", selected_clus)
                 }
 
-                # one vs all markers
-                markers <- findScranMarkers(
-                    gobject = gobject,
-                    spat_unit = spat_unit,
-                    feat_type = feat_type,
-                    expression_values = values,
-                    cluster_column = cluster_column,
-                    group_1 = selected_clus,
-                    group_2 = other_clus,
-                    verbose = FALSE
-                )
-
-                # identify list to continue with
-                select_bool <- unlist(lapply(markers, FUN = function(x) {
-                    unique(x$cluster) == selected_clus
-                }))
-                selected_table <- data.table::as.data.table(
-                    markers[select_bool]
+                selected_table <- .markers_result_dt(
+                    marker_results[[as.character(selected_clus)]],
+                    cluster = selected_clus
                 )
 
                 # remove summary column from scran output if present
